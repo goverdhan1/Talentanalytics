@@ -1,0 +1,45 @@
+﻿<div class="col-xs-6 marT20px pdfbreakbefore" ng-controller="JobHistoryController" ng-init="loadDataJobHistory()">
+    <a track-navigation="Job History|summary" href="/#!/detailedView/{{employeeId}}/jobHistory" class="col-xs-12 colorBlue font16px textLeft marB15px">JOB HISTORY</a>
+    <div ng-class="class" class="col-xs-12 collapseJobHistory" ng-show="jobHistoryNoDataFound">
+        No Data Found
+    </div>
+    <div class="col-xs-12 jobHistory">
+        <ul class="listStyleNone pad0px collapseJobHistory" id="jobHistoryContainer" ng-class="showHideClass">
+            <li class="pad0px listStyleNone" ng-if="$first" id="firstJobItem" ng-repeat="details in jobHistoryModel.list">
+                <div class="btn-circle"></div>
+                <div class="historyContentBorder"></div>
+                <div class="jobHistoryContent">
+                    <div class="colorSemiBlack font12px ">{{details.effectiveDate}} — {{details.actionType}} {{details.actionTypeDescription}}</div>
+                    <div class="colorlighterBlack font14px">{{details.pLevelTxt}}</div>
+                    <div class="colorSemiBlack font12px">{{details.reasonForAction}} {{details.reasonForActionDesc}}</div>
+                    <div class="colorSemiBlack font12px" ng-show="details.typeOfChange==='JOB'">
+                        <span>{{details.jobCode}} </span><span>{{details.jobDescription}}</span>
+                    </div>
+                    <div class="colorSemiBlack font12px" ng-show="details.typeOfChange==='POSITION'">
+                        <span>{{details.positionCode}} </span><span>{{details.positionDescription}}</span>
+                    </div>
+                </div>
+            </li>
+            <li class="pad0px listStyleNone" ng-if="!$first" ng-repeat="details in jobHistoryModel.list">
+                <div class="btn-circle"></div>
+                <div class="historyContentBorder"></div>
+                <div class="jobHistoryContent">
+                    <div class="colorSemiBlack font12px ">{{details.effectiveDate}} — {{details.actionType}} {{details.actionTypeDescription}}</div>
+                    <div class="colorlighterBlack font14px">{{details.pLevelTxt}}</div>
+                    <div class="colorSemiBlack font12px">{{details.reasonForAction}} {{details.reasonForActionDesc}}</div>
+                    <div class="colorSemiBlack font12px" ng-show="details.typeOfChange==='JOB'">
+                        <span>{{details.jobCode}} </span><span>{{details.jobDescription}}</span>
+                    </div>
+                    <div class="colorSemiBlack font12px" ng-show="details.typeOfChange==='POSITION'">
+                        <span>{{details.positionCode}} </span><span>{{details.positionDescription}}</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div ng-hide="jobHistoryModel.list.length<=3" class="moreJobHistory font12px colorGrey1 textLeft cursorHand">
+            <div class="btn-circle" ng-show="showButton" ng-init="showButton = true"></div>
+            <a class="floatLeft colorBlue" ng-show="showButton" ng-init="showButton = true" ng-click="showButton =false; expandJobHistory()">And {{jobHistoryModel.list.length-3}} More</a>
+            <a class="floatLeft colorBlue" ng-hide="showButton" ng-init="showButton = true" ng-click="showButton =true; collapseJobHistory()">See Less</a>
+        </div>
+    </div>
+</div>

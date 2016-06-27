@@ -1,0 +1,26 @@
+﻿<div class="col-xs-6 marT20px pad0 lineHeight23 padl30px" ng-controller="ActivityHistoryController" ng-init="loadDataActivityHis()">
+    <a track-navigation="Activity History|summary" href="/#!/detailedView/{{employeeId}}/detailedViewActivityHistory" class=" col-xs-12 colorBlue font16px textleft marb15px textleft pad0px paddingbtm">ACTIVITY HISTORY</a>
+    <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlackheading">Change Eff. Date</div>
+    <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlackheading">Type of Change</div>
+    <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlackheading" ng-show="model.canDisplayPIIInformation">Reason for Action Desc</div>
+    <!--<div class="col-xs-12 deviderBorderLight marT5px"></div>-->
+    <div ng-class="class" class="col-xs-12 collapseActivityHistory" id="ActivityHistoryContainer">
+        <ul class="pad0px listStyleNone displayBlock" style="float:left; height:200px;" height-finding>
+            <li class="listStyleNone width100 activityhistory col-xs-12" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack">{{details.changeDate}} </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack">{{details.typeOfChange}}</div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap" ng-show="model.canDisplayPIIInformation">{{details.reasonforActionDesc}}</div>
+            </li>
+
+        </ul>
+        <div ng-class="class" class="col-xs-12 collapseActivityHistory" ng-show="activityHistoryNoDataFound">
+            No Data Found
+        </div>
+    </div>
+    <div ng-hide="heightOfChild<=230">
+        <a class="floatLeft colorBlue marT5px" href="" ng-show="shouldShow" ng-init="shouldShow = true" ng-click="shouldShow =!shouldShow; expandactivity()">See More</a>
+        <a class="floatLeft colorBlue marT5px" href="" ng-hide="shouldShow" ng-init="shouldShow = true" ng-click="shouldShow =!shouldShow; collapseactivity()">See Less</a>
+    </div>
+
+
+</div>

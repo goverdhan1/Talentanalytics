@@ -1,0 +1,150 @@
+﻿<div class="modal" ng-init="">
+    <!--ng-if="multiSave"-->
+    <div class="mask" ng-if="multiSave">
+        <div class="lable">
+            <i class="fa fa-refresh fa-spin lable-elements"></i>
+            <span class="lable-elements">Saving...</span>
+        </div>
+    </div>
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="hcmf-Header">
+                    <div class="hcm-filteredit">
+                        <p>{{form.selectedFilter}}</p> 
+
+                        <button ng-hide="form.selectedFilter=='Temporary'" class="crbuttonedit crbuttoneidt-left" ng-click="editFilterName()" ng-class="{'disable-link':multiSave}" ng-disabled="multiSave"><i class=" fa fa-pencil"></i></button>
+                            </div>
+
+                    <div class="date-select-error" ng-show="dateSelectError">Please select "Start Date" and "End Date" from Custom View in Date filter</div>
+
+
+                    <a class="saveas" data-dismiss="modal" aria-hidden="true" ng-click="openSaveAs()" ng-disabled="multiSave" ng-class="{'disable-link':multiSave}">Save as...</a>
+                    <a class="saveitem" data-dismiss="modal" aria-hidden="true" ng-class="{'disable-link':multiSave}" ng-disabled="multiSave" ng-click="saveFilter()" ng-hide="form.selectedFilter=='Temporary'">Save</a>
+  
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="headcountFilter">
+                    <section class="hcmf-left-cnt">
+                        <div class="inner-section filter-search">
+                            <div class="left" ng-hide="searchOpen">{{searchLabel}}</div>
+                            <div class="hcmf-left-label">
+                                All Filters
+                            </div>
+                            <input placeholder="Search" focus-me="{{searchOpen}}" ng-model="userQuery" ng-show="searchOpen" class="hcmf-left-search" />
+                            <button ng-click="searchOpen = !searchOpen" ng-hide="searchOpen" class="crbutton crbutton-left"></button>
+                            <span data-ng-click="userQuery = ''; searchOpen = !searchOpen" ng-show="searchOpen" class="searchClose searchClose-left">Cancel</span>
+                        </div>
+
+                        <div class="inner-section ht431 left-nav">
+                            <ul>
+                                <li class="inner-section innerheight filterdatesummarypopup" ng-click="dateFilterSelect()">
+                                    <a ng-class="{selected: selectedAttribute==='date'}">Date</a><label class="right">{{selectedRadioValues}}</label>
+                                  
+                                </li>
+                                <li ng-repeat="attribute in attributes | filter:{ATTRIBUTE_LABEL: userQuery}" ng-class=" attribute.selectedCount.length > 0 ? 'nav-seleteditems': ''">
+                                    <a title="{{attribute.ATTRIBUTE_LABEL}}" ng-click="onAttributeClick(attribute.ATTRIBUTE_NAME, attribute.ATTRIBUTE_LABEL, attribute.HIERARCHY_FLAG)"
+                                       ng-class="{selected: selectedAttribute===attribute.ATTRIBUTE_NAME} ">
+                                        <span class="attribute-wrap">{{attribute.ATTRIBUTE_LABEL}}</span>
+                                    </a>
+                                    <label class="attr-sel-val-count" ng-if="attribute.ATTRIBUTE_NAME != 'PAYPCT'">  {{attribute.selectedCount}}</label>
+                                    <label class="attr-sel-val-count" ng-if="selectedAttribute===attribute.ATTRIBUTE_NAME && attribute.ATTRIBUTE_NAME != 'PAYPCT'"> {{selectedAttributeValCount}}</label>
+                                    <label class="attr-sel-val-count" ng-if="attribute.ATTRIBUTE_NAME == 'PAYPCT' ">
+                                        <label ng-if="attribute.selectedCount.length == 11">Excl</label>
+                                        <i class="fa fa-check" ng-if="attribute.selectedCount.length"></i>
+                                    </label>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="hcmf-right-cnt" ng-init="init()">
+                        <div ng-class="dateFileterSelect" ng-show="selecteTabDate">
+                            <hcm-date-filters handle-to-directive-functions="handleToDateDirective"></hcm-date-filters>
+                        </div>
+
+                        <div class="attribute-filter" ng-show="selecteTab">
+                            <div ng-if="isHierarchyAttribute"  class="inner-section toprightfiltersection">
+                                <div>
+                                    <label class="left filterrightmainheading">{{truevalue}}</label>
+                                    <select class="filterrightmainselect" ng-options="dvalue.ROOT as dvalue.ROOT_TEXT for dvalue in selectVals" ng-model="hierarchyRootNodeSelection.selectedValue" ng-change="getselectVal(hierarchyRootNodeSelection.selectedValue)"></select>
+                                </div>
+                                <div class="switch-btn right">
+                                    <button ng-click="changeView('hierarchy');" ng-class="{'bg-cl-fff': hierarchy,'bg-cl-E5E5E5':flat}" class="left-btn switch-btn-act">Hierarchy</button>
+                                    <button ng-click="changeView('flat');" ng-class="{'bg-cl-fff': flat,'bg-cl-E5E5E5':hierarchy}" class="right-btn">Flat</button>
+                                </div>
+                            </div>
+                            <div class="inner-section filter-search">
+                                <div class="left" ng-if="!openAttributeValueSearch">
+                                    <label class="left" ng-if="!flat">All Levels</label>
+                                    <div class="switch-btn left  i-or-e">
+                                        <button ng-click="changeStatus('include');" ng-class="{'bg-cl-fff': include,'bg-cl-E5E5E5':exclude}" class="left-btn switch-btn-act">Include</button>
+                                        <button ng-click="changeStatus('exclude');" ng-class="{'bg-cl-fff': exclude,'bg-cl-E5E5E5':include}" class="right-btn">Exclude</button>
+                                    </div>
+
+                                    <div class="select-all" ng-if="selectedAttribute != 'PAYPCT'">
+                                        <a ng-click="selectAll(true)">All</a>
+                                        <span>&nbsp;|&nbsp;</span>
+                                        <a ng-click="selectAll(false)">None</a>
+                                    </div>
+                                </div>
+                                <div class="searchrightpopup" ng-hide="!hierarchy">
+                                    <input type="text"
+                                           placeholder="Search for Hierarchy"
+                                           ng-model="selectedHierarchyNode"
+                                           ng-if="openAttributeValueSearch"
+                                           tatypeahead-on-select="selectMatch1(selectedHierarchyNode)"
+                                           tatypeahead="node.CHILD_TEXT for node in getHierarchySearchData($viewValue) paginationFunction getPage($viewValue, $pageNumber)"
+                                           tatypeahead-wait-ms="500"
+                                           tatypeahead-template-url="hcm-hierarchy-match-results.html"
+                                           focus-me="{{openAttributeValueSearch}}">
+                                    <button ng-click="openAttributeValueSearchTool()" ng-if="!openAttributeValueSearch" class="crbutton mt22" ng-disabled="hierarchy && !hierarchyRootNodeSelection.selectedValue"></button>
+                                    <span ng-if="openAttributeValueSearch" class="searchClose" ng-click="excludeSearch()">Cancel</span>
+                                    <script type="text/ng-template" id="hcm-hierarchy-match-results.html">
+                                        <div id="typeheadClick" class="tatypeahead-content">
+                                            <div>{{match.model.CHILD_TEXT}}</div>
+                                            <small class="search-tree-level">Level : {{match.model.LEVEL}}</small>
+                                        </div>
+                                    </script>
+                                </div>
+                                <div class="searchrightpopup" ng-hide="hierarchy" ng-if="selectedAttribute !='PAYPCT' ">
+                                    <!--ng-hide=" hierarchy"-->
+                                    <input placeholder="Search"
+                                           ng-model-options='{ debounce: 1000 }'
+                                           ng-change="searchAttributeValue(searchText)"
+                                           ng-model="searchText"
+                                           ng-if="openAttributeValueSearch"
+                                           focus-me="{{openAttributeValueSearch}}" />
+                                    <button ng-click="openAttributeValueSearchTool()" ng-if="!openAttributeValueSearch" class="crbutton mt22"></button>
+                                    <span ng-if="openAttributeValueSearch" class="searchClose" ng-click="excludeSearch()">Cancel</span>
+                                </div>
+                            </div>
+                            <div ng-if="hierarchy" class="inner-section right-cnt-scroll right-cnt-scroll-hier">
+                                <ul class="tree hierarchymargin" ng-if="hierarchy && !hierarchySearch">
+                                    <hcm-tree-node children="tree"></hcm-tree-node>
+                                </ul>
+                                <ul class="tree hierarchymargin" ng-if="hierarchy && hierarchySearch">
+                                    <hcm-tree-node-expanded children="tree"></hcm-tree-node-expanded>
+                                </ul>
+                            </div>
+                            <div ng-if="selectedAttribute !== 'PAYPCT' && flat" class="inner-section right-cnt-scroll" ng-class="{heightFix: isHierarchyAttribute}" hcm-infinite-scroll>
+                                <div class="tree">
+                                    <hcm-flat-view children="flatData"></hcm-flat-view>
+                                </div>
+                            </div>
+
+                            <hcm-paypct-filter ng-if="selectedAttribute === 'PAYPCT'"></hcm-paypct-filter>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default left cancelbtnfooter" ng-click="cancel()">Cancel</button>
+                <span ng-if="filterCount > 0" class="filtercountfooter"><i class="fa fa-filter"></i>&nbsp;{{filterCount}}</span>
+                <button type="button" class="btn btn-primary has-spinner" ng-click="Apply()" ng-disabled="multiSave">Apply</button>
+            </div>
+        </div>
+    </div>
+</div>

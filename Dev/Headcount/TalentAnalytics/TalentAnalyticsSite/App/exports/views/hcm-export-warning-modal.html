@@ -1,0 +1,21 @@
+﻿<div class="modal hcm-export-warning-modal">
+    <div class="modal-dialog save-as-dialog">
+        <div class="modal-content modalsave"><!--excel-warning-modal-->
+            <div class="modal-header s-a-hd">
+                <div class="hcmf-Header s-a-hd1">
+                    <p>Export Warning</p>
+                    <a class="saveas fz24" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">X</a>
+                </div>
+            </div>
+            <div class="modal-body s-a-body">
+                <div>
+                    <label>Selection is too large for pdf, please change filter options or export to excel</label>
+                </div>
+            </div>
+            <div class="modal-footer s-a-footer">
+                <button type="button" class="btn btn-primary s-a-btn" ng-click="exportToExcel('XLSX')">Export to Excel</button>
+                <button type="button" class="btn btn-default s-a-btn" ng-click="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+﻿<div class="searchrightpopup">
+    <!--ng-hide="hierarchy"-->
+    <input type="text" placeholder="Search for Hierarchy" ng-model="selectedHierarchyNode" ng-if="openAttributeValueSearch"
+           tatypeahead="node.CHILD_TEXT for node in getHierarchySearchData($viewValue) paginationFunction getPage($viewValue, $pageNumber)"
+           tatypeahead-wait-ms="500" tatypeahead-template-url="hcm-hierarchy-match-results.html">
+    <button ng-click="openAttributeValueSearchTool()" ng-if="!openAttributeValueSearch" class="crbutton mt22"></button>
+    <span ng-if="openAttributeValueSearch" class="searchClose" ng-click="excludeSearch()">Cancel</span>
+
+    <script type="text/ng-template" id="hcm-hierarchy-match-results.html">
+        <div ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" class="tatypeahead-content">
+            <div>{{match.model.CHILD_TEXT}}</div>
+            <small class="search-tree-level">Tree Level 3</small>
+        </div>
+    </script>
+</div>

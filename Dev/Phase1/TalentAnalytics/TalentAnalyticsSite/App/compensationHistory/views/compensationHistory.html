@@ -1,0 +1,14 @@
+﻿
+<div class="col-xs-6 marT20px" ng-init="loadData()" ng-controller="CompensationHistoryController">
+    <a track-navigation="Compensation History|summary" href="/#!/detailedView/{{employeeId}}/compensation" class="col-xs-7 colorBlue font16px textLeft compensation-history-heading">COMPENSATION HISTORY</a>
+    <div class="col-xs-5 floatRight pad0px currency-button">
+        <div class="btn-group switchBtn floatRight" data-toggle="buttons-checkbox" ng-show="hasMultipleCurrencies">
+            <span ng-repeat-start="currency in supportedCurrencies" ng-if="0"></span>
+            <button type="button" id="update{{currency}}" class="btn btn-default">{{currency}}</button>
+            <span ng-repeat-end ng-if="0"></span>
+        </div>
+    </div>
+    <div class="col-xs-12 areaGraph">
+        <svg id='chart1' width='385' height='300'></svg>
+    </div>
+</div>

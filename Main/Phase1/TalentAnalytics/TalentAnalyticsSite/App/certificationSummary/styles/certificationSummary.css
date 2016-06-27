@@ -1,0 +1,78 @@
+﻿@charset "utf-8";
+/***************************less style starts***************************/
+/**************************less style ends***************************/
+/* CSS Document */
+.certificates {
+  width: 100%;
+  overflow-x: auto;
+  margin-left: 15px;
+  padding: 0;
+  overflow-y: hidden;
+  padding-top: 10px;
+}
+.certificates ul,
+.certificates li {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  text-align: center;
+}
+.certificates li {
+  width: 120px;
+  border: 1px solid #b3e14d;
+  border-radius: 5px;
+  height: 140px;
+  float: left;
+  display: inline-block;
+  margin: 9px;
+  margin-left: 0px;
+  /*margin-right: 20px;*/
+}
+.certificates li .certTitle {
+  width: 100%;
+  background: #b3e14d;
+  padding: 5px 0px;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: normal;
+  font-family: OpenSansBold;
+}
+.certificates li .certType {
+  width: 100%;
+  color: #b3e14d;
+  padding: 15px 0px;
+  display: inline-block;
+  font-weight: normal;
+  font-family: OpenSansBold;
+  font-size: 13px;
+  margin-top: 15px;
+}
+.certificates li .certEffctDate {
+  color: #cccccc;
+  padding: 10px 0px;
+  display: inline-block;
+  font-weight: normal;
+  font-family: OpenSansSemiBold;
+  font-size: 12px;
+  margin-top: -10px;
+}
+::-webkit-scrollbar-button {
+  width: 8px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0px 0px 3px #dfdfdf inset;
+  border-radius: 2px;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border: 1px solid #c1c1c1;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=certificationSummary.css.map */

@@ -1,0 +1,178 @@
+﻿@widthLeftRight:50%;
+@widthFullBleed:100%;
+#customizeView{
+    width:@widthFullBleed;
+    float:left;
+    display:block;
+    .CustomizeViewHeader{
+    font-size:24px;
+}             
+
+}
+.customizeViewRight, .customizeViewLeft{
+    float:left;
+    padding-left:5%;
+    width:@widthLeftRight;
+    border-bottom:1px solid #e5e5e5;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.customizeViewLeft{
+    float:left;
+    border-right:1px solid #e5e5e5;
+}
+.modal{
+    display:block;
+}
+.CustomizeViewHeader{
+    display: block;
+    float: left;
+    margin-left: 2%;
+    width: 98%;
+    p{
+        display:inline;
+        float:left;
+        font-size:24px;
+        margin:10px 0 0 0;
+    }
+    .close{
+    float: right;
+    font-size: 50px;
+    font-weight: 100;
+    color:#03adf8;
+    opacity:1;
+    font-family:initial;
+    margin-top:5px;
+    }
+}
+.modal-dialog{
+    width:800px;
+}
+.modal-header {
+    display: block;
+    float: left;
+    width: @widthFullBleed;
+}
+.modal-body{
+    float:left;
+    padding:0;
+    width: @widthFullBleed;
+}
+.innerHeader{
+    font-size:16px;
+    padding:20px 5px 20px 0;
+    float:left;
+    width:@widthLeftRight;
+    padding-left:5%;
+    border-right:1px solid #e5e5e5;
+    height:60px;
+}
+.customizeTableSearch {
+    position:relative;
+    input{
+        font-size:16px;
+        border:1px solid #eee;
+        border-radius:5px;
+        width:75%;
+        padding:10px;
+        position:relative;
+        top:-12px;
+        left:-10px;
+    }
+    .searchClose{position:relative; top:-10px; cursor:pointer; color:#03adf8;
+    }
+    
+    .crbutton{
+        float:right;
+        position:absolute;
+        margin-right:0;
+        right:7%;
+        top:20px;
+    }
+}
+.customizeItems, .sortItems{
+    height:300px;
+    overflow-y:scroll;
+    
+    ul{
+        list-style-type:none;
+        padding-left:0;
+        font-weight:normal !important;
+        label{
+font-weight:normal !important;
+    }
+        label.selectedField{
+    background-image: url("/images/checkbox_checked.png");
+    background-repeat: no-repeat;
+    background-position:0;
+    background-size:13px;
+    padding-right:10px;
+    input{
+        padding-left:-10px;
+        visibility:hidden;
+    }
+}
+
+    }
+}
+.sortDataItem {
+    display: inline;
+    background-image: url("/images/icon-reorder-list-default.png");
+    background-repeat: no-repeat;
+    padding-left: 25px;
+    background-position: 0;
+}
+
+.sortItems {
+    li{
+            padding:5px;
+            margin:0 10px 0 0;
+            border-top:1px solid #e5e5e5;
+            cursor:default;
+        }
+    li:last-child{
+        border-bottom:1px solid #e5e5e5;
+        }
+}
+.btn-primary{
+    width:180px;
+    background-color:#81bc00;
+}
+.subHeader{
+    width:@widthFullBleed;
+    float:left;
+    border-bottom:1px solid #e5e5e5;
+}
+.modal-footer{ 
+    .btn{
+    margin-top:20px;
+    margin-right:20px;
+    }
+    .btn-default{
+        background-color:#fff;
+    }
+}
+.customizeItemLabel{
+    margin-left:8px;
+}
+input[type=checkbox]:checked::before {
+    background: #fff;
+    color: #00a1de;
+    content: "";
+    font: normal normal normal 14px/1 FontAwesome;
+    font-family: FontAwesome;
+    text-rendering: auto;
+    float: left;
+}
+body.modal-open{
+    overflow:hidden;
+    /*position:fixed;*/
+}
+
+@media (min-width:700px) and (max-width:1024px) { 
+    
+    .modal-dialog{width:550px;}
+    .customizeItems ul, .sortItems ul{padding-left:5px;}
+    .modal {top:30px;}
+   body.modal-open{ position:fixed;}
+}

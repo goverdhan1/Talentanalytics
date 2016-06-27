@@ -1,0 +1,667 @@
+﻿<html><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <base href="https://localtalentanalytics.deloitte.com/headcount/">
+    <title>Talent Analytics</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+
+    
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <link href="https://localtalentanalytics.deloitte.com/headcount/App/core/styles/jquery-ui.min.css" rel="stylesheet">
+<link href="https://localtalentanalytics.deloitte.com/headcount/App/core/styles/bootstrap.min.css" rel="stylesheet">
+<link href="https://localtalentanalytics.deloitte.com/headcount/App/core/styles/font-awesome.min.css" rel="stylesheet">
+<link href="https://localtalentanalytics.deloitte.com/headcount/App/core/styles/jquery.dataTables.css" rel="stylesheet">
+<link href="https://localtalentanalytics.deloitte.com/headcount/App/core/styles/nv.d3.css" rel="stylesheet">
+<link href="https://localtalentanalytics.deloitte.com/headcount/Content/toaster.min.css" rel="stylesheet">
+
+    <link href="https://localtalentanalytics.deloitte.com/headcount/App/core/styles/empqvcommon.min.css" rel="stylesheet">
+
+    <link href="https://localtalentanalytics.deloitte.com/headcount/App/header/styles/top.header.min.css" rel="stylesheet">
+<link href="https://localtalentanalytics.deloitte.com/headcount/App/dashboard/styles/dashboard.min.css" rel="stylesheet">
+<link href="https://localtalentanalytics.deloitte.com/headcount/App/exports/styles/taexport.button.min.css" rel="stylesheet">
+<link href="https://localtalentanalytics.deloitte.com/headcount/App/hcm-filter/styles/hcm-filter.min.css" rel="stylesheet">
+<link href="https://localtalentanalytics.deloitte.com/headcount/App/hcm-landingpage/styles/hcm-linechart.min.css" rel="stylesheet">
+<link href="https://localtalentanalytics.deloitte.com/headcount/App/hcm-landingpage/styles/hcm-landing.min.css" rel="stylesheet">
+<link href="https://localtalentanalytics.deloitte.com/headcount/App/hcm-detailview/styles/hcm-detailview.min.css" rel="stylesheet">
+<link href="https://localtalentanalytics.deloitte.com/headcount/App/hcm-detailview/styles/hcm-detailed-view-metrics-tree-view.min.css" rel="stylesheet">
+
+
+    <link href="//ratethisapp.deloitte.com/rateThisAppService/scripts/latest/_assets/ratethisapp.min.css" rel="stylesheet">
+    <link href="//ratethisapp.deloitte.com/rateThisAppService/scripts/latest/_assets/ratethisapp-responsive.min.css" rel="stylesheet">
+    <link href="https://localtalentanalytics.deloitte.com/headcount/App/rateThisApp/styles/rate-this-app.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://localtalentanalytics.deloitte.com/headcount/App/logout/styles/logoutStyles.css">
+    <link rel="stylesheet" type="text/css" href="https://localtalentanalytics.deloitte.com/headcount/App/core/styles/print-page-break.min.css" >
+</head>
+<body class="">
+    <!-- SiteCatalyst code version: H.25.
+    Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+    More info available at http://www.omniture.com -->
+    
+    
+
+    <!-- End SiteCatalyst code version: H.25. -->
+    
+
+    <div>
+        
+
+<!-- uiView: undefined --><ui-view class="ng-scope" style=""><div id="wrapper" align="center" class="ng-scope">
+    <div id="toast-container" ng-class="[config.position, config.animation]" class="ng-scope toast-top-right"><!-- ngRepeat: toaster in toasters --></div>
+    <div ng-controller="headerController" class="ng-scope">
+        <header style='abcpdf-tag-visible: true; border: 1px solid transparent' >
+            <div ng-init="loadData()" ng-click="headerSettingPopClose()">
+                <div id="todHeader" class="todHeader">
+                    <div class="dnetHeader">
+                        <a ng-https://q.deloittenet.deloitte.com/Pages/home.aspx/" class="TCH_DNETLinks" target="_blank" https://q.deloittenet.deloitte.com/Pages/home.aspx/">
+                            <div class="logo" title="Go to Deloittenet"></div>
+                        </a><!-- My Setting Pane Starting -->
+                        <nav class="nav-bar">
+                            <div class="nb-menu topNavProfile" data-toggle="" id="dpnDiv" title="DPN Profile for ">
+                                <a " ng-click="redirect(UserDpnNetURL)" target="_blank" class="TCH_DNETDPNLinks">
+                                    <div class="dpnlogo"></div><span class="txt">Your Profile </span>
+                                </a>
+                            </div>
+                            <div class="nb-menu " data-toggle="" title="Access my Email" id="TCH_DNETMail">
+                                <a ng-https://legacy.deloittenet.deloitte.com/anonymous/OwaRedirect/OwaLogin.aspx" target="_blank" class="TCH_DNETMailLinks" https://legacy.deloittenet.deloitte.com/anonymous/OwaRedirect/OwaLogin.aspx">
+                                    <i class="fa fa-envelope fa-2x"></i><span class="txt">Access my Email </span>
+                                </a>
+                            </div>
+                            <div tabindex="0" class="nb-menu topNavSetting" title="User Settings" ng-class="{headerActiveIcons:headerPopupClose}">
+                                <i class="fa fa-cog fa-2x"></i>
+                                <div class="nb-sub-menu" style="display:block">
+                                    <div>
+                                        <a " ng-click="redirect(myInformationLink)" target="_blank" class="todDNETLinks"><i class="fa fa-info fa-1x"></i><span class="txt">My Information</span></a>
+                                    </div>
+                                    <div><a ng-https://uscpp.deloitte.com/SSPR_Edge/" target="_blank" class="TCH_DNETPWDLinks" https://uscpp.deloitte.com/SSPR_Edge/"><i class="fa fa-key fa-1x"></i><span class="txt">Reset a Password</span></a></div><div>
+                                        <a ng-https://qsites.deloittenet.deloitte.com/useraccessprotection/pin/ChangePIN.aspx" target="_blank" class="TCH_DNETPINLinks" https://qsites.deloittenet.deloitte.com/useraccessprotection/pin/ChangePIN.aspx">
+                                            <i class="fa fa-lock fa-1x"></i><span class="txt">Reset My Pin</span>
+                                        </a>
+                                    </div><div><a ng-https://q.deloittenet.deloitte.com/PC/Pages/ReportAViolation.aspx" target="_blank" class="TCH_DNETLinks" https://q.deloittenet.deloitte.com/PC/Pages/ReportAViolation.aspx"><i class="fa fa-pencil fa-1x"></i><span class="txt">Report a Violation</span></a></div>
+                                </div>
+                            </div>
+                            <div class="nb-menu topNavLogOut" data-toggle="" id="logoutDiv" title="Logout  ">
+                                <a javascript:void(0)" ng-click="logout()" class="TCH_DNETLogOutLinks">
+                                    <i class="fa fa-sign-out fa-2x"></i><span class="txt">Log Out </span>
+                                </a>
+                            </div>
+
+                            <div class="nb-menu-logoHover" style="height:38px;">
+                                <span style="line-height:38px;" class="ng-binding">
+                                    &nbsp;Hello&nbsp;  !
+                                </span>
+                            </div>
+                        </nav><!-- My Setting Pane Ending-->
+                    </div>
+                    <div class="todHeaderBar">
+                        <div class="todHeaderInner">
+                            <a /#!/" class="todDNETLinks">
+                                <div class="logoText" title="Go to Talent Analytics Dashboard"><span class="logo-text2">Talent Analytics</span></div>
+                            </a>
+                            <nav class="nav-bar">
+                                <div class="nb-menu nonMobile" data-toggle="" title="Rate this App" id="todRTAMenu">
+                                    <a javascript:void(0)" id="rateThisApp">
+                                        <div class="rateThisAppIcon "></div><span class="txt">Rate this App</span>
+                                    </a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+    </div>
+
+
+    <!-- uiView:  --><section ui-view="" class="ng-scope">
+<section id="container" ng-controller="DashboardController" class="ng-scope">
+
+    <article id="contentleft">
+        <ul>
+            <!-- ngRepeat: tile in tiles --><li ng-repeat="tile in tiles" ng-click="onTabSelect(tile.tabIndex)" track-navigation="Employee Quickview tile|home" class="tab ng-scope ng-isolate-scope" ng-class="{active:tab===tile.tabIndex, 'bg-blue':tab===tile.tabIndex}">
+                <div class="icon-text">
+                    <div class="dashboard-icon">
+                        <div class="employeeQuickview" ng-class="{selected: tab===tile.tabIndex}">
+                        </div>
+                    </div>
+                    <div class="dashboard-text" ng-class="{colorWhite: tab===tile.tabIndex}">
+                        <p class="ng-binding">Employee Quickview</p>
+                    </div>
+                </div>
+            </li><!-- end ngRepeat: tile in tiles --><li ng-repeat="tile in tiles" ng-click="onTabSelect(tile.tabIndex)" track-navigation="Headcount Management tile|home" class="tab ng-scope ng-isolate-scope active bg-blue" ng-class="{active:tab===tile.tabIndex, 'bg-blue':tab===tile.tabIndex}">
+                <div class="icon-text">
+                    <div class="dashboard-icon">
+                        <div class="headcountManagement selected" ng-class="{selected: tab===tile.tabIndex}">
+                        </div>
+                    </div>
+                    <div class="dashboard-text colorWhite" ng-class="{colorWhite: tab===tile.tabIndex}">
+                        <p class="ng-binding">Headcount Management</p>
+                    </div>
+                </div>
+            </li><!-- end ngRepeat: tile in tiles --><li ng-repeat="tile in tiles" ng-click="onTabSelect(tile.tabIndex)" track-navigation="AD-hoc Reporting tile|home" class="tab ng-scope ng-isolate-scope" ng-class="{active:tab===tile.tabIndex, 'bg-blue':tab===tile.tabIndex}">
+                <div class="icon-text">
+                    <div class="dashboard-icon">
+                        <div class="adhocReporting" ng-class="{selected: tab===tile.tabIndex}">
+                        </div>
+                    </div>
+                    <div class="dashboard-text" ng-class="{colorWhite: tab===tile.tabIndex}">
+                        <p class="ng-binding">Ad hoc Reporting</p>
+                    </div>
+                </div>
+            </li><!-- end ngRepeat: tile in tiles -->
+        </ul>
+    </article>
+
+    <article id="contentright" ng-view="ng-view">
+        <div id="contentrightdiv" class="tab-content ng-hide" ng-show="tab===1">
+            <div class="qVTilesCornerBgImg"></div>
+            <div id="empviewdiv">
+                <div class="empviewheading">
+                    <h1>Employee Quickview</h1>
+                </div>
+            </div>
+
+            <!--crightsearch starts-->
+            <emp-search class="searchComponent" results-per-page="8"></emp-search>
+
+            <div id="contentdown" ng-class="{hide :selectedEmployee}">
+                <!--contentdownpara starts-->
+                <div id="contentdownpara">
+                    <p>You can use Quickview to find information of any employee. Just enter any of the following information in the search field above:</p>
+                </div>
+                <!--contentdownpara ends-->
+                <!--contentlist starts-->
+                <div id="contentlist">
+                    <ul id="firstlist">
+                        <li>Employee Name</li>
+                        <li>Personnel Number</li>
+                        <li>Employee Email</li>
+                        <li>Personnel Subarea Desc</li>
+                        <li>Employee Service Line Desc</li>
+                        <li>Employee Service Area Desc</li>
+                    </ul>
+                    <ul id="secondlist">
+                        <li>Employee Region Desc</li>
+                        <li>Employee Costcenter (Key)</li>
+                        <li>Employee Cost Center Desc</li>
+                        <li>Cost Center Hierarchy Node Desc</li>
+                        <li>Primary Market Offering Desc</li>
+                        <li>Secondary Market Offering Desc</li>
+                    </ul>
+                    <!--contentlist ends-->
+                </div>
+                <!--contentdown ends-->
+            </div>
+            <!--contentrightdiv ends-->
+
+        </div>
+        <div class="tab-content ng-scope" ng-show="tab===2" ng-controller="HeadcountLandingController">
+            <div class="qVTilesCornerBgImg"></div>
+            <div id="empviewdiv">
+                <div class="empviewheading">
+                    <h1>Headcount Management</h1>
+                </div>
+                <!--tileview_rightside starts-->
+                <div class="col-xs-12">
+                    <div class="tileview_rightside headcountrighttab col-xs-6">
+                        <div class="headCntMgnt_filterSet">
+                            <div>
+    <div class="filter filter-dropdown-click" tabindex="0">
+        <i class="fa fa-filter filterselecte-dropdown">
+            <span ng-bind="selectedFilter" class="ng-binding">Temporary</span>
+        </i>
+        <i class="caret"></i>
+        <!--<span ng-bind="selectedFilter"></span>-->
+        <!--<div class="filterDropdown">
+            <i class="caret"></i>
+        </div>-->
+        <div class="drop-down filter-dropdown-click-content" ng-class="{'show-menu-content':deleteConfirmPop}" dropdown-options="" ng-transclude="">
+            <ul class="ng-scope">
+                <!-- ngRepeat: option in filsterList --><li ng-repeat="option in filsterList" class="ng-scope" style=""><a " ng-click="selectItem(option.FILTER_NAME, option.CHART_TYPE)" class="dropList ng-binding">Temporary</a> <a #" ng-hide="option.FILTER_NAME=='Temporary'" class="ng-hide"> <img src="images/icon_delete.png" class="delete-icon-img" ng-click="deleterFilterFromDropDown(option.FILTER_NAME)"></a></li><!-- end ngRepeat: option in filsterList -->
+            </ul>
+        </div>
+        <div class="delete-confirm ng-hide" ng-show="deleteConfirmPop" style="">
+            <h5>Do you want to delete the filter set "<span class="ng-binding"></span>"</h5>
+            <div class="delete-confirm-btns">
+                <button class="btn btn-default" ng-click="deleteCancel()">Cancel</button>
+                <button class="btn btn-primary" ng-click="deleteConfirm()">Ok </button>
+            </div>
+        </div>
+    </div>
+    <div class="filterEdit">
+        <div ng-click="open()">
+            <a javascript:void(0)" class="headcountbutton">Edit</a>
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+
+                    <a ui-sref="headcountdetailview({ selectedFilter: form.selectedFilter, reportTitle:lineChartHandler.chartScale })" #!/headcountdetailview">
+                        <div class="headCntMgnt_fullView pull-left col-xs-3">
+                            <div class="fullView">
+                                <i class="fa fa-arrows-alt"></i>
+                                <span>Detail View</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="switch-btn switch-btn-summary right  i-or-e">
+                        <button ng-click="toggleChart('barchart');" ng-class="{'bg-cl-fff': lineChartHandler.barChart,'bg-cl-E5E5E5': lineChartHandler.lineChart}" class="left-btn bg-cl-fff" style=""><i class="fa fa-bar-chart"></i></button>
+                        <button ng-click="toggleChart('linechart');" ng-class="{'bg-cl-fff': lineChartHandler.lineChart,'bg-cl-E5E5E5': lineChartHandler.barChart}" class="right-btn bg-cl-E5E5E5" style="">
+                            <i class="fa fa-line-chart"></i>
+                        </button>
+                    </div>
+
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <div class="hcm-landing-linechart ng-isolate-scope ng-scope" chart-type="barchart" on-date-range-change="onLineChartDateRangeChange(range)" selected-filter="Temporary" selected-type="STANDARD" render-chart="renderLineChart(filterName, selectedType)" update-chart="lineChartHandler">
+    <div ng-show="loading" class="loading ng-hide" style="">
+        <h1>Loading....</h1>
+    </div>
+    <div class="lineChart col-xs-12" ng-hide="loading" style="">
+        <h5 class="chartTitle ng-binding">YOY YTD</h5>
+        <div id="chart" style="overflow-x: hidden;"><svg class="chart" width="480" height="280" id="svgChart"><g><g class="x axis" transform="translate(0,180)"><g class="tick" transform="translate(17,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" dx="8px" style="text-anchor: end;">P1</text></g><g class="tick" transform="translate(53,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" dx="8px" style="text-anchor: end;">P2</text></g><g class="tick" transform="translate(89,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" dx="8px" style="text-anchor: end;">P3</text></g><g class="tick" transform="translate(125,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" dx="8px" style="text-anchor: end;">P4</text></g><g class="tick" transform="translate(161,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" dx="8px" style="text-anchor: end;">P5</text></g><g class="tick" transform="translate(197,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" dx="8px" style="text-anchor: end;">P6</text></g><g class="tick" transform="translate(233,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" dx="8px" style="text-anchor: end;">P7</text></g><g class="tick" transform="translate(269,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" dx="8px" style="text-anchor: end;">P8</text></g><g class="tick" transform="translate(305,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" dx="8px" style="text-anchor: end;">P9</text></g><g class="tick" transform="translate(341,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" dx="8px" style="text-anchor: end;">P10</text></g><g class="tick" transform="translate(377,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" dx="8px" style="text-anchor: end;">P11</text></g><g class="tick" transform="translate(413,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" dx="8px" style="text-anchor: end;">P12</text></g><path class="domain" d="M0,6V0H430V6"></path></g><g class="g" transform="translate(1,0)"><rect class="bar" width="14" x="2" y="180" height="0" style="fill: rgb(129, 188, 0);"></rect><rect class="bar" width="14" x="16" y="180" height="0" style="fill: rgb(52, 83, 145);"></rect></g><g class="g" transform="translate(37,0)"><rect class="bar" width="14" x="2" y="180" height="0" style="fill: rgb(129, 188, 0);"></rect><rect class="bar" width="14" x="16" y="180" height="0" style="fill: rgb(52, 83, 145);"></rect></g><g class="g" transform="translate(73,0)"><rect class="bar" width="14" x="2" y="180" height="0" style="fill: rgb(129, 188, 0);"></rect><rect class="bar" width="14" x="16" y="180" height="0" style="fill: rgb(52, 83, 145);"></rect></g><g class="g" transform="translate(109,0)"><rect class="bar" width="14" x="2" y="180" height="0" style="fill: rgb(129, 188, 0);"></rect><rect class="bar" width="14" x="16" y="180" height="0" style="fill: rgb(52, 83, 145);"></rect></g><g class="g" transform="translate(145,0)"><rect class="bar" width="14" x="2" y="180" height="0" style="fill: rgb(129, 188, 0);"></rect><rect class="bar" width="14" x="16" y="180" height="0" style="fill: rgb(52, 83, 145);"></rect></g><g class="g" transform="translate(181,0)"><rect class="bar" width="14" x="2" y="180" height="0" style="fill: rgb(129, 188, 0);"></rect><rect class="bar" width="14" x="16" y="180" height="0" style="fill: rgb(52, 83, 145);"></rect></g><g class="g" transform="translate(217,0)"><rect class="bar" width="14" x="2" y="180" height="0" style="fill: rgb(129, 188, 0);"></rect><rect class="bar" width="14" x="16" y="180" height="0" style="fill: rgb(52, 83, 145);"></rect></g><g class="g" transform="translate(253,0)"><rect class="bar" width="14" x="2" y="180" height="0" style="fill: rgb(129, 188, 0);"></rect><rect class="bar" width="14" x="16" y="180" height="0" style="fill: rgb(52, 83, 145);"></rect></g><g class="g" transform="translate(289,0)"><rect class="bar" width="14" x="2" y="180" height="0" style="fill: rgb(129, 188, 0);"></rect><rect class="bar" width="14" x="16" y="180" height="0" style="fill: rgb(52, 83, 145);"></rect></g><g class="g" transform="translate(325,0)"><rect class="bar" width="14" x="2" y="180" height="0" style="fill: rgb(129, 188, 0);"></rect><rect class="bar" width="14" x="16" y="180" height="0" style="fill: rgb(52, 83, 145);"></rect></g><g class="g" transform="translate(361,0)"><rect class="bar" width="14" x="2" y="180" height="0" style="fill: rgb(129, 188, 0);"></rect><rect class="bar" width="14" x="16" y="180" height="0" style="fill: rgb(52, 83, 145);"></rect></g><g class="g" transform="translate(397,0)"><rect class="bar" width="14" x="2" y="180" height="0" style="fill: rgb(129, 188, 0);"></rect><rect class="bar" width="14" x="16" y="180" height="0" style="fill: rgb(52, 83, 145);"></rect></g><g class="hidebrush" style="pointer-events: all; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><rect class="background" x="0" width="430" height="211" style="visibility: hidden; cursor: crosshair;"></rect><rect class="extent" x="-1" width="326" height="211" style="cursor: move;"></rect><g class="resize e" transform="translate(325,0)" style="cursor: ew-resize;"><rect x="-3" width="6" height="211" style="visibility: hidden;"></rect></g><g class="resize w" transform="translate(-1,0)" style="cursor: ew-resize;"><rect x="-3" width="6" height="211" style="visibility: hidden;"></rect></g></g><g class="hidebrush" style="pointer-events: all; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><rect class="background" x="0" width="430" height="211" style="visibility: hidden; cursor: crosshair;"></rect><rect class="extent" x="433" width="36" height="211" style="cursor: move;"></rect><g class="resize e" transform="translate(469,0)" style="cursor: ew-resize;"><rect x="-3" width="6" height="211" style="visibility: hidden;"></rect></g><g class="resize w" transform="translate(433,0)" style="cursor: ew-resize;"><rect x="-3" width="6" height="211" style="visibility: hidden;"></rect></g></g><g class="xbrush" style="pointer-events: all; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><rect class="background" x="0" width="430" height="220" style="visibility: hidden; cursor: crosshair;"></rect><rect class="extent rect1" x="325" width="108" height="220" style="cursor: move;"></rect><g class="resize e" transform="translate(433,0)" style="cursor: ew-resize;"><rect x="-3" width="6" height="220" style="visibility: hidden;"></rect></g><g class="resize w" transform="translate(325,0)" style="cursor: ew-resize;"><rect x="-3" width="6" height="220" style="visibility: hidden;"></rect></g><rect class="extent rect2" width="108" height="12px" x="325" y="210"></rect><text class="extent rect4" x="379" y="218">|||</text></g><g class="legend" x="20" y="55" height="100" width="430" transform="translate(0,190)"><rect x="0" y="45" width="8" height="8" class="rect2YOY"></rect><text x="10" y="52" class="textYOY">FY2015 HEADCOUNT</text><rect x="125" y="45" width="8" height="8" class="rect1YOY"></rect><text x="135" y="52" class="textYOY">FY2016 HEADCOUNT</text></g></g></svg></div>
+    </div>
+</div>
+            <div class="row ng-isolate-scope" handler="lineChartGridHandler" selected-filter="Temporary">
+    <div class="col-xs-12">
+        <div class="col-xs-11 headcountlinechartgridmarginleft">
+            <div class="headcountlinechartgridoverflow">
+  
+                <div data-ng-app="" data-ng-init="hcmstaticvalues=[{ Beginninghcm:'Beginning Headcount', Starts:'Starts', Terms:'Terms', Transfersin: 'Transfers In', Transfersout:'Transfers Out', Miscellaneous:'Miscellaneous Adjustments',Endinghcm:'Ending Headcount', BeginningLOA:'Beginning LOA', EndingLOA:'Ending LOA'}]">
+
+
+
+                    <div class="matric-data-left-section pdfviewhide">
+
+                        <!-- ngRepeat: hcmstaticvalue in hcmstaticvalues --><div ng-repeat="hcmstaticvalue in hcmstaticvalues" class="ng-scope" style="">
+                            <div class=" hcm-pdfdetailedview-hedding" style="height:32px;"></div>
+                            <div class="hcm-pdfdetailedview-hedding ng-binding">Beginning Headcount</div>
+                            <div class="hcm-pdfdetailedview-hedding ng-binding">Starts</div>
+                            <div class="hcm-pdfdetailedview-hedding ng-binding">Terms</div>
+                            <div class="hcm-pdfdetailedview-hedding ng-binding">Transfers In</div>
+                            <div class="hcm-pdfdetailedview-hedding ng-binding">Transfers Out</div>
+                            <div class="hcm-pdfdetailedview-hedding ng-binding">Miscellaneous Adjustments</div>
+                            <div class="hcm-pdfdetailedview-hedding ng-binding">Ending Headcount</div>
+                            <div class="hcm-pdfdetailedview-hedding ng-binding">Beginning LOA</div>
+                            <div class="hcm-pdfdetailedview-hedding ng-binding">Ending LOA</div>
+                        </div><!-- end ngRepeat: hcmstaticvalue in hcmstaticvalues -->
+                    </div>
+
+                    <div class="matric-data-right-scroll">
+
+                        <!-- ngRepeat: griddata in rangevalues --><div ng-repeat="griddata in rangevalues" class="hcm-pdfdetailedview ng-scope" style="">
+
+
+
+                            <!-- ngIf: $index % 9 == 0 --><div ng-if="$index % 9 == 0" class="pdfviewshow ng-scope">
+                                <!-- ngRepeat: hcmstaticvalue in hcmstaticvalues --><div ng-repeat="hcmstaticvalue in hcmstaticvalues" class="ng-scope">
+                                    <div class="hcm-pdfdetailedview-hedding" style="height:32px;"></div>
+                                    <div class="hcm-pdfdetailedview-hedding ng-binding">Beginning Headcount</div>
+                                    <div class="hcm-pdfdetailedview-hedding ng-binding">Starts</div>
+                                    <div class="hcm-pdfdetailedview-hedding ng-binding">Terms</div>
+                                    <div class="hcm-pdfdetailedview-hedding ng-binding">Transfers In</div>
+                                    <div class="hcm-pdfdetailedview-hedding ng-binding">Transfers Out</div>
+                                    <div class="hcm-pdfdetailedview-hedding ng-binding">Miscellaneous Adjustments</div>
+                                    <div class="hcm-pdfdetailedview-hedding ng-binding">Ending Headcount</div>
+                                    <div class="hcm-pdfdetailedview-hedding ng-binding">Beginning LOA</div>
+                                    <div class="hcm-pdfdetailedview-hedding ng-binding">Ending LOA</div>
+                                </div><!-- end ngRepeat: hcmstaticvalue in hcmstaticvalues -->
+                            </div><!-- end ngIf: $index % 9 == 0 -->
+
+                            <div class="viewgraph-pdfdymic" ng-class="{'viewgraph-pdfdymictwo': rangevalues.length === 3 , 'viewgraph-pdfdymicthree': rangevalues.length === 2, 'viewgraph-pdfdymicone': rangevalues.length === 1 }">
+                                <div class="hcm-pdfdetailedview-sub hcm-pdfdetailedview-bgblock ng-binding">P10/FY2015</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding">0</div>
+                            </div>
+                        </div><!-- end ngRepeat: griddata in rangevalues --><div ng-repeat="griddata in rangevalues" class="hcm-pdfdetailedview ng-scope" style="">
+
+
+
+                            <!-- ngIf: $index % 9 == 0 -->
+
+                            <div class="viewgraph-pdfdymic" ng-class="{'viewgraph-pdfdymictwo': rangevalues.length === 3 , 'viewgraph-pdfdymicthree': rangevalues.length === 2, 'viewgraph-pdfdymicone': rangevalues.length === 1 }">
+                                <div class="hcm-pdfdetailedview-sub hcm-pdfdetailedview-bgblock ng-binding">P10/FY2016</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding">0</div>
+                            </div>
+                        </div><!-- end ngRepeat: griddata in rangevalues --><div ng-repeat="griddata in rangevalues" class="hcm-pdfdetailedview ng-scope" style="">
+
+
+
+                            <!-- ngIf: $index % 9 == 0 -->
+
+                            <div class="viewgraph-pdfdymic" ng-class="{'viewgraph-pdfdymictwo': rangevalues.length === 3 , 'viewgraph-pdfdymicthree': rangevalues.length === 2, 'viewgraph-pdfdymicone': rangevalues.length === 1 }">
+                                <div class="hcm-pdfdetailedview-sub hcm-pdfdetailedview-bgblock ng-binding">P11/FY2015</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding">0</div>
+                            </div>
+                        </div><!-- end ngRepeat: griddata in rangevalues --><div ng-repeat="griddata in rangevalues" class="hcm-pdfdetailedview ng-scope" style="">
+
+
+
+                            <!-- ngIf: $index % 9 == 0 -->
+
+                            <div class="viewgraph-pdfdymic" ng-class="{'viewgraph-pdfdymictwo': rangevalues.length === 3 , 'viewgraph-pdfdymicthree': rangevalues.length === 2, 'viewgraph-pdfdymicone': rangevalues.length === 1 }">
+                                <div class="hcm-pdfdetailedview-sub hcm-pdfdetailedview-bgblock ng-binding">P11/FY2016</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding">0</div>
+                            </div>
+                        </div><!-- end ngRepeat: griddata in rangevalues --><div ng-repeat="griddata in rangevalues" class="hcm-pdfdetailedview ng-scope" style="">
+
+
+
+                            <!-- ngIf: $index % 9 == 0 -->
+
+                            <div class="viewgraph-pdfdymic" ng-class="{'viewgraph-pdfdymictwo': rangevalues.length === 3 , 'viewgraph-pdfdymicthree': rangevalues.length === 2, 'viewgraph-pdfdymicone': rangevalues.length === 1 }">
+                                <div class="hcm-pdfdetailedview-sub hcm-pdfdetailedview-bgblock ng-binding">P12/FY2015</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding">0</div>
+                            </div>
+                        </div><!-- end ngRepeat: griddata in rangevalues --><div ng-repeat="griddata in rangevalues" class="hcm-pdfdetailedview ng-scope" style="">
+
+
+
+                            <!-- ngIf: $index % 9 == 0 -->
+
+                            <div class="viewgraph-pdfdymic" ng-class="{'viewgraph-pdfdymictwo': rangevalues.length === 3 , 'viewgraph-pdfdymicthree': rangevalues.length === 2, 'viewgraph-pdfdymicone': rangevalues.length === 1 }">
+                                <div class="hcm-pdfdetailedview-sub hcm-pdfdetailedview-bgblock ng-binding">P12/FY2016</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding"> 0</div>
+                                <div class="hcm-pdfdetailedview-sub ng-binding">0</div>
+                            </div>
+                        </div><!-- end ngRepeat: griddata in rangevalues -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <div class="row">
+    <div class="col-xs-12 headcountlinechartgridmarginleft">
+        <div class="col-xs-12">
+            <div class="col-xs-6 pull-left hcm-summary-export-btn">
+                <div id="exportconsoleright">
+
+    <!-- ngInclude: undefined --><ng-include src="'../../app/exports/views/exportForm.template.html'" class="ng-scope" style="">
+<form class="hide ng-pristine ng-valid ng-scope" action="Export/Excel" method="post" id="exportForIE9">
+    <textarea id="exportValue" name="excelData"></textarea>
+    <input type="text" id="exportFilename" name="filename">
+    <input type="text" id="fileExtension" name="fileExtension">
+    <input type="submit" id="submit" value="Submit">
+</form>
+
+<form class="hide ng-pristine ng-valid ng-scope" action="Export/PDF" method="post" id="exportForPDF">
+    <textarea type="text" id="exportUrl" name="exportUrl"></textarea>
+    <input type="text" id="exportPDFFilename" name="exportPDFFilename">
+    <textarea id="docHTML" name="docHTML"></textarea>
+    <input type="submit" id="submitPDF" value="Submit">
+</form></ng-include>
+
+    <div tabindex="0" class="dropdownmenuconsole onclick-menu">
+        <i class="fa fa-external-link"></i>
+        <div class="verticalline"></div>
+        <i class="fa fa-sort-desc"></i>
+        <ul class="onclick-menu-content">
+            <li ng-click="exportCSV()">
+                CSV
+            </li>
+            <div class="hrline"></div>
+            <li ng-click="exportXLS()">
+                XLSX
+            </li>
+            <div class="hrline"></div>
+            <li ng-click="exportPDF()">
+                PDF
+            </li>
+        </ul>
+    </div>
+</div>
+            </div>
+
+            <!--// TODO: This is not yet done-->
+            <!--<div class="col-xs-6 pull-right hcm-summary-allview-btn">
+                <a javascript:void(0)"><i class="fa fa-bar-chart"></i>&nbsp;&nbsp;&nbsp;<span>All Views</span></a>
+            </div>-->
+         </div>
+
+        <!--<div class="col-xs-12 hcm-summary-anchor-links">
+            <p><a javascript:void(0)">Headcount Management Reports&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a></p>
+            <p><a javascript:void(0)">Headcount management visualizations & analysis&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a></p>
+        </div>-->
+    </div>
+</div>
+            <!--tileview_rightside ends-->
+        </div>
+        
+        <div class="tab-content ng-hide" ng-show="tab===3">
+            <div class="qVTilesCornerBgImg"></div>
+            <div id="empviewdiv">
+                <div class="empviewheading">
+                    <h1>Total Rewards</h1>
+                </div>
+                <!--tileview_rightside starts-->
+                <div class="tileview_rightside">
+                    <p>Deloitte's Total Rewards includes your compensation and a broad range of benefits covering retirement, health care, insurance, wellness, and more.</p>
+                    <!--<a track-navigation="Total Rewards- Bonus Reporting|home_page_links" ng-click="redirect(SOBSTalentLink)" href>Bonus Reporting<i class="fa fa-chevron-right"></i></a>-->
+                </div>
+                <!--tileview_rightside ends-->
+            </div>
+        </div>
+        <div class="tab-content ng-hide" ng-show="tab===4">
+            <div class="qVTilesCornerBgImg"></div>
+            <div id="empviewdiv">
+                <div class="empviewheading"><h1>Ad hoc Reporting</h1></div>
+                <!--tileview_rightside starts-->
+                <div class="tileview_rightside">
+                    <p>In this section you will be able to request a custom report from the CTS Reporting and Analytics team.</p>
+                    <a track-navigation="Ad-hoc reporting- Intake Form|home_page_links" ng-click="redirect(IntakeFormLink)" " class="ng-isolate-scope">Intake Form<i class="fa fa-chevron-right"></i></a>
+                </div>
+                <!--tileview_rightside ends-->
+            </div>
+        </div>
+        <div class="tab-content ng-hide" ng-show="tab===5">
+            <div class="qVTilesCornerBgImg"></div>
+            <div id="empviewdiv">
+                <div class="empviewheading"><h1>Visualizations and Analytics</h1></div>
+                <!--tileview_rightside starts-->
+                <div class="tileview_rightside">
+                    <p>This section provides a link to the Tableau visualizations created for you by the Talent Reporting &amp; Analytics team.</p>
+                </div>
+                <!--tileview_rightside ends-->
+            </div>
+        </div>
+    </article>
+    <!--article contentright ends-->
+</section>
+<!--section ends--></section>
+</div></ui-view>
+
+
+
+
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="window-resizer-tooltip" style="display: none;"><a #" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1600</span> x <span class="tooltipHeight" id="winHeight">860</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1118</span> x <span class="tooltipHeight" id="vpHeight">775</span></div><div class="dra-hide dra-main-container" id="deloitteRateThisApp" tabindex="-1">     <div class="dra-header dra-blue-gradient dra-thin-font">        <div class="dra-rating-image-header-logo dra-align-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div class="dra-align-left dra-header-text"><h3>Rate this App</h3></div>     </div>     <div class="dra-body">         <div class="dra-select-label dra-font dra-label dra-center-text">             Select a rating to let us know how you liked the application experience.         </div>         <div class="dra-required-text dra-rating-required dra-align-right dra-hide">Required</div>         <div class="dra-ratings-container">             <ul class="dra-rating">                 <li><a class="dra-rating-selection" data-rating="1" #">I do not like this. Please stop designing apps like this.</a></li>                 <li><a class="dra-rating-selection" data-rating="2" #">Nothing too new or interesting.</a></li>                 <li><a class="dra-rating-selection" data-rating="3" #">Not bad, I like it.</a></li>                 <li><a class="dra-rating-selection" data-rating="4" #">I would like to see more of this.</a></li>                 <li><a class="dra-rating-selection" data-rating="5" #">This is excellent! Build everything like this!</a></li>             </ul><div class="dra-font dra-rating-info" style="opacity: 0;"></div>         </div>         <div class="dra-dropdown dra-cursor-hover">             <a class="dra-dropdown-display">Select your location...</a><a class="dra-dropdown-arrow"></a>             <ul class="dra-hide">                 <li>I'm at a Deloitte office in the US.</li>                <li>I'm at a Deloitte office in India.</li>                <li>I'm at a Deloitte office in some other country.</li>                <li>I'm at a client's office.</li>                <li>I'm at some other location.</li>            </ul>        </div>         <div class="dra-feedback-label dra-font dra-label">             We appreciate your feedback. What did you think?         </div>         <div>             <textarea class="dra-rating-feedback dra-feedback-comment" type="text"></textarea>         </div>         <div>             <a>                 <div class="dra-send-button dra-button dra-blue-gradient dra-cursor-hover dra-align-left dra-thin-font">                     Send Feedback                 </div>             </a>             <a>                 <div class="dra-cancel-button dra-button dra-blue-gradient dra-cursor-hover dra-align-right dra-thin-font">                     Cancel                 </div>             </a>         </div>     </div> </div><div class="tooltip" style="opacity: 0;"></div><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div><div class="tooltip" style="opacity: 0;"></div><div class="tooltip" style="opacity: 0;"></div></body></html>

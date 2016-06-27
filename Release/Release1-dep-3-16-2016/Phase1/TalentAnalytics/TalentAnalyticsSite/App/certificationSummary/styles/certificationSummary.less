@@ -1,0 +1,119 @@
+﻿@import "../../core/styles/common";
+
+@charset "utf-8";
+
+/***************************less style starts***************************/
+@floatleft0: left;
+@floatright0: right;
+
+
+@width50Percent: 50%;
+@height0: 200px;
+
+@fluidity0: 100%;
+
+@font0: "OpenSansReg";
+@font1: normal;
+@font2: bold;
+@font3: 800;
+
+@color0: #eee;
+@color1: #00a1de;
+@color2: #b3e14d;
+@color3: #72c7e7;
+@color4: #666;
+@color5: #000000;
+@color6: #ccc;
+@color7: #fff;
+
+@display0: block;
+@display1: inline-block;
+
+@liststyle0: none;
+
+@margin0: 5px;
+
+@textaligncenter0: center;
+/**************************less style ends***************************/
+/* CSS Document */
+.certificates {
+    width: @fluidity0;
+    overflow-x: auto;
+    margin-left: @margin0*3px;
+    padding: 0;
+    overflow-y:hidden;
+    padding-top:10px;
+}
+
+.certificates ul, .certificates li {
+    padding: 0px;
+    margin: 0px;
+    list-style: @liststyle0;
+    text-align: center;
+}
+
+.certificates ul {
+}
+
+.certificates li {
+    width: 120px;
+    border: 1px solid @color2;
+    border-radius: @margin0;
+    height: 140px;
+    float: @floatleft0;
+    display: @display1;
+    margin: 9px;
+    margin-left: 0px;
+    /*margin-right: 20px;*/
+}
+
+.certificates li .certTitle {
+    width: @fluidity0;
+    background: @color2;
+    padding: 5px 0px;
+    color: @color7;
+    display: @display1;
+    font-weight: normal;
+    font-family:OpenSansBold;
+}
+
+.certificates li .certType {
+    width: @fluidity0;
+    color: @color2;
+    padding: 15px 0px;
+    display: @display1;
+    font-weight: normal;
+    font-family:OpenSansBold;
+    font-size: 13px;
+    margin-top:15px;
+}
+
+.certificates li .certEffctDate {
+    color: @color6;
+    padding: 10px 0px;
+    display: @display1;
+    font-weight: normal;
+    font-family:OpenSansSemiBold;
+    font-size: 12px;
+    margin-top:-10px;
+}
+
+::-webkit-scrollbar-button {
+    width: 8px;
+    height: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0px 0px 3px #dfdfdf inset;
+    border-radius: 2px;
+}
+::-webkit-scrollbar {
+    width: 8px;
+    height:10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border: 1px solid #c1c1c1;
+    border-radius: 10px;
+}

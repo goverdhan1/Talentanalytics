@@ -1,0 +1,81 @@
+﻿<div class="hcm-detailed-view-metrics-tree-view">
+    <!--Table-->
+    <div class="table-parts-wrapper header-wrapper-safari-fix">
+        <!--Table title-->
+        <div class="div-table-title table-text table-header">FY 2014</div>
+
+        <!--Table header-->
+        <div class="table-hide-scroll div-table js-fluid-table-header data-table-safari-fix">
+            <div class="div-table-row">
+                <div class="div-table-col table-header table-head-numbers" ng-repeat="item in values">{{getPeriod(item)}}</div>
+                <div class="fix-for-correct-showing-scrollbar-horizontal"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="table-parts-wrapper">
+        <!--Table menu-->
+        <div class="table-menu-wrapper">
+            <div class="div-table js-fluid-table-menu table-hide-scroll remove-top-border">
+                <!--Row first level-->
+                <div class="div-table-row js-menu_{{index1}}" data-ng-repeat-start="(index1, item) in data">
+                    <div ng-click="toggleDropdown(item)" ng-class="{'first-level-text': item.name != 'Beginning Headcount'}" class="div-table-col table-text js-drop-down">
+                        <div ng-if="item.children" class="fa drop-down-arrows" ng-class="{'fa-caret-right': !item.showChildren, 'fa-caret-down': item.showChildren}"></div>
+                        <span ng-class="{'selected-text': item.isSelected}">{{item.name}}</span>
+                    </div>
+                    <div class="div-table-col table-icon" ng-click="setSelected(index1)" ng-class="{'selected-icon': item.isSelected}">
+                        <div class="fa" ng-class="{'fa-area-chart': item.name != 'Net Change'}"></div>
+                    </div>
+                </div>
+                <!--Row second level-->
+                <div class="div-table-row js-menu_{{index1}}-{{index2}}" ng-if="item.showChildren" ng-repeat-start="(index2, children) in item.children">
+                    <div ng-click="toggleDropdown(children)" class="div-table-col table-text second-level-text js-drop-down">
+                        <div ng-if="children.children" class="fa drop-down-arrows" ng-class="{'fa-caret-right': !children.showChildren, 'fa-caret-down': children.showChildren}"></div>
+                        <span ng-class="{'selected-text': children.isSelected}">{{children.name}}</span>
+                    </div>
+                    <div class="div-table-col table-icon fa fa-area-chart" ng-click="setSelected(index1, index2)" ng-class="{'selected-icon': children.isSelected}"></div>
+                </div>
+                <!--Row third level-->
+                <div class="div-table-row js-menu_{{index1}}-{{index2}}-{{index3}}" data-ng-repeat-end ng-repeat-end ng-if="children.showChildren && item.showChildren" ng-repeat="(index3, secondChildren) in children.children">
+                    <div class="div-table-col table-text third-level-text">
+                        <div ng-if="secondChildren.children" class="fa drop-down-arrows" ng-class="{'fa-caret-right': !secondChildren.showChildren, 'fa-caret-down': secondChildren.showChildren}"></div>
+                        <span ng-class="{'selected-text': secondChildren.isSelected}">{{secondChildren.name}}</span>
+                    </div>
+                    <div class="div-table-col table-icon fa fa-area-chart" ng-click="setSelected(index1, index2, index3)" ng-class="{'selected-icon': secondChildren.isSelected}"></div>
+                </div>
+                <div class="div-table-row fix-for-correct-showing-scrollbar-vertical"></div>
+
+            </div>
+        </div>
+
+        <!--Table body-->
+        <div class="div-table remove-left-border remove-top-border js-fluid-table-body data-table-safari-fix">
+            <!--Row first level-->
+            <div class="div-table-row js-data_{{index1}}" data-ng-repeat-start="(index1, item) in data">
+                <div class="div-table-col table-data" ng-repeat="(valueIndex, value) in values">
+                    <div ng-switch="item.dataID">
+                        <div ng-switch-when="beginningHeadcount" class="table-data-beginning-headcount">{{value[item.dataID] || 0}}</div>
+                        <div ng-switch-when="netChange" class="table-data-net-change" ng-class="{positivevalue: isPositiveValue(value[item.dataID]), negativevalue: !isPositiveValue(value[item.dataID])}">{{value[item.dataID] || 0}}</div>
+                        <div ng-switch-default>
+                            <metric-grid-value value="{{value[item.dataID] || 0}}" maxval="300"></metric-grid-value>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Row second level-->
+            <div class="div-table-row js-data_{{index1}}-{{index2}}" ng-if="item.showChildren" ng-repeat-start="(index2, children) in item.children">
+                <div class="div-table-col table-data" ng-repeat="(valueIndex, value) in values">
+                    <metric-grid-value value="{{value[children.dataID]|| 0}}" maxval="300"></metric-grid-value>
+                </div>
+            </div>
+
+            <!--Row third level-->
+            <div class="div-table-row js-data_{{index1}}-{{index2}}-{{index3}}" data-ng-repeat-end ng-repeat-end ng-if="children.showChildren && item.showChildren" ng-repeat="(index3, secondChildren) in children.children">
+                <div class="div-table-col table-data" ng-repeat="(valueIndex, value) in values">
+                    <metric-grid-value value="{{value[secondChildren.dataID] || 0}}" maxval="300"></metric-grid-value>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

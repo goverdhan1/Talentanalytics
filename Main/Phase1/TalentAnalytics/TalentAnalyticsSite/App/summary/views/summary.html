@@ -1,0 +1,124 @@
+﻿<div class="summaryArea" ng-controller="SummaryController" ng-init="loadData()">
+    <div id="subheader">
+
+        <div id="subheaderleft">
+
+            <div id="detailbackbtn">
+                <a href="/#!/" class="backbtn">< Back</a>
+            </div>
+
+            <div id="subheaderpara">
+                <p>Employee Summary View</p>
+            </div>
+
+        </div>
+        <!-- exportButton starts here  -->
+        <export-button></export-button>
+        <!-- exportButton closes here  -->
+    </div>
+    <div class="col-xs-12 pad0px summaryContents">
+        <div class="smryLeftBar col-xs-3">
+            <div class="profilePic">
+                <img check-image ng-src="{{model.profileImg}}" />
+                <br />
+                <span class="EmpName">{{model.employeeName}}</span>
+            </div>
+            <div class="deviderBorderDark marB10px"></div>
+            <div class="colorWhite font14px textLeft padB10px">
+                <div class="font13px colorGrey">Employee Counselor Name</div>
+                {{model.empCounslerName}}
+            </div>
+
+            <div class="colorWhite font14px textLeft padT10px padB10px"><i class="fa fa-suitcase font16px colorGrey padR15px"></i>{{model.jobLevel}}</div>
+            <div class="colorWhite font14px textLeft padT10px padB10px"><i class="fa fa-map-marker font18px colorGrey padR20px"></i>{{model.location}}</div>
+            <div class="colorWhite font14px textLeft padT10px padB10px"><i class="fa fa-phone colorGrey font18px padR15px"></i>{{model.deskPhone}}</div>
+            <a href ng-click="redirect(model.dpnNetURL)"><div class="colorLightBlue font14px textLeft padT10px padB10px"><i class="fa fa-user colorLightBlue"></i><i class="fa fa-user colorLightBlue padR10px userSmallIconsummary"></i>DPN Profile</div></a>
+            <div class="deviderBorderDark"></div>
+
+
+            <div class="colorWhite font14px textLeft padT15px" ng-show="model.canDisplayPIIInformation">
+                <div class="font13px colorGrey">Home Address</div>
+                {{model.primaryAddressStreet1}}
+                <span ng-show="model.primaryAddressStreet2">,</span>
+                {{model.primaryAddressStreet2}}<br />
+                {{model.primaryAddressCity}}
+                <span ng-show="model.primaryAddressState">,</span>
+                {{model.primaryAddressState}} <br />
+                {{model.primaryAddressPostalCode}}
+                <span ng-show="model.primaryAddressCountryKey">,</span>
+                {{model.primaryAddressCountryKey}}
+            </div>
+
+            <div class="colorWhite font14px textLeft padT15px">
+                <div class="font13px colorGrey">Personnel Number</div>
+                {{model.personalNumber}}<span>&nbsp;</span>
+            </div>
+
+            <div class="colorWhite font14px textLeft padT15px" ng-show="model.canDisplayPIIInformation">
+                <div class="font13px colorGrey">Annual Salary</div>
+                {{model.annualSalary}}<span>&nbsp;</span>
+            </div>
+            <div class="colorWhite font14px textLeft padT15px">
+                <div class="font13px colorGrey">Original Hire Date</div>
+                {{model.hireDate | date:'MM/dd/yyyy'}}<span>&nbsp;</span>
+            </div>
+            <div class="colorWhite font14px textLeft padT15px">
+                <div class="font13px colorGrey">Anniversary Date</div>
+                {{model.anniversaryDate | date:'MM/dd/yyyy'}}<span>&nbsp;</span>
+            </div>
+            <div class="colorWhite font14px textLeft padT15px">
+                <div class="font13px colorGrey">Last Promotion Date</div>
+                {{model.lastPromotionDate | date:'MM/dd/yyyy'}}
+                <span>&nbsp;</span>
+            </div>
+            <div ng-show="model.canDisplayPIIInformation">
+                <!--<a track-navigation="Bonus Details Button|summary" class="blueBtn floatLeft" href="{{model.employeeBonusDetailsLink}}" target="_blank">Bonus Details</a>-->
+            </div>
+            <div class="clearfix"></div>
+            <div class="deviderBorderDark marT10px"></div>
+
+            <div class="catgryEdit">
+                <ul ng-model="displayFields">
+                    <li ng-repeat="label in displayFields">
+                        <div class="colorWhite font14px textLeft padT15px">
+                            <div class="font13px colorGrey">{{label.FIELD_LABEL}}</div>
+                            <span>{{SummaryEditViewData[label.FIELD_NAME]}}</span><span>&nbsp;</span>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <a class="floatLeft editView" href="javascript:void(0)" ng-class="{editViewGreen: open, editView: !open}" ng-click="toggleEditPopup()"><i class="fa fa-sliders padR5px"></i>Edit View</a>
+            <div class="editViewPop" ng-class="{popOpen: open, popClose: !open}">
+                <div class="selct5Fields">SELECT UPTO 5 FIELDS</div>
+                <ul>
+                    <li ng-repeat="field in EditViewFields">
+                        <input type="checkbox" name="{{field.FIELD_LABEL}}" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'"
+                               ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached && field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" />
+                        <span class="colorDarkGrey" ng-class="{'disabledText' : maxEditViewSelectionReached && field.CHECKED !== 'true'}">{{field.FIELD_LABEL}}</span>
+                    </li>
+                </ul>
+
+                <div class="col-xs-12 popApplyBtns textLeft">
+                    <a href="javascript:void(0)" class="btn btn-success applyBtn" ng-click="saveEditView(); toggleEditPopup()">Apply</a>
+                    <a href="javascript:void(0)" class="btn btn-default cancelBtn" ng-click="cancelEditView(); toggleEditPopup()">Cancel</a>
+                </div>
+            </div>
+        </div>
+        <!-- Left bar closed here  -->
+
+        <div class="smryContentArea col-xs-9 pad0px">
+            <div class="col-xs-12 summaryHeader">
+                <span class="font20px colorBlack floatLeft">Summary</span>
+                <a track-navigation="Detailed View Button|summary" class="btn btn-default colorBlack marL20px floatLeft" href="/#!/detailedView/{{employeeId}}/basicInfo">Detailed View</a>
+
+                <emp-search class="summarySearch" results-per-page="5"></emp-search>
+
+            </div>
+            <div class="row" ng-repeat="directivesInARow in summaryRightLayoutItems">
+                <summary-layout-directive directive-name="{{directiveName}}" ng-repeat="directiveName in directivesInARow"></summary-layout-directive>
+            </div>
+
+        </div>
+    </div>
+</div>

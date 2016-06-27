@@ -1,0 +1,1341 @@
+﻿/****************************
+    CONSTANTS
+ ***************************/
+@popup-width: 984px;
+@color-blue: #00A1DE;
+@left-cnt-width: 332px;
+
+ul.tree {
+    list-style: none;
+
+    .fa-expand-menu {
+        background: white;
+        font-size: 17px;
+        color: #72C7E7;
+    }
+
+    .exp-col {
+        font-size: 18px;
+        color: #72C7E7;
+    }
+
+    .fa-plus-square:before {
+        .fa-expand-menu;
+        content: "\f0fe";
+    }
+
+    .fa-minus-square:before {
+        .fa-expand-menu;
+        content: "\f146";
+    }
+}
+
+.hierarchymargin {
+    margin-left: -40px;
+}
+
+ul.tree > li > span {
+    cursor: pointer;
+}
+
+.tree {
+    line-height: 35px;
+    white-space: nowrap;
+}
+
+.hcmf-Header {
+    display: block;
+    float: left;
+    padding: 21px 0 21px 14px;
+    width: 98%;
+
+    p {
+        display: inline;
+        float: left;
+        font-size: 24px;
+        margin: 0;
+        font-family: 'OpenSansLight';
+        color: #222222;
+        line-height: 36px;
+    }
+
+    .saveas {
+        float: right;
+        font-size: 14px;
+        color: @color-blue;
+        line-height: 20px;
+        text-align: center;
+        margin-top: 5px;
+        font-family: 'OpenSansSemiBold';
+        margin-left: 27px;
+    }
+
+    .saveitem {
+        float: right;
+        font-size: 14px;
+        color: @color-blue;
+        line-height: 20px;
+        text-align: center;
+        margin-top: 5px;
+        font-family: 'OpenSansSemiBold';
+    }
+
+    .disable-link {
+        pointer-events: none;
+        cursor: default;
+    }
+}
+
+.save-as-dialog {
+    width: 632px !important;
+
+    .s-a-hd {
+        border-bottom: 1px solid #f2f2f2;
+    }
+
+    .s-a-body {
+        padding: 0 0 0 28px;
+        margin-top: 20px;
+    }
+
+    .s-a-footer {
+        margin-left: 14px;
+    }
+
+    .txt-filter-name {
+        border: 1px solid #DEDEDE;
+        border-radius: 3px;
+        width: 577px;
+        height: 40px;
+        margin-top: 17px;
+        font-family: OpenSansReg;
+        font-size: 14px;
+        color: #222222;
+        line-height: 19px;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    .s-a-btn {
+        float: left !important;
+        padding: 9px 19px 9px 19px !important;
+        width: auto !important;
+    }
+
+    .s-a-hd1 {
+    }
+}
+
+.modal {
+    display: block;
+}
+
+.modal-dialog {
+    width: @popup-width;
+}
+
+.modal-content {
+    width: 984px !important;
+    height: 700px !important;
+}
+
+.modalsave {
+    width: 632px !important;
+    height: 300px !important;
+}
+
+.modalsave label {
+    font-family: OpenSansReg;
+    font-size: 14px;
+    color: #222222;
+    line-height: 19px;
+}
+
+.modal-header {
+    display: block;
+    float: left;
+    width: @widthFullBleed;
+    border: none;
+}
+
+.modal-body {
+    float: left;
+    padding: 0;
+    width: @widthFullBleed;
+}
+.modal-body .error-msg {
+    color: #f00;
+position:relative;
+top:5px;
+    }
+.hcmf-left-cnt {
+    background: #F7F7F7;
+    border: 1px solid #DCDCDC;
+    box-shadow: inset -1px 0 0 0 #DCDCDC;
+    width: @left-cnt-width;
+    height: 515px;
+    float: left;
+
+    .attr-sel-val-count {
+        float: right;
+        font-size: 13px;
+        color: #ccc;
+    }
+
+    .inner-section {
+        float: left;
+        padding: 17px 10px 21px 22px;
+        border-bottom: 1px solid #e5e5e5;
+        width: 100%;
+        background: #f7f7f7;
+        height: 76px;
+    }
+
+    .innerheight {
+        height: 44px;
+        padding-top: 1px;
+    }
+
+    .left-nav {
+        padding-left: 0;
+        padding-right: 0;
+        overflow-y: scroll;
+        border-bottom: none !important;
+
+        ul {
+            padding: 0;
+        }
+
+        ul li {
+            /*background: #00A1DE;*/
+            padding: 0;
+
+            a {
+                /*color: #575757;*/
+                font-family: OpenSansReg;
+                font-size: 13px;
+                line-height: 42px;
+                padding-left: 15px;
+                width: 100%;
+                float: left;
+                clear: both;
+                color: #575757;
+
+               
+               
+            }
+
+            a:active, .selected {
+                background: #00A1DE;
+                color: #fff;
+
+                 
+            }
+        }
+    }
+
+    .nav-seleteditems {
+        font-weight: bold;
+
+        .attribute-wrap {
+                    width: 70%;
+                    display: inline-block;
+                    float: left;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+
+
+    }
+
+    label {
+        font-size: 10px;
+        color: #B4B4B4;
+        line-height: 14px;
+        text-align: right;
+        margin-right: 10px;
+        font-family: OpenSansReg;
+        margin-top: -28px;
+    }
+}
+
+.crbutton-left {
+    position: absolute !important;
+    top: 26% !important;
+    left: 84% !important;
+}
+
+.hcmf-left-search {
+    position: absolute !important;
+    top: 27% !important;
+    left: 3% !important;
+}
+
+.hcm-filteredit {
+    .hcmf-edit-filtertext {
+        position: absolute;
+        left: 3% !important;
+        font-size: 16px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        width: 40%;
+        padding: 10px;
+    }
+
+    .crbuttonedit {
+        float: right;
+        outline: none;
+        cursor: pointer;
+        color: #B4B4B4;
+        font-size: 14px;
+        margin-top: 9px;
+        border: none;
+        background: transparent;
+    }
+
+    .crbuttoneidt-left {
+        position: absolute !important;
+        top: 5% !important;
+
+        .fa-pencil {
+            font-size: 14px !important;
+            color: #B4B4B4 !important;
+            line-height: 14px !important;
+            text-align: right !important;
+            margin-top: 3px !important;
+            margin-left: 14px !important;
+        }
+    }
+}
+
+.searchClose-left {
+    position: absolute !important;
+    top: 40% !important;
+    left: 85% !important;
+}
+
+.hcmf-left-label {
+    font-family: OpenSansReg;
+    font-size: 16px;
+    color: #222222;
+    line-height: 22px;
+}
+
+.filterdatesummarypopup {
+    margin-top: -16px !important;
+}
+
+.hcmf-right-cnt {
+    width: @popup-width - @left-cnt-width - 5px;
+    float: left;
+    border: 1px solid #DCDCDC;
+    height: 515px;
+    font-family: OpenSansReg;
+
+    .right-cnt-scroll {
+        overflow-y: scroll;
+        height: 430px !important;
+        font-family: OpenSansReg;
+        font-size: 14px;
+        color: #222222;
+        line-height: 20px;
+        text-align: left;
+        position: relative;
+    }
+
+    .right-cnt-scroll-hier {
+ height: 360px !important;
+ }
+ 
+.heightFix{height:360px !important;}
+
+    .bg-cl-fff {
+        background-color: #FFF;
+    }
+
+    .bg-cl-E5E5E5 {
+        background-color: #E5E5E5;
+    }
+
+    .inner-section {
+        float: left;
+        padding: 17px 10px 21px 22px;
+        height: 76px;
+        border-top: 1px solid #e5e5e5;
+        width: 100%;
+        background: #fff;
+
+        .i-or-e {
+            padding: 0;
+            margin-left: 142px;
+        }
+
+        select {
+            float: left;
+            margin-left: 15px;
+            border-radius: 4px;
+            padding-left: 6px;
+            padding-right: 23px;
+            border: 1px solid #DCDCDC;
+            width: 241px;
+            height: 32px;
+            font-family: OpenSansReg;
+            -webkit-appearance: none; /*Removes default chrome and safari style*/
+            -moz-appearance: none; /* Removes Default Firefox style*/
+            background: url('/headcount/images/dropdown_arrow.png') no-repeat; /*Adds background-image*/
+            background-position: 215px 6px; /*Position of the background-image*/
+            background-size: 18px 18px;
+            text-indent: 0.01px; /* Removes default arrow from firefox*/
+            text-overflow: ""; /*Removes default arrow from firefox*/
+            cursor: pointer;
+        }
+    }
+
+    .select-all {
+        float: left;
+        margin-left: 122px;
+        font-family: OpenSansReg;
+        font-size: 10px;
+        color: #00A1DE;
+        line-height: 14px;
+        margin-top: -10px;
+
+        a {
+            color: #00A1DE;
+        }
+
+        span {
+            color: #e5e5e5;
+        }
+    }
+}
+
+.toprightfiltersection {
+    padding-top: 25px !important;
+}
+
+.filterrightmainheading {
+    font-family: OpenSansReg;
+    font-size: 13px;
+    color: #222222;
+    line-height: 22px;
+    width: 30%;
+}
+
+.filter-search {
+    position: relative;
+    background: @greybg;
+
+    label {
+        font-family: OpenSansReg;
+        font-size: 14px;
+        color: #222222;
+        line-height: 19px;
+    }
+
+    .switch-btn {
+        margin-top: -6px;
+    }
+
+    div {
+        padding: 12px 0;
+    }
+
+    input {
+        font-size: 16px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        width: 80%;
+        padding: 10px;
+        position: relative;
+    }
+
+    .searchClose {
+        /*position: relative;*/
+        cursor: pointer;
+        color: #03adf8;
+        font-family: OpenSansReg;
+        font-size: 14px;
+    }
+
+    .crbutton {
+        float: right;
+        outline: none;
+        cursor: pointer;
+        color: #fff;
+        margin-right: 10px;
+        margin-top: 12px;
+        border: none;
+        background: url('/headcount/images/Search-Icon-big.png') no-repeat;
+        background-size: 20px 20px;
+    }
+}
+input::-ms-clear {
+    display: none;
+}
+.searchrightpopup {
+    padding-top: 0 !important;
+
+    input {
+        margin-top: -3px;
+        position: relative;
+        left: 20px;
+        width: 84%;
+        margin-right: 20px;
+    }
+
+    span {
+        top: 10px;
+        margin-left: 10px;
+    }
+}
+
+.switch-btn {
+    font-family: 'OpenSansSemiBold' !important;
+    font-size: 13px;
+    color: #222;
+    line-height: 18px;
+
+    .s-b-c {
+        border: 1px solid #DCDCDC;
+        width: 84px;
+        text-align: center;
+        padding: 4px;
+        float: left;
+        height: 32px;
+    }
+
+    .left-btn {
+        .s-b-c;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        height: 32px;
+        outline: none;
+        margin-left: 5px;
+    }
+
+    .right-btn {
+        .s-b-c;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        height: 32px;
+        outline: none;
+    }
+}
+
+.switch-btn-act {
+    background-color: #FFF;
+}
+
+.switch-btn-inact {
+    background-color: #E5E5E5;
+}
+
+.saved-filter-select {
+    box-shadow: none !important;
+    border: none !important;
+    margin-top: -24px !important;
+    height: 28px !important;
+    padding-left: 33px !important;
+}
+
+.form-control {
+    padding: 0 !important;
+    padding-left: 33px !important;
+}
+
+ul li {
+    list-style: none;
+}
+
+.left {
+    float: left !important;
+}
+
+.right {
+    float: right !important;
+}
+
+/******* TREE VIEW STYLES ********/
+/* Styles go here */
+
+.tree-view-wrapper, .tree-view-wrapper ul {
+    list-style: none;
+
+    .fa-expand-menu {
+        background: white;
+        font-size: 17px;
+        color: #72C7E7;
+    }
+
+    .fa-plus-square:before {
+        .fa-expand-menu;
+        content: "\f0fe";
+    }
+
+    .fa-minus-square:before {
+        .fa-expand-menu;
+        content: "\f146";
+    }
+}
+
+.show-hide, .edit {
+    cursor: pointer;
+}
+
+.tree-checkbox {
+    margin: 8px 6px 6px 6px !important;
+    width: 15px;
+    height: 15px;
+}
+
+input[type=checkbox]:before {
+    background: #fff;
+    font-family: FontAwesome;
+    text-rendering: auto;
+    float: left;
+}
+
+.edit {
+    margin-right: 6px !important;
+}
+
+.edit i {
+    color: #D77105;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.onclick-menu:before {
+    content: '' !important;
+    font-size: 10px !important;
+    margin-left: 14px !important;
+}
+
+@widthLeftRight: 50%;
+@widthFullBleed: 100%;
+@greybg: #F7F7F7;
+
+#customizeView {
+    width: @widthFullBleed;
+    float: left;
+    display: block;
+
+    .CustomizeViewHeader {
+        font-size: 24px;
+        background: @greybg;
+    }
+}
+
+.customizeViewRight, .customizeViewLeft {
+    float: left;
+    padding-left: 5%;
+    width: @widthLeftRight;
+    border-bottom: 1px solid #e5e5e5;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.customizeViewLeft {
+    float: left;
+    border-right: 1px solid #e5e5e5;
+    background: @greybg;
+}
+
+.innerHeader {
+    font-size: 16px;
+    padding: 20px 5px 20px 0;
+    float: left;
+    width: @widthLeftRight;
+    padding-left: 5%;
+    border-right: 1px solid #e5e5e5;
+    height: 60px;
+}
+
+.customizeItems, .sortItems {
+    height: 400px;
+    overflow-y: scroll;
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        font-weight: normal !important;
+
+        label {
+            font-weight: normal !important;
+        }
+
+        label.selectedField {
+            background-image: url("/headcount/images/checkbox_checked.png");
+            background-repeat: no-repeat;
+            background-position: 0;
+            background-size: 13px;
+            padding-right: 10px;
+
+            input {
+                padding-left: -10px;
+                visibility: hidden;
+            }
+        }
+    }
+}
+
+.sortDataItem {
+    display: inline;
+    background-image: url("/headcount/images/icon-reorder-list-default.png");
+    background-repeat: no-repeat;
+    padding-left: 25px;
+    background-position: 0;
+}
+
+.sortItems {
+    li {
+        padding: 5px;
+        margin: 0 10px 0 0;
+        border-top: 1px solid #e5e5e5;
+        cursor: default;
+    }
+
+    li:last-child {
+        border-bottom: 1px solid #e5e5e5;
+    }
+}
+
+.cancelbtnfooter {
+    margin-left: 1%;
+}
+
+.btn-primary {
+    width: 87px;
+    background-color: #81bc00;
+}
+
+.subHeader {
+    width: @widthFullBleed;
+    float: left;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-footer {
+    font-family: 'OpenSansSemiBold';
+    font-size: 14px;
+    color: #222222;
+    line-height: 19px;
+
+    .btn {
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+
+    .btn-default {
+        background-color: #fff;
+    }
+
+    .filtercountfooter {
+        display: inline-block;
+        color: #313131;
+        font-size: 14px;
+        margin-left: 71%;
+        margin-top: 26px;
+        float: left;
+    }
+}
+
+/*************/
+a {
+    cursor: pointer;
+}
+
+.mt22 {
+    margin-top: 22px;
+}
+
+.ht431 {
+    height: 436px !important;
+}
+
+.padd0 {
+    padding: 0;
+}
+
+.fz24 {
+    font-size: 24px !important;
+}
+
+.dateFilterTitle {
+    background: #00a1de !important;
+    height: 40px !important;
+    margin: 10px 0;
+    padding: 10px !important;
+}
+
+.dateFilterTitle a {
+    color: #fff;
+}
+
+.chartScale {
+    color: #666;
+}
+
+.chartScaleText {
+    font-family: OpenSansReg;
+    font-size: 14px;
+    color: #8C8C8C;
+    line-height: 20px;
+    padding: 10px 0;
+}
+
+.chartScale ul {
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.chartScaleCustom ul {
+    border-bottom: none;
+}
+
+.chartScale ul li {
+    padding: 3px 0px;
+    margin: 0px;
+    line-height: 25px;
+    list-style: none;
+    font-family: OpenSansReg;
+    font-size: 14px;
+    color: #333333;
+}
+
+.chartScale ul li:last-child {
+    margin-bottom: 20px;
+}
+
+.chartScaleCustom .error-mesege{
+    color: #ff0000;
+    margin-left:15px;
+}
+
+.chartScale ul li label {
+    font-weight: normal;
+}
+
+.datepicker, .datepicker-dropdown {
+    z-index: 100000 !important;
+}
+
+.dateFileterSubTitle {
+    height: 76px;
+    padding: 30px 10px;
+    border-bottom: 1px solid #eee;
+    font-family: OpenSansReg;
+    font-size: 16px;
+    color: #222222;
+    line-height: 22px;
+}
+
+.dateFileterViews {
+    padding: 0;
+    height: 438px;
+    border-right: 1px solid #eee;
+}
+
+.dateFileterViews ul {
+    padding: 0;
+    margin: 0;
+    margin-top: 17px;
+}
+
+.dateFileterViews ul li {
+    padding: 14px;
+    margin: 0;
+    list-style: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: OpenSansReg;
+}
+
+.dateFileterViews ul li span {
+    color: #999;
+    float: right;
+    padding: 0 20px;
+}
+
+.dateFileterViewsActive {
+    background: #00a1de;
+    color: #fff;
+    font-size: 14px;
+}
+
+.tabsActive, .dateFileterViews ul li:hover, .tabsActive span.rightArrow, .dateFileterViews ul li:hover span {
+    background: #00a1de;
+    color: #fff;
+    font-size: 14px;
+}
+
+.standardViews p {
+    font-family: OpenSansReg;
+    font-size: 14px;
+    color: #8C8C8C;
+    line-height: 22px;
+}
+
+.standardViews {
+    overflow-y: auto;
+    height: 413px;
+}
+
+input[type=radio] {
+    vertical-align: sub;
+    height: 15px;
+    width: 15px;
+    margin-right: 6px;
+}
+
+input[type=radio]:checked::before {
+    /*content: url('/headcount/images/radioButtonCheckedBlue.png');*/
+}
+
+input[type=radio]::before {
+    /*content: url('/headcount/images/radioButtonBgGray.png');*/
+}
+
+.changeEndDateSelect, .changeEndDate {
+    margin-top: 15px;
+}
+
+.changeEndDate select {
+    border: 1px solid #dcdcdc;
+    width: 150px;
+    border-radius: 4px;
+    padding: 5px;
+    -webkit-appearance: none; /*Removes default chrome and safari style*/
+    -moz-appearance: none; /* Removes Default Firefox style*/
+    background: url('/headcount/images/dropdown_arrow.png') no-repeat; /*Adds background-image*/
+    background-position: 125px 4px; /*Position of the background-image*/
+    background-size: 18px 18px;
+    text-indent: 0.01px; /* Removes default arrow from firefox*/
+    text-overflow: ""; /*Removes default arrow from firefox*/
+    cursor: pointer;
+}
+
+.custom-fiscal-year select {
+    width: 80px !important;
+    background-position: 55px 4px !important;
+}
+
+.disabledefaultdropdown::-ms-expand {
+    display: none;
+}
+
+.filterrightmainselect::-ms-expand {
+    display: none;
+}
+
+.changeEndDate select:disabled {
+    border: 1px solid #f2f2f2;
+    color: #ccc;
+    background: url('/headcount/images/dropdown_arrow_light.png') no-repeat;
+    background-size: 18px 18px; /*Adds background-image*/
+    background-position: 125px 4px;
+}
+
+.changeEndDateSelect span {
+    display: inline-block;
+    font-family: OpenSansReg;
+    font-size: 14px;
+    color: #222222;
+    line-height: 20px;
+    text-align: left;
+}
+
+.customDateRangeText {
+    font-family: OpenSansReg;
+    font-size: 14px;
+    color: #8C8C8C;
+    line-height: 20px;
+    margin-top: 10px;
+}
+
+label {
+    font-weight: normal !important;
+}
+
+.ui-datepicker {
+    width: auto;
+    background: #fff;
+    -webkit-box-shadow: 0px 0px 28px -5px rgba(0,0,0,0.62);
+    -moz-box-shadow: 0px 0px 28px -5px rgba(0,0,0,0.62);
+    box-shadow: 0px 0px 28px -5px rgba(0,0,0,0.62);
+}
+
+.ui-datepicker tbody tr td {
+    border: none !important;
+}
+
+.ui-datepicker table tr td a {
+    border: none !important;
+    background: none !important;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.ui-datepicker table tr td a:hover {
+    background: #eee !important;
+    border-radius: 4px;
+    color: #1c94c4;
+}
+
+.ui-datepicker table tr td a.ui-state-active {
+    background: #81bc00 !important;
+    border-radius: 4px;
+    color: #fff !important;
+}
+
+.ui-datepicker table {
+    padding: 5px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.ui-datepicker table th {
+    text-align: center;
+    color: #999;
+    padding: 5px;
+}
+
+.ui-datepicker-header, .ui-datepicker-header a {
+    background: none !important;
+    color: #333;
+    border: none;
+    text-align: center;
+    padding: 8px;
+    font-size: 18px;
+}
+
+.ui-datepicker-header .ui-datepicker-prev span, .ui-datepicker-header .ui-datepicker-next span {
+    display: none;
+}
+
+.ui-datepicker-header a.ui-datepicker-prev {
+    position: absolute;
+    text-align: left;
+    left: 0px;
+    width: 20px;
+    color: #ccc;
+    font-size: 20px;
+    top: 0px;
+}
+
+.ui-datepicker-header a.ui-datepicker-prev:hover {
+    border: none;
+    background: none;
+    color: #1c94c4;
+}
+
+.ui-datepicker-header a.ui-datepicker-prev:before {
+    content: "<";
+}
+
+.ui-datepicker-header a.ui-datepicker-next {
+    position: absolute;
+    text-align: right;
+    right: 10px;
+    width: 20px;
+    color: #ccc;
+    font-size: 20px;
+    top: 0px;
+}
+
+.ui-datepicker-header a.ui-datepicker-next:hover {
+    border: none;
+    background: none;
+    color: #1c94c4;
+}
+
+.ui-datepicker-header a.ui-datepicker-next:before {
+    content: ">";
+}
+
+input.date-picker {
+    width: 100%;
+    height: 30px !important;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background: url(/headcount/images/calenderIcon.png) no-repeat;
+    background-size: 15px;
+    background-position: 150px;
+    font-family: OpenSansReg;
+    font-size: 14px;
+    color: #8C8C8C;
+    line-height: 19px;
+}
+
+input.date-picker:focus {
+    background: url(/headcount/images/calenderIconBlue.png) no-repeat;
+    background-size: 15px;
+    background-position: 150px;
+    border: 1px solid #0088cc;
+    outline: none;
+}
+
+/*datefilter radiobtn css starts*/
+input[type=radio].datefilterradio {
+    position: absolute;
+    z-index: -1000;
+    left: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+input[type=radio].datefilterradio + label.datefilterlabel {
+    padding-left: 26px;
+    height: 15px;
+    display: inline-block;
+    line-height: 15px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    font-family: OpenSansReg;
+    font-size: 14px;
+    color: #333333;
+    line-height: 15px;
+}
+
+input[type=radio].datefilterradio:checked + label.datefilterlabel {
+    background-position: 0 -15px;
+}
+
+label.datefilterlabel {
+    background-image: url(/headcount/images/radioButton_sprites.png);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/*datefilter radiobtn css ends*/
+
+/*datefilter checkbox css starts*/
+input[type=checkbox].datefiltercheckbox {
+    position: absolute;
+    z-index: -1000;
+    left: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+input[type=checkbox].datefiltercheckbox + label.datefiltercheckboxlabel {
+    padding-left: 26px;
+    height: 15px;
+    display: inline-block;
+    line-height: 15px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    font-family: OpenSansReg;
+    font-size: 14px;
+    color: #333333;
+    line-height: 15px;
+}
+
+input[type=checkbox].datefiltercheckbox:checked + label.datefiltercheckboxlabel {
+    background-position: 0 -15px;
+}
+
+input[type=checkbox].datefiltercheckbox:indeterminate + label.datefiltercheckboxlabel {
+  background-position: 0 -30px;
+}
+
+label.datefiltercheckboxlabel {
+    background-image: url(/headcount/images/checkbox_sprites.png);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+       -ms-user-select: none;
+    user-select: none;
+}
+
+#fiscalyearperiodshow {
+    margin-left: 10px;
+}
+
+.fiscalyearperiodshow {
+    margin-top: 0;
+    margin-bottom: -13px;
+}
+
+.fiscalyearperiodshowselect {
+    margin-bottom: 10px;
+}
+
+#showcalendardates {
+    padding-left: 10px;
+    margin-top: -8px;
+}
+
+#showcalendardates input.date-picker {
+    background-position: 145px;
+}
+
+/*datefilter checkbox css ends*/
+.promptModal {
+    width: 600px !important;
+    height: 150px !important;
+    text-align: center;
+}
+
+.okBtn {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+}
+
+.date-select-error {
+    border: 1px solid #ccc;
+    color: #ff0000;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    left: 40%;
+    top: 25px;
+    width: 300px;
+}
+
+.date-select-error-saveAs {
+    border: 1px solid #ccc;
+    color: #ff0000;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    left: 40%;
+    bottom: 20px;
+    width: 300px;
+}
+
+.tatypeahead {
+    position: relative;
+    left: 20px;
+    width: 84%;
+    padding: 20px;
+    padding: 20px !important;
+    max-height: 370px !important;
+    overflow: auto;
+}
+
+.tatypeahead-content {
+    padding: 0px !important;
+    border-bottom: 1px solid #eee;
+    padding-left: 10px !important;
+}
+
+.tatypeahead-content:hover {
+    background: #f9f9f9;
+    cursor: pointer;
+}
+
+.tatypeahead-content div {
+    padding: 5px 0 !important;
+}
+
+.search-checkbox {
+    width: 20px !important;
+    display: inline-block !important;
+}
+
+.searchrightpopup .pagination-button {
+    position: relative;
+    top: -15px;
+}
+
+.search-tree-level {
+    padding-bottom: 6px;
+    display: inline-block;
+    color: #ccc;
+}
+
+.hcm-paypct-filter-wrapper {
+    .error-mesege {
+        color: #f00;
+    }
+
+    .text-input {
+        padding-left: 5px!important;
+        width: 102px;
+        margin-left: 10px;
+        display: inline-block;
+    }
+
+    .text-input-title {
+        margin-left: 20px;
+    }
+}
+
+.mask {
+    position:           absolute;
+    z-index:            1;
+    top:                0;
+    left:               0;
+    width:              100%;
+    height:             100%;   
+    background-color:   rgba(0,0,0,0.15);
+    
+    .lable {
+
+        font-size: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
+        width: 300px;
+        height: 100px;
+
+        .lable-elements {
+            float: left;
+            position: relative;
+        }
+
+        .lable-elements-margins {
+            margin-left: 20px;
+        }
+    }
+
+}
+
+.info-text {
+    font-family: OpenSansReg;
+    font-size: 14px;
+    color: #8c8c8c;
+    line-height: 22px;
+}
+
+.info-bordered{
+    height: 75px;
+    margin: -30px 0 -30px -4px;
+    border-left: 1px solid #dcdcdc;
+    padding-top: 4px;
+}

@@ -1,0 +1,56 @@
+﻿<div class="modal" ng-init="loadDataCustomizeView()">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="CustomizeViewHeader">
+                    <p>{{viewTitle}}</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">×</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="customizeView">
+                    <link rel="stylesheet" type="text/css" href="App/customizeView/styles/customizeView.css">
+                    <div class="subHeader">
+                        <div class="customizeTableSearch innerHeader">
+                            <div ng-hide="searchOpen">{{searchLabel}}</div>
+                            <input placeholder="Search" ng-model="userQuery" ng-show="searchOpen" />
+                            <button ng-click="searchOpen = !searchOpen" ng-hide="searchOpen" class="crbutton"></button>
+                            <span data-ng-click="userQuery = ''; searchOpen = !searchOpen" ng-show="searchOpen" class="searchClose">Cancel</span>
+                        </div>
+                        <div class="innerHeader">{{selectedFieldLabel}}</div>
+                    </div>
+
+                    <div class="customizeViewLeft">
+
+                        <div class="customizeItems">
+                            <ul>
+                                <li ng-repeat="viewDetail in customizeViewModel | filter:{FIELD_LABEL:userQuery}">
+                                    <label ng-class="(viewDetail.CHECKED)?'selectedField':''">
+                                        <input class="customizeItem" type="checkbox" ng-model="viewDetail.CHECKED"
+                                               ng-click="updateDisplayFields(viewDetail,viewDetail.CHECKED)"> <span class="customizeItemLabel">{{viewDetail.FIELD_LABEL}}</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="customizeViewRight">
+
+                        <div class="sortItems">
+                            <ul ui-sortable ng-model="sortViewModel">
+                                <li ng-repeat="viewDetail in sortViewModel" ng-show="viewDetail.CHECKED"
+                                    ng-class="{'selected': models.selected === viewDetail}"
+                                    tabindex="viewDetail.FIELD_ORDER">
+                                    <div class="sortDataItem">{{viewDetail.FIELD_LABEL}}</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="cancel()">{{cancelLabel}}</button>
+                <button type="button" class="btn btn-primary" ng-click="Apply()">{{applyLabel}}</button>
+            </div>
+        </div>
+    </div>
+</div>

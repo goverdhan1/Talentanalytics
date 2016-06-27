@@ -1,0 +1,248 @@
+﻿
+@charset "utf-8";
+/* CSS Document */
+@page {
+  size: auto;
+  /* auto is the initial value */
+  margin: 0;
+  /* this affects the margin in the printer settings */
+}
+body {
+    margin: 0 auto;
+    margin: 0;
+    padding: 0;
+}
+#wrapper{
+    width: 100% !important;
+    padding:0px !important;
+    float:left;
+}
+.todHeader .dnetHeader .nav-bar{
+    border: 0px solid #92d400;
+    position: relative;
+    z-index: 195;
+    float: right;
+    display: block;
+    font-size: 16px;
+
+}
+.todHeader .dnetHeader {
+    padding: 5px 5px;
+    height: 40px;
+    position: relative;
+    padding-left: 55px;
+    background-image: url("/images/download.gif") !important;
+  background-repeat: no-repeat !important;
+    background-position: left !important;
+}
+.todHeader .dnetHeader .nav-bar{
+        top: -8px;
+}
+.nb-menu-noHover{display:block; color:#012877;  font-size:14px; float:left; top:-15px; border:none;}
+.todHeaderBar {
+    width: 100.2% !important;
+    float:left;
+    margin-left:-1px;
+   height: 60px;
+    background-color: #1a1a1a !important;
+    border-bottom: 2px solid #92d400;
+}
+.todHeaderInner .logo-text2 {
+    color: #fff !important;
+    font-size: 20px;
+    position: relative;
+    display: inline-block;
+}
+#subheaderpara p {
+    font-size: 13px;
+    color: #fff !important;
+    font-family: "OpenSansSemiBold";
+}
+#subheader{
+ background-color: #00a1de !important;
+}
+/*.summaryArea{
+    position:absolute;
+}*/
+
+#detailbackbtn{
+    display:none;
+}
+#subheaderright{
+    display:none;
+}
+.btn.btn-default.colorBlack.marL20px.floatLeft.ng-isolate-scope{
+    display:none;
+}
+.compensation-history-heading {
+    width:250px !important;
+
+}
+.pdfdatewidth{
+ width:100px !important;
+}
+.pdfbreakwidth{
+    width:130px !important;
+    padding-left:5px;
+}
+.collapseActivityHistory{
+    overflow-y:visible !important;
+    padding: .5px !important;
+    margin: 0 !important;
+    height:auto !important;
+}
+
+.pdfspacealign{
+    padding-left:10px;
+}
+.textwordwrap {
+    padding-left:20px;
+}
+.pad0px.listStyleNone.displayBlock{
+    height:auto !important;
+}
+.floatLeft.colorBlue.marT5px{
+    display:none;
+}
+.jobHistory .collapseJobHistory {
+    overflow-y: visible;
+}
+.jobHistory ul{
+    height:auto !important;
+}
+.floatLeft.colorBlue.ng-hide{
+     display:none;
+}
+
+.smryLeftBar{
+    float: left;
+    padding: 20px;
+    background: #313131 !important;
+     max-height:auto;
+
+}
+.button-currency-seleted{
+    background-color:#adadad !important;
+}
+.button-currency-unseleted{
+    background-color:#fff !important;
+}
+.activityhistory{
+    page-break-inside: avoid;
+}
+.pad0px.listStyleNone.ng-scope{
+    page-break-inside: avoid;
+}
+
+.certificates{
+    width: 130%;
+    overflow-x: auto;
+    margin-left: 15px;
+    padding: 0;
+    overflow-y: hidden;
+    padding-top: 10px;
+    page-break-inside: avoid;
+    }
+
+.floatLeft.colorBlue{
+    display:none;
+}
+.colorWhite {
+    color: #fff !important;
+    padding-left:10px;
+}
+
+.detailedViewTable{
+    overflow-x:auto;
+    max-height: 100% !important;
+    min-height: 250px;
+}
+.datatablegrid {
+    position:relative;
+    display:block;
+}
+
+.detail-view-data-table-block {
+     display: inline-block;
+     float:left;
+    line-height: 2;
+    margin-bottom:50px;
+}
+
+.detail-view-data-table-rows{
+    border-bottom:1px solid #dcdcdc;
+    height: 40px;
+    color: #575757!important;
+    font-size: 12px!important;
+    padding-left: 6px;
+    padding-right: 4px;
+}
+}
+.detail-view-data-table-header{    
+    page-break-inside: avoid;
+    white-space: nowrap!important;
+    border-bottom: 2px solid #ddd;
+    background-color: #f2f2f2!important;
+    padding:3px 5px;
+    }
+.detail-view-data-table-header a{
+    color: #8c8c8c!important;
+    font-size: 12px!important;
+    font-weight: bold;
+}
+
+.EmpName {
+    color: #fff !important;
+    font-size: 24px;
+    font-family: "OpenSansLight";
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 0 5px 0;
+    display: inline-block;
+}
+.certificates li .certTitle {
+    background: #b3e14d !important;
+    color: #fff !important;
+}
+.certificates li .certType {
+    color: #b3e14d !important;
+}
+.colorWhite span.ng-binding {
+  color: #fff !important;
+}
+.pdfcommaclr{
+  color: #fff !important;
+}
+.custmizebtn{
+    display:none;
+}
+#custconsoleview{
+    display:none;
+}
+.glyphicon.sorticongrey.fa.fa-sort{
+  display:none;
+}
+.glyphicon.sorticongrey.fa.fa-sort-down{
+  display:none;
+}
+.colorLightBlue.font14px.textLeft.padT10px.padB10px{
+    display:none;
+}
+.blueBtn.floatLeft.ng-isolate-scope{
+    display:none;
+}
+.floatLeft.editView{
+    display:none;
+}
+#subheaderleft .homebtn{
+    display:none;
+}
+.detdiv.detailview-dpnNetURL{
+    display:none;
+}
+.detdiv.detailview-bonusURL{
+    display:none;
+}
+.detailview-consol-btn{
+    display:none;
+}

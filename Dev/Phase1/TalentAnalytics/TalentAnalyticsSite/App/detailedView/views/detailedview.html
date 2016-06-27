@@ -1,0 +1,162 @@
+﻿<!--script for tab section starts-->
+<script>
+    $('.checkbox').on('click', function () {
+        // $('.number').html('(' + increment2 + ')');
+        //increment2++;
+
+        var $div = $(this).parent('li').get(0);
+
+        if ($(this).is(':checked')) {
+            $('#selected_items').append('<li selected-item="' + $div.id + '_selected"><i class="fa fa-navicon  padR10px font11px colorBlue"></i>' + $($div).find('span').text() + '</li>');
+        } else {
+            $('#selected_items > li[selected-item^="' + $div.id + '"]').remove();
+        }
+    });
+    
+</script>
+
+<div class="summaryArea" ng-controller="DetailedViewController" ng-init="loadData()">
+    <div id="subheader">
+
+        <div id="subheaderleft">
+
+            <div class="homebtn">
+                <a href="/#!/" class="backbtnimg"><img src="../../../images/icon-info-dashboard.png" /></a>
+            </div>
+
+            <div id="detailbackbtn">
+                <a href="/#!/summary/{{employeeId}}" class="backbtn">< Back</a>
+            </div>
+
+            <div id="subheaderpara">
+                <p>Employee Detailed View</p>
+            </div>
+
+        </div>
+
+        <!-- exportButton starts here  -->
+        <export-button></export-button>
+        <!-- exportButton closes here  -->
+    </div>
+
+    <div id="detailedviewdiv">
+
+        <div id="empdetails">
+
+            <div id="empdetailddp" class="detailview-dp">
+                <!--<img src="../images/detaileddp.png" height="60" width="60px" />-->
+                <img check-image ng-src="{{model.profileImg}}" height="60px;" width="60px;" />
+            </div>
+
+            <div id="empdetailsmain" class="detailview-main">
+                <div id="emppreferdname">
+                    <p>{{model.employeeName || 'Not Designated'}}</p>
+                </div>
+                <!--emppreferdname ends-->
+
+                <div class="emplocdeph detailview-main-section">
+                    <div class="detdiv detailview-location">
+
+                        <div class="empicon detailview-empicon">
+                            <i class="fa fa-map-marker font18px"></i>
+                        </div>
+                        <!--empicon ends-->
+
+                        <div class="emptext detailview-emptext">
+                            <p>{{model.location || 'Not Designated'}}</p><!--Nashville-->
+                        </div>
+
+                    </div>
+
+                    <div class="detdiv detailview-joblevel">
+
+                        <div class="empicon detailview-empicon">
+                            <i class="fa fa-suitcase font16px"></i>
+                        </div>
+
+                        <div class="emptext detailview-emptext">
+                            <p>{{model.jobLevel || 'Not Designated'}}</p><!--Sr Manager-->
+                        </div>
+
+                    </div>
+
+                    <div class="detdiv detailview-phone colorLightBlue">
+
+                        <div class="empicon detailview-empicon">
+                            <i class="fa fa-phone font18px"></i>
+                        </div>
+
+                        <div class="emptext detailview-emptext">
+                            <p>{{model.deskPhone || 'Not Designated'}}</p><!--6171517654-->
+                        </div>
+
+                    </div>
+
+                    <div class="detdiv detailview-dpnNetURL">
+                        <div class="empicon detailview-empicon">
+                            <i class="fa fa-user"></i><i class="fa fa-user padR10px userSmallIcon"></i>
+                        </div>
+                        <div class="emptext detailview-emptext">
+                            <p><a ng-click="redirect(model.dpnNetURL || 'Not Designated')" href class="detbluelink">DPN Profile</a></p><!--DPN Profile-->
+                        </div>
+                    </div>
+
+                    <div class="detdiv detailview-bonusURL">
+
+                        <div class="empicon detailview-empicon" ng-show="model.canDisplayPIIInformation">
+                            <!--<i class="fa fa-ellipsis-h"></i>-->
+                        </div>
+
+                        <div class="emptext detailview-emptext" ng-show="model.canDisplayPIIInformation">
+                            <!--<p><a track-navigation="Bonus Details Button|detailed_view" href="{{model.bonusURL}}" class="detbluelink" target="_blank">Bonus Details</a></p>-->
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div track-navigation="Consolidated View Button|detailed_view" class="consolidatedbtn detailview-consol-btn">
+                <customize-view label="Consolidated View" view-name="" view-type="consolidatedRedirect"
+                                view-title="Consolidated View" apply-label="Generate View" cancel-label="Cancel"
+                                search-label="Tables" selected-field-label="Tables Order"></customize-view>
+            </div>
+
+
+        </div>
+
+        <div class="tabsinfo">
+
+            <div id="tabheadings" ng-init="tab=1">
+                <ul class="nav nav-tabs">
+                <li class="tab" ng-class="{active:activeTab==='basicInfo'}"> <a track-navigation="Basic Info|detailed_view" ui-sref=".basicInfo" ng-click=" activeTab='basicInfo'">Basic Info</a> </li>
+                <li class="tab" ng-class="{active:activeTab==='detailedViewActivityHistory'}"> <a track-navigation="Activity History|detailed_view" ui-sref=".detailedViewActivityHistory" ng-click=" activeTab='detailedViewActivityHistory'">Activity History</a></li>
+                <li class="tab" ng-class="{active:activeTab==='jobHistory'}"> <a track-navigation="Job History|detailed_view" ui-sref=".jobHistory" ng-click=" activeTab='jobHistory'">Job History</a></li>
+                <li class="tab" ng-show="model.canDisplayPIIInformation" ng-class="{active:activeTab==='compensation'}"> <a track-navigation="Compensation History|detailed_view" ui-sref=".compensation" ng-click="activeTab='compensation'">Compensation History </a></li>
+                <li class="tab" ng-show="model.canDisplayPIIInformation" ng-class="{active:activeTab==='rating'}"> <a track-navigation="Rating History|detailed_view" ui-sref=".rating" ng-click="activeTab='rating'">Ratings History</a> </li>
+                <li class="tab" ng-class="{active:activeTab==='fwaHistory'}"> <a track-navigation="FWA History|detailed_view" ui-sref=".fwaHistory" ng-click="activeTab='fwaHistory'">FWA History</a> </li>
+                <li class="tab"  ng-show="model.canDisplayPIIInformation" ng-class="{active:activeTab==='education'}"> <a track-navigation="Education History|detailed_view" ui-sref=".education" ng-click=" activeTab='education'">Education Details</a> </li>
+                <li class="tab" ng-class="{active:activeTab==='certification'}"> <a track-navigation="Certification Details|detailed_view" ui-sref=".certification" ng-click=" activeTab='certification'">Certification Details</a></li>
+                <li class="tab" ng-class="{active:activeTab==='loahistory'}"> <a track-navigation="LOA History|detailed_view" ui-sref=".loahistory" ng-click="activeTab='loahistory'">LOA History</a> </li>
+                <li class="tab" ng-class="{active:activeTab==='cpadetails'}"> <a track-navigation="CPA Exam Scores|detailed_view" ui-sref=".cpadetails" ng-click="activeTab='cpadetails'">CPA Exam Scores</a>  </li>
+             </ul>
+            </div>
+            <!--tabheadings ends-->
+
+            <!-- detailed view tabs start  -->
+            <div ui-view> </div>
+            <!-- detailed view tabs  closed  -->
+
+        </div>
+        <div class="popUpBack"></div>
+        <!-- PopUp Closed  -->
+
+    </div>
+</div>
+<!--detailedviewdiv ends-->
+
+
+
+
+

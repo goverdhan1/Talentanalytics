@@ -1,0 +1,15 @@
+﻿<div class="col-xs-12 pdfcertpagebreak" ng-controller="CertificationSummaryController" ng-init="loadDataCertificationSummary()">
+    <a track-navigation="Certification History|summary" href="/#!/detailedView/{{employeeId}}/certification" class="col-md-12 colorBlue font16px textLeft marT20px">CERTIFICATION DETAILS</a>
+    <div class="marT10px certificates" ng-show="CertificationSummaryModel.list!=''">
+        <ul ng-attr-style="width: {{CertificationSummaryModel.list.length*130}}px;">
+            <li ng-repeat="details in CertificationSummaryModel.list">
+                <div class="certTitle">{{details.certificationDesc}}</div>
+                <div class="certType">{{details.proficiency}}</div>
+                <div class="certEffctDate">Effective Date {{details.certificationeffectiveDate}}</div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-xs-12 marT10px certificates" ng-show="certificationSummaryNoDataFound">
+        No Data Found
+    </div>
+</div>

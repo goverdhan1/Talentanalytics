@@ -1,0 +1,16 @@
+﻿<div class="hcm-paypct-filter-wrapper">
+    <div class="inner-section">
+        <form name="FTEFilter">
+            <label class="text-input-title">
+                From
+                <input type="number" name="hcmPaypctFilterFrom" ng-model="from" ng-change="updateAttributesValues()" class="text-input form-control" placeholder="000.000">
+            </label>
+            <label class="text-input-title">
+                To
+                <input type="number" name="hcmPaypctFilterTo" ng-model="to" ng-change="updateAttributesValues()" class="text-input form-control" placeholder="000.000">
+            </label>
+            <div ng-if="showErrorMessage" class="error-mesege">{{showErrorMessage}}</div>
+            
+        </form>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿<div class="modal detailed-view-all-views-modal" ng-init="">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header s-a-hd">
+                <div class="hcmf-Header">
+                    <p>All Views</p>
+                    <a class="saveas fz24" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">X</a>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div ng-repeat="(index, item) in viewsList" class="views-list-item" ng-click="selectView(index, item)" ng-class="{'selected-item': selectedItemIndex === index}">
+                    <div class="view-title">{{item.title}}</div>
+                    <div class="edit-view-icon" ng-click="removeView(index, item)">
+                        <img src="images/icon_delete.png" />
+                    </div>
+                    <div class="edit-view-icon" ng-click="renameView(index, item)">
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary s-a-btn" ng-click="generateView()" ng-disabled="!selectedItemIndex && selectedItemIndex !== 0">Generate View</button>
+            </div>
+        </div>
+    </div>
+</div>

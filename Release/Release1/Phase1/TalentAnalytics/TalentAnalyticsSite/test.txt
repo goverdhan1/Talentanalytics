@@ -1,0 +1,810 @@
+<head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <base href="/">
+    <title>Talent Analytics</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <script type="text/javascript">
+    var g_baseHANAUrl = 'https://ushdbhwd.deloitte.com/deloitte/hr/app-talent-analytics/'
+    var AppRateServiceUri = 'https://dratethisapp.deloitte.com/rateThisAppService/api/ratethisapp';
+    var g_BonusUrl = 'https://qqlikview.deloitte.com/QvAJAXZfc/opendoc.htm?document=SOBS_TALENT/SOBS_TALENT.qvw&amp;host=QVS@Cluster&amp;sheet=QV&amp;select=QVPN_LB,{0}&amp;select=QVFLAG_LB,{1}';
+    var g_BaseProfileImageUrl = 'https://people.dm.us.deloitte.com/';
+    var g_BaseDPNProfile = 'https://stagepeople.deloitteresources.com/';
+    var g_SOBSTalentLink = 'https://qqlikview.deloitte.com/QvAJAXZfc/opendoc.htm?document=SOBS_TALENT%2FSOBS_TALENT.qvw&amp;host=QVS%40Cluster&amp;sheet=SOBSHR';
+    var g_AnalyticsAccountKey = 'DeloitteUS-talent-analytics-Dev';
+    var g_myInformation = 'https://dtalentondemand.deloittenet.deloitte.com/#!/my-information/overview/';
+    var g_AccessEmailURL = 'https://legacy.deloittenet.deloitte.com/anonymous/OwaRedirect/OwaLogin.aspx';
+    var g_ResetPassword = 'https://uscpp.deloitte.com/SSPR_Edge/';
+    var g_ResetPin = 'https://qsites.deloittenet.deloitte.com/useraccessprotection/pin/ChangePIN.aspx';
+    var g_ReportVoilation = 'https://q.deloittenet.deloitte.com/PC/Pages/ReportAViolation.aspx';
+    var g_DeloitteNet = 'https://q.deloittenet.deloitte.com/Pages/home.aspx/';
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="/Scripts/raphael-min.js"></script>
+<script src="/Scripts/d3.min.js"></script>
+<script src="/Scripts/nv.d3.js"></script>
+
+
+    <script src="/Scripts/jquery-ui-1.10.3.js"></script>
+<script src="/Scripts/jquery.ui.touch-punch.min.js"></script>
+<script src="/Scripts/angular.js"></script>
+<script src="/Scripts/angular-ui-router.js"></script>
+<script src="/Scripts/angular-resource.js"></script>
+<script src="/Scripts/angular-cookies.js"></script>
+<script src="/Scripts/angular-animate.min.js"></script>
+<script src="/Scripts/jquery.dataTables.min.js"></script>
+<script src="/Scripts/ui-bootstrap-tpls-0.6.0.js"></script>
+<script src="/Scripts/toaster.min.js"></script>
+
+    <link href="/App/core/styles/jquery-ui.min.css" rel="stylesheet">
+<link href="/App/core/styles/bootstrap.min.css" rel="stylesheet">
+<link href="/App/core/styles/font-awesome.min.css" rel="stylesheet">
+<link href="/App/core/styles/jquery.dataTables.css" rel="stylesheet">
+<link href="/App/core/styles/nv.d3.css" rel="stylesheet">
+<link href="/Content/toaster.min.css" rel="stylesheet">
+<link href="/App/core/styles/tod.header.css" rel="stylesheet">
+
+    <link href="/App/core/styles/empqvcommon.min.css" rel="stylesheet">
+
+    <link href="/App/header/styles/header.min.css" rel="stylesheet">
+<link href="/App/dashboard/styles/dashboard.min.css" rel="stylesheet">
+<link href="/App/summary/styles/summary.min.css" rel="stylesheet">
+<link href="/App/certificationSummary/styles/certificationSummary.min.css" rel="stylesheet">
+<link href="/App/detailedView/styles/detailedView.min.css" rel="stylesheet">
+<link href="/App/detailedViewDataTable/styles/detailedViewDataTable.min.css" rel="stylesheet">
+<link href="/App/compensationHistory/styles/compensationhistory.min.css" rel="stylesheet">
+<link href="/App/exports/styles/taexport.button.min.css" rel="stylesheet">
+
+
+    <link href="//ratethisapp.deloitte.com/rateThisAppService/scripts/latest/_assets/ratethisapp.min.css" rel="stylesheet">
+    <link href="//ratethisapp.deloitte.com/rateThisAppService/scripts/latest/_assets/ratethisapp-responsive.min.css" rel="stylesheet">
+    <link href="/App/rateThisApp/styles/rate-this-app.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/App/logout/styles/logoutStyles.css">
+    <link rel="stylesheet" type="text/css" href="/app/core/styles/print-page-break.min.css" media="print">
+
+</head>
+<body>
+    <!-- SiteCatalyst code version: H.25.
+    Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+    More info available at http://www.omniture.com -->
+    <script type="text/javascript">
+        var s_account = "DeloitteUS-talent-analytics-Dev";
+    </script>
+    <script type="text/javascript" src="/Scripts/s_code.js"></script>
+
+    <!-- End SiteCatalyst code version: H.25. -->
+    <script src="//ratethisapp.deloitte.com/rateThisAppService/scripts/latest/src/jquery.ratethisapp.js"></script>
+
+    <div>
+        
+
+<!-- uiView: undefined --><ui-view class="ng-scope" style=""><div id="wrapper" align="center" class="ng-scope">
+    <div id="toast-container" ng-class="[config.position, config.animation]" class="ng-scope toast-top-right"><!-- ngRepeat: toaster in toasters --></div>
+    <div ng-controller="headerController" class="ng-scope">
+        <header>
+            <div ng-init="loadData()" ng-click="headerSettingPopClose()">
+                <div id="todHeader" class="todHeader">
+                    <div class="dnetHeader">
+                        <a ng-href="https://q.deloittenet.deloitte.com/Pages/home.aspx/" class="TCH_DNETLinks" target="_blank" href="https://q.deloittenet.deloitte.com/Pages/home.aspx/">
+                            <div class="logo" title="Go to Deloittenet"></div>
+                        </a><!-- My Setting Pane Starting -->
+                        <nav class="nav-bar">
+                            <div class="nb-menu topNavProfile" data-toggle="" id="dpnDiv" title="DPN Profile for ">
+                                <a href="" ng-click="redirect(UserDpnNetURL)" target="_blank" class="TCH_DNETDPNLinks">
+                                    <div class="dpnlogo"></div><span class="txt">Your Profile </span>
+                                </a>
+                            </div>
+                            <div class="nb-menu " data-toggle="" title="Access my Email" id="TCH_DNETMail">
+                                <a ng-href="https://legacy.deloittenet.deloitte.com/anonymous/OwaRedirect/OwaLogin.aspx" target="_blank" class="TCH_DNETMailLinks" href="https://legacy.deloittenet.deloitte.com/anonymous/OwaRedirect/OwaLogin.aspx">
+                                    <i class="fa fa-envelope fa-2x"></i><span class="txt">Access my Email </span>
+                                </a> 
+                            </div>
+                            <div tabindex="0" class="nb-menu topNavSetting" title="User Settings" ng-class="{headerActiveIcons:headerPopupClose}">
+                                <i class="fa fa-cog fa-2x"></i>
+                                <div class="nb-sub-menu" style="display:block">
+                                    <div>
+                                        <a href="" ng-click="redirect(myInformationLink)" target="_blank" class="todDNETLinks"><i class="fa fa-info fa-1x"></i><span class="txt">My Information</span></a>
+                                    </div>
+                                    <div><a ng-href="https://uscpp.deloitte.com/SSPR_Edge/" target="_blank" class="TCH_DNETPWDLinks" href="https://uscpp.deloitte.com/SSPR_Edge/"><i class="fa fa-key fa-1x"></i><span class="txt">Reset a Password</span></a></div><div>
+                                                                                                                                                                                                       <a ng-href="https://qsites.deloittenet.deloitte.com/useraccessprotection/pin/ChangePIN.aspx" target="_blank" class="TCH_DNETPINLinks" href="https://qsites.deloittenet.deloitte.com/useraccessprotection/pin/ChangePIN.aspx">
+                                                                                                                                                                                                           <i class="fa fa-lock fa-1x"></i><span class="txt">Reset My Pin</span>
+                                                                                                                                                                                                       </a>
+                                    </div><div><a ng-href="https://q.deloittenet.deloitte.com/PC/Pages/ReportAViolation.aspx" target="_blank" class="TCH_DNETLinks" href="https://q.deloittenet.deloitte.com/PC/Pages/ReportAViolation.aspx"><i class="fa fa-pencil fa-1x"></i><span class="txt">Report a Violation</span></a></div>
+                                </div>
+                            </div>
+                            <div class="nb-menu topNavLogOut" data-toggle="" id="logoutDiv" title="Logout  ">
+                                <a href="javascript:void(0)" ng-click="logout()" class="TCH_DNETLogOutLinks">
+                                    <i class="fa fa-sign-out fa-2x"></i><span class="txt">Log Out </span>
+                                </a>
+                            </div>
+                          
+                            <div class="nb-menu-logoHover" style="height:38px;">
+                                <span style="line-height:38px;" class="ng-binding">
+                                    &nbsp;Hello&nbsp;  !
+                                </span>
+                            </div>
+                        </nav><!-- My Setting Pane Ending-->
+                    </div>
+                    <div class="todHeaderBar">
+                        <div class="todHeaderInner">
+                            <a href="/#!/" class="todDNETLinks">
+                                <div class="logoText" title="Go to Talent Analytics Dashboard"><span class="logo-text2">Talent Analytics</span></div>
+                            </a>
+                            <nav class="nav-bar">
+                                <div class="nb-menu nonMobile" data-toggle="" title="Rate this App" id="todRTAMenu">
+                                    <a href="javascript:void(0)" id="rateThisApp">
+                                        <div class="rateThisAppIcon "></div><span class="txt">Rate this App</span>
+                                    </a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+    </div>
+
+
+    <!-- uiView:  --><section ui-view="" class="ng-scope" style=""><div class="summaryArea ng-scope" ng-controller="SummaryController" ng-init="loadData()">
+    <div id="subheader">
+
+        <div id="subheaderleft">
+
+            <div id="detailbackbtn">
+                <a href="/#!/" class="backbtn">&lt; Back</a>
+            </div>
+
+            <div id="subheaderpara">
+                <p>Employee Summary View</p>
+            </div>
+
+        </div>
+        <!-- exportButton starts here  -->
+        <div id="subheaderright">
+    <div tabindex="0" class="dropdownmenu onclick-menu">
+
+        <!-- ngInclude: undefined --><ng-include src="'../../app/exports/views/exportForm.template.html'" class="ng-scope" style="">
+<form class="hide ng-pristine ng-valid ng-scope" action="Export/Excel" method="post" id="exportForIE9">
+    <textarea id="exportValue" name="excelData"></textarea>
+    <input type="text" id="exportFilename" name="filename">
+    <input type="text" id="fileExtension" name="fileExtension">
+    <input type="submit" id="submit" value="Submit">
+</form>
+
+<form class="hide ng-pristine ng-valid ng-scope" action="Export/PDF" method="post" id="exportForPDF">
+    <textarea type="text" id="exportUrl" name="exportUrl"></textarea>
+    <input type="text" id="exportPDFFilename" name="exportPDFFilename">
+    <textarea id="docHTML" name="docHTML"></textarea>
+    <input type="submit" id="submitPDF" value="Submit">
+</form></ng-include>       
+
+        <i class="fa fa-external-link"></i>
+            <div class="verticalline"></div>
+            <i class="fa fa-sort-desc"></i>
+            <ul class="onclick-menu-content">
+                <li ng-click="exportCSV()">
+                    CSV
+                </li>
+                <div class="hrline"></div>
+                <li ng-click="exportPDF()">
+                    PDF
+                </li>
+                <div class="hrline"></div>
+                <li ng-click="exportXLS()">
+                    XLSX
+                </li>
+            </ul>
+    </div>
+</div>
+        <!-- exportButton closes here  -->
+    </div>
+    <div class="col-xs-12 pad0px summaryContents">
+        <div class="smryLeftBar col-xs-3">
+            <div class="profilePic">
+                <img check-image="" src="https://people.dm.us.deloitte.com/O/Photos/Profile/KECHUNG_MThumb_S" ng-src="https://people.dm.us.deloitte.com/O/Photos/Profile/KECHUNG_MThumb_S">
+                <br>
+                <span class="EmpName ng-binding">Cotton, Elden</span>
+            </div>
+            <div class="deviderBorderDark marB10px"></div>
+            <div class="colorWhite font14px textLeft padB10px ng-binding">
+                <div class="font13px colorGrey">Employee Counselor Name</div>
+                Not Designated
+            </div>
+
+            <div class="colorWhite font14px textLeft padT10px padB10px ng-binding"><i class="fa fa-suitcase font16px colorGrey padR15px"></i>PARTNER/PRINCIPAL</div>
+            <div class="colorWhite font14px textLeft padT10px padB10px ng-binding"><i class="fa fa-map-marker font18px colorGrey padR20px"></i>Washington</div>
+            <div class="colorWhite font14px textLeft padT10px padB10px ng-binding"><i class="fa fa-phone colorGrey font18px padR15px"></i>2029828495</div>
+            <a href="" ng-click="redirect(model.dpnNetURL)"><div class="colorLightBlue font14px textLeft padT10px padB10px"><i class="fa fa-user colorLightBlue"></i><i class="fa fa-user colorLightBlue padR10px userSmallIconsummary"></i>DPN Profile</div></a>
+            <div class="deviderBorderDark"></div>
+
+
+            <div class="colorWhite font14px textLeft padT15px ng-binding ng-hide" ng-show="model.canDisplayPIIInformation">
+                <div class="font13px colorGrey">Home Address</div>
+                
+                <span ng-show="model.primaryAddressStreet2" class="pdfcommaclr ng-hide">,</span>
+                <br>
+                
+                <span ng-show="model.primaryAddressState" class="pdfcommaclr ng-hide">,</span>
+                 <br>
+                
+                <span ng-show="model.primaryAddressCountryKey" class="pdfcommaclr ng-hide">,</span>
+                
+            </div>
+
+            <div class="colorWhite font14px textLeft padT15px ng-binding">
+                <div class="font13px colorGrey">Personnel Number</div>
+                123451<span>&nbsp;</span>
+            </div>
+
+            <div class="colorWhite font14px textLeft padT15px ng-binding ng-hide" ng-show="model.canDisplayPIIInformation">
+                <div class="font13px colorGrey">Annual Salary</div>
+                <span>&nbsp;</span>
+            </div>
+            <div class="colorWhite font14px textLeft padT15px ng-binding">
+                <div class="font13px colorGrey">Original Hire Date</div>
+                05/11/1998<span>&nbsp;</span>
+            </div>
+            <div class="colorWhite font14px textLeft padT15px ng-binding">
+                <div class="font13px colorGrey">Anniversary Date</div>
+                <span>&nbsp;</span>
+            </div>
+            <div class="colorWhite font14px textLeft padT15px ng-binding">
+                <div class="font13px colorGrey">Last Promotion Date</div>
+                08/21/2011
+                <span>&nbsp;</span>
+            </div>
+            <div ng-show="model.canDisplayPIIInformation" class="ng-hide">
+                <!--<a track-navigation="Bonus Details Button|summary" class="blueBtn floatLeft" href="{{model.employeeBonusDetailsLink}}" target="_blank">Bonus Details</a>-->
+            </div>
+            <div class="clearfix"></div>
+            <div class="deviderBorderDark marT10px"></div>
+
+            <div class="catgryEdit">
+                <ul ng-model="displayFields" class="ng-pristine ng-untouched ng-valid">
+                    <!-- ngRepeat: label in displayFields --><li ng-repeat="label in displayFields" class="ng-scope" style="">
+                        <div class="colorWhite font14px textLeft padT15px">
+                            <div class="font13px colorGrey ng-binding">Employee Region Desc </div>
+                            <span class="ng-binding">NATIONAL OFFICE</span><span>&nbsp;</span>
+                        </div>
+                    </li><!-- end ngRepeat: label in displayFields --><li ng-repeat="label in displayFields" class="ng-scope" style="">
+                        <div class="colorWhite font14px textLeft padT15px">
+                            <div class="font13px colorGrey ng-binding">Organizational Unit</div>
+                            <span class="ng-binding">50308062</span><span>&nbsp;</span>
+                        </div>
+                    </li><!-- end ngRepeat: label in displayFields --><li ng-repeat="label in displayFields" class="ng-scope" style="">
+                        <div class="colorWhite font14px textLeft padT15px">
+                            <div class="font13px colorGrey ng-binding">Organizational Unit Desc</div>
+                            <span class="ng-binding">TP-WNT-9139</span><span>&nbsp;</span>
+                        </div>
+                    </li><!-- end ngRepeat: label in displayFields --><li ng-repeat="label in displayFields" class="ng-scope" style="">
+                        <div class="colorWhite font14px textLeft padT15px">
+                            <div class="font13px colorGrey ng-binding">PM Pilot Indicator Desc</div>
+                            <span class="ng-binding">NO</span><span>&nbsp;</span>
+                        </div>
+                    </li><!-- end ngRepeat: label in displayFields -->
+
+                </ul>
+            </div>
+            <a class="floatLeft editView" href="javascript:void(0)" ng-class="{editViewGreen: open, editView: !open}" ng-click="toggleEditPopup()"><i class="fa fa-sliders padR5px"></i>Edit View</a>
+            <div class="editViewPop popClose" ng-class="{popOpen: open, popClose: !open}">
+                <div class="selct5Fields">SELECT UPTO 5 FIELDS</div>
+                <ul>
+                    <!-- ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Business Unit" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Business Unit</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Capability (Employee)" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Capability (Employee)</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Capability Code" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Capability Code</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Career Model" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Career Model</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Current Tenure" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Current Tenure</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Current USI Aligned Function" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Current USI Aligned Function</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Current USI Aligned Service Area" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Current USI Aligned Service Area</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Current USI Aligned Service Line" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Current USI Aligned Service Line</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Deloitte Email Address" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Deloitte Email Address</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Employee Cost Center" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Employee Cost Center</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Employee Cost Center Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Employee Cost Center Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Employee Function Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Employee Function Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Employee Group" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Employee Group</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Employee Group Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Employee Group Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Employee Job Level" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Employee Job Level</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Employee Region Desc " ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid" checked="checked">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Employee Region Desc </span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Employee Service Area Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Employee Service Area Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Employee Service Line Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Employee Service Line Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Employee Status Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Employee Status Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Employee Subgroup" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Employee Subgroup</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Employee Subgroup Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Employee Subgroup Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Federal Indicator" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Federal Indicator</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="GE- Personnel ID" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">GE- Personnel ID</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Global Capability (Employee)" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Global Capability (Employee)</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Global Capability Code" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Global Capability Code</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Global Deployment End Date" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Global Deployment End Date</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Market Offering / Capability Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Market Offering / Capability Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Most Recent Hire Date" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Most Recent Hire Date</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Organizational Unit" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid" checked="checked">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Organizational Unit</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Organizational Unit Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid" checked="checked">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Organizational Unit Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Personnel Area Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Personnel Area Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="PM Pilot Indicator Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid" checked="checked">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">PM Pilot Indicator Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Practice (Employee)" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Practice (Employee)</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Primary Industry Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Primary Industry Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Primary Sector Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Primary Sector Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Resource Manager" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Resource Manager</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Resource Manager Email" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Resource Manager Email</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Resource Manager Personnel Number" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Resource Manager Personnel Number</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Secondary Market Offering Desc" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Secondary Market Offering Desc</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Sub Capability (Employee)" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Sub Capability (Employee)</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Sub Capability Code" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Sub Capability Code</span>
+                    </li><!-- end ngRepeat: field in EditViewFields --><li ng-repeat="field in EditViewFields" class="ng-scope" style="">
+                        <input type="checkbox" name="Total Tenure" ng-model="field.CHECKED" ng-true-value="'true'" ng-false-value="'false'" ng-checked="field.CHECKED =='true'" ng-disabled="maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'" ng-change="updateMaxEditViewSelectionReachedStatus()" class="ng-pristine ng-untouched ng-valid">
+                        <span class="colorDarkGrey ng-binding" ng-class="{'disabledText' : maxEditViewSelectionReached &amp;&amp; field.CHECKED !== 'true'}">Total Tenure</span>
+                    </li><!-- end ngRepeat: field in EditViewFields -->
+                </ul>
+
+                <div class="col-xs-12 popApplyBtns textLeft">
+                    <a href="javascript:void(0)" class="btn btn-success applyBtn" ng-click="saveEditView(); toggleEditPopup()">Apply</a>
+                    <a href="javascript:void(0)" class="btn btn-default cancelBtn" ng-click="cancelEditView(); toggleEditPopup()">Cancel</a>
+                </div>
+            </div>
+        </div>
+        <!-- Left bar closed here  -->
+
+        <div class="smryContentArea col-xs-9 pad0px">
+            <div class="col-xs-12 summaryHeader">
+                <span class="font20px colorBlack floatLeft">Summary</span>
+                <a track-navigation="Detailed View Button|summary" class="btn btn-default colorBlack marL20px floatLeft ng-isolate-scope" href="/#!/detailedView/00123451/basicInfo">Detailed View</a>
+
+                <div ng-controller="EmployeeSearchController" ng-class="{searchFocused :focused}" class="summarySearch" results-per-page="5">
+
+    <span class="crbutton"></span>
+    <input type="text" ng-model="selectedEmployee" tatypeahead-template-url="employeeSearchResults.html" ng-init="focused = false" ng-focus="focused = true" ng-blur="focused = false" tatypeahead="'' for suggestion in getEmployees($viewValue) paginationFunction getPage($viewValue, $pageNumber)" tatypeahead-wait-ms="500" placeholder="Search for an employee" class="empSearch ng-pristine ng-untouched ng-valid" aria-autocomplete="list" aria-expanded="false" aria-owns="tatypeahead-70-8154"><div class="tatypeahead dropdown-menu ng-isolate-scope ng-hide" ng-show="$parent.showdropdownedisplay" tatypeahead-popup="" id="tatypeahead-70-8154" matches="matches" active="activeIdx" select="select(activeIdx)" move-in-progress="moveInProgress" query="query" position="position" template-url="employeeSearchResults.html">
+ <div>
+<span ng-show="$parent.noresult" class="mystylechage ng-hide">No Records Found </span>    <button type="button" class="btn btn-default btn-sm pull-right align-margin pagination-button ng-hide" ng-show="$parent.showNextPageButton" ng-click="nextPage(); $event.stopPropagation()"><icon class="glyphicon glyphicon-chevron-right"></icon></button>
+    <button type="button" class="btn btn-default btn-sm pull-right pagination-button ng-hide" ng-show="$parent.currentPageNumber > 1" ng-click="previousPage();  $event.stopPropagation()"><icon class="glyphicon glyphicon-chevron-left"></icon></button>
+ </div>
+ <ul style="list-style:none;padding:0px">
+    <!-- ngRepeat: match in matches|limitTo:$parent.resultsPerPage -->
+ </ul>
+</div>
+    <i class="fa fa-close font14px tatypeahead-input-close ng-hide" ng-show="selectedEmployee" ng-click="clearSelection()"></i>
+
+    <script type="text/ng-template" id="employeeSearchResults.html">
+        <div ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" class="srchList">
+            <a id="searchkeydown" href="/#!/summary/{{match.model.PGEPERSID}}" ">
+                <div class=" srchtitles">
+                <span class="srchEmpName fontBold">{{ match.model.EMPLOYEE_TXT_MED }}</span>
+                <span class="pull-right"><span class="colorGrey font13px pull-right"><span class="hide" ng-class="{inactive_dot:'{{match.model.INACTIVE_EMPLOYEE}}'}">,</span>{{ match.model.INACTIVE_EMPLOYEE}}</span><span class="fontBold pull-right">{{ match.model.EMPLOYEE }}</span></span>
+</div>
+        <div class="srchSubTitles col-md-9 pad0px">
+            <span class="srchJobPos">{{match.model.PLEVEL_TXT}}<span class="hide" ng-class="{dot:'{{match.model.PLEVEL_TXT}}'}">.</span></span>
+            <span class="srchLocation2">{{match.model.PERS_SAREA_TXT}}</span>
+            <span class="srchLocation"><span class="hide" ng-class="{camaClass:'{{match.model.PERS_AREA_REGION}}' && '{{match.model.PERS_SAREA_TXT}}'}">,</span>{{match.model.PERS_AREA_REGION}}</span>
+        </div>
+        <div class="col-md-3 pad0px colorGrey"><span class="pull-right">CC: {{match.model.MAST_CCTR}}</span></div>
+
+        <div class="col-md-12 pad0px"><span class="srchEmailId">{{ match.model.PEMAILADD | lowercase }}</span></div>
+        </a>
+</div>
+    </script>
+</div>
+
+            </div>
+            <!-- ngRepeat: directivesInARow in summaryRightLayoutItems --><div class="row ng-scope" ng-repeat="directivesInARow in summaryRightLayoutItems" style="">
+                <!-- ngRepeat: directiveName in directivesInARow --><summary-layout-directive directive-name="activity-history-summary" ng-repeat="directiveName in directivesInARow" class="ng-scope"><div class="col-xs-6 marT20px pad0 lineHeight23 padl30px" ng-controller="ActivityHistoryController" ng-init="loadDataActivityHis()">
+    <a track-navigation="Activity History|summary" href="/#!/detailedView/00123451/detailedViewActivityHistory" class="col-xs-12 colorBlue font16px textleft marb15px textleft pad0px paddingbtm ng-isolate-scope">ACTIVITY HISTORY</a>
+    <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlackheading pdfdatewidth">Change Eff. Date</div>
+    <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlackheading">Type of Change</div>
+    <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlackheading pdfbreakwidth ng-hide" ng-show="model.canDisplayPIIInformation" style="">Reason for Action Desc</div>
+    <!--<div class="col-xs-12 deviderBorderLight marT5px"></div>-->
+    <div ng-class="class" class="col-xs-12 collapseActivityHistory" id="ActivityHistoryContainer">
+        <ul class="pad0px listStyleNone displayBlock" style="height:200px;" height-finding="">
+            <!-- ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">06/01/2014 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding">Service Line</div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">08/21/2011 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding"></div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">08/24/2008 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding"></div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">08/26/2007 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding">Service Area</div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">08/27/2006 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding"></div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">04/16/2006 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding">Organizational Unit</div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">02/06/2005 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding">Service Area</div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">08/22/2004 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding">Company Code</div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">07/11/2004 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding">Organizational Unit</div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">12/28/2003 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding">Personnel Area</div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">08/24/2003 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding"></div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">05/19/2002 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding">Function</div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">09/19/1999 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding">Organizational Unit</div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">05/30/1999 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding">Cost Center</div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">05/31/1998 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding">Cost Center</div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list --><li class="listStyleNone width100 activityhistory col-xs-12 ng-scope" ng-repeat="details in activityHistoryModel.list" id="firstActivityItem" style="">
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack ng-binding">05/11/1998 </div>
+                <div class="col-xs-4 activityipadwidth pad0px textLeft font12px colorSemiBlack pdfspacealign ng-binding">Company Code</div>
+                <div class="col-xs-3 activityipadwidth pad0px textLeft font12px colorSemiBlack textwordwrap ng-binding ng-hide" ng-show="model.canDisplayPIIInformation"></div>
+            </li><!-- end ngRepeat: details in activityHistoryModel.list -->
+
+        </ul>
+        <div ng-class="class" class="col-xs-12 collapseActivityHistory ng-hide" ng-show="activityHistoryNoDataFound" style="">
+            No Data Found
+        </div>
+    </div>
+    <div ng-hide="heightOfChild<=230" class="" style="">
+        <a class="floatLeft colorBlue marT5px" href="" ng-show="shouldShow" ng-init="shouldShow = true" ng-click="shouldShow =!shouldShow; expandactivity()">See More</a>
+        <a class="floatLeft colorBlue marT5px ng-hide" href="" ng-hide="shouldShow" ng-init="shouldShow = true" ng-click="shouldShow =!shouldShow; collapseactivity()" style="">See Less</a>
+    </div>
+
+
+</div></summary-layout-directive><!-- end ngRepeat: directiveName in directivesInARow --><summary-layout-directive directive-name="job-history-summary" ng-repeat="directiveName in directivesInARow" class="ng-scope"><div class="col-xs-6 marT20px pdfbreakbefore" ng-controller="JobHistoryController" ng-init="loadDataJobHistory()">
+    <a track-navigation="Job History|summary" href="/#!/detailedView/00123451/jobHistory" class="col-xs-12 colorBlue font16px textLeft marB15px ng-isolate-scope">JOB HISTORY</a>
+    <div ng-class="class" class="col-xs-12 collapseJobHistory ng-hide" ng-show="jobHistoryNoDataFound" style="">
+        No Data Found
+    </div>
+    <div class="col-xs-12 jobHistory">
+        <ul class="listStyleNone pad0px collapseJobHistory" id="jobHistoryContainer" ng-class="showHideClass">
+            <!-- ngRepeat: details in jobHistoryModel.list --><!-- ngIf: $first --><li class="pad0px listStyleNone ng-scope" ng-if="$first" id="firstJobItem" ng-repeat="details in jobHistoryModel.list" style="">
+                <div class="btn-circle"></div>
+                <div class="historyContentBorder"></div>
+                <div class="jobHistoryContent">
+                    <div class="colorSemiBlack font12px  ng-binding">08/21/2011 — ZM Partner Admission</div>
+                    <div class="colorlighterBlack font14px ng-binding">PARTNER/PRINCIPAL</div>
+                    <div class="colorSemiBlack font12px ng-binding">P1 </div>
+                    <div class="colorSemiBlack font12px" ng-show="details.typeOfChange==='JOB'">
+                        <span class="ng-binding">50000353 </span><span class="ng-binding">Tax Principal</span>
+                    </div>
+                    <div class="colorSemiBlack font12px ng-hide" ng-show="details.typeOfChange==='POSITION'">
+                        <span class="ng-binding">50761619 </span><span class="ng-binding"></span>
+                    </div>
+                </div>
+            </li><!-- end ngIf: $first --><!-- end ngRepeat: details in jobHistoryModel.list --><!-- ngIf: $first --><!-- end ngRepeat: details in jobHistoryModel.list --><!-- ngIf: $first --><!-- end ngRepeat: details in jobHistoryModel.list --><!-- ngIf: $first --><!-- end ngRepeat: details in jobHistoryModel.list --><!-- ngIf: $first --><!-- end ngRepeat: details in jobHistoryModel.list --><!-- ngIf: $first --><!-- end ngRepeat: details in jobHistoryModel.list -->
+            <!-- ngRepeat: details in jobHistoryModel.list --><!-- ngIf: !$first --><!-- end ngRepeat: details in jobHistoryModel.list --><!-- ngIf: !$first --><li class="pad0px listStyleNone ng-scope" ng-if="!$first" ng-repeat="details in jobHistoryModel.list" style="">
+                <div class="btn-circle"></div>
+                <div class="historyContentBorder"></div>
+                <div class="jobHistoryContent">
+                    <div class="colorSemiBlack font12px  ng-binding">08/24/2008 — Z4 Personnel Changes</div>
+                    <div class="colorlighterBlack font14px ng-binding">CS DIRECTOR</div>
+                    <div class="colorSemiBlack font12px ng-binding">C1 </div>
+                    <div class="colorSemiBlack font12px" ng-show="details.typeOfChange==='JOB'">
+                        <span class="ng-binding">50251635 </span><span class="ng-binding">Tax Director</span>
+                    </div>
+                    <div class="colorSemiBlack font12px ng-hide" ng-show="details.typeOfChange==='POSITION'">
+                        <span class="ng-binding">50474674 </span><span class="ng-binding">Tax Director</span>
+                    </div>
+                </div>
+            </li><!-- end ngIf: !$first --><!-- end ngRepeat: details in jobHistoryModel.list --><!-- ngIf: !$first --><li class="pad0px listStyleNone ng-scope" ng-if="!$first" ng-repeat="details in jobHistoryModel.list" style="">
+                <div class="btn-circle"></div>
+                <div class="historyContentBorder"></div>
+                <div class="jobHistoryContent">
+                    <div class="colorSemiBlack font12px  ng-binding">08/27/2006 — Z4 Personnel Changes</div>
+                    <div class="colorlighterBlack font14px ng-binding">CS DIRECTOR</div>
+                    <div class="colorSemiBlack font12px ng-binding">C1 </div>
+                    <div class="colorSemiBlack font12px" ng-show="details.typeOfChange==='JOB'">
+                        <span class="ng-binding">50251634 </span><span class="ng-binding">Tax Director</span>
+                    </div>
+                    <div class="colorSemiBlack font12px ng-hide" ng-show="details.typeOfChange==='POSITION'">
+                        <span class="ng-binding">50320096 </span><span class="ng-binding"></span>
+                    </div>
+                </div>
+            </li><!-- end ngIf: !$first --><!-- end ngRepeat: details in jobHistoryModel.list --><!-- ngIf: !$first --><li class="pad0px listStyleNone ng-scope" ng-if="!$first" ng-repeat="details in jobHistoryModel.list" style="">
+                <div class="btn-circle"></div>
+                <div class="historyContentBorder"></div>
+                <div class="jobHistoryContent">
+                    <div class="colorSemiBlack font12px  ng-binding">08/24/2003 — Z4 Personnel Changes</div>
+                    <div class="colorlighterBlack font14px ng-binding">FIRM DIRECTOR</div>
+                    <div class="colorSemiBlack font12px ng-binding">C1 </div>
+                    <div class="colorSemiBlack font12px" ng-show="details.typeOfChange==='JOB'">
+                        <span class="ng-binding">50000354 </span><span class="ng-binding">TAX FIRM DIRECTOR</span>
+                    </div>
+                    <div class="colorSemiBlack font12px ng-hide" ng-show="details.typeOfChange==='POSITION'">
+                        <span class="ng-binding">50118765 </span><span class="ng-binding"></span>
+                    </div>
+                </div>
+            </li><!-- end ngIf: !$first --><!-- end ngRepeat: details in jobHistoryModel.list --><!-- ngIf: !$first --><li class="pad0px listStyleNone ng-scope" ng-if="!$first" ng-repeat="details in jobHistoryModel.list" style="">
+                <div class="btn-circle"></div>
+                <div class="historyContentBorder"></div>
+                <div class="jobHistoryContent">
+                    <div class="colorSemiBlack font12px  ng-binding">09/19/1999 — Z1 SAP Go Live</div>
+                    <div class="colorlighterBlack font14px ng-binding">SR MANAGER</div>
+                    <div class="colorSemiBlack font12px ng-binding">Z1 </div>
+                    <div class="colorSemiBlack font12px ng-hide" ng-show="details.typeOfChange==='JOB'">
+                        <span class="ng-binding">50000357 </span><span class="ng-binding">TAX SENIOR MANAGER</span>
+                    </div>
+                    <div class="colorSemiBlack font12px" ng-show="details.typeOfChange==='POSITION'">
+                        <span class="ng-binding">50024749 </span><span class="ng-binding">TAX SENIOR MANAGER</span>
+                    </div>
+                </div>
+            </li><!-- end ngIf: !$first --><!-- end ngRepeat: details in jobHistoryModel.list --><!-- ngIf: !$first --><li class="pad0px listStyleNone ng-scope" ng-if="!$first" ng-repeat="details in jobHistoryModel.list" style="">
+                <div class="btn-circle"></div>
+                <div class="historyContentBorder"></div>
+                <div class="jobHistoryContent">
+                    <div class="colorSemiBlack font12px  ng-binding">05/11/1998 — 01 New Hire Event</div>
+                    <div class="colorlighterBlack font14px ng-binding">SR MANAGER</div>
+                    <div class="colorSemiBlack font12px ng-binding">A1 </div>
+                    <div class="colorSemiBlack font12px" ng-show="details.typeOfChange==='JOB'">
+                        <span class="ng-binding">50000357 </span><span class="ng-binding">TAX SENIOR MANAGER</span>
+                    </div>
+                    <div class="colorSemiBlack font12px ng-hide" ng-show="details.typeOfChange==='POSITION'">
+                        <span class="ng-binding">20500032 </span><span class="ng-binding">TAX SENIOR MANAGER</span>
+                    </div>
+                </div>
+            </li><!-- end ngIf: !$first --><!-- end ngRepeat: details in jobHistoryModel.list -->
+        </ul>
+        <div ng-hide="jobHistoryModel.list.length<=3" class="moreJobHistory font12px colorGrey1 textLeft cursorHand">
+            <div class="btn-circle" ng-show="showButton" ng-init="showButton = true"></div>
+            <a class="floatLeft colorBlue ng-binding" ng-show="showButton" ng-init="showButton = true" ng-click="showButton =false; expandJobHistory()">And 3 More</a>
+            <a class="floatLeft colorBlue ng-hide" ng-hide="showButton" ng-init="showButton = true" ng-click="showButton =true; collapseJobHistory()" style="">See Less</a>
+        </div>
+    </div>
+</div></summary-layout-directive><!-- end ngRepeat: directiveName in directivesInARow -->
+            </div><!-- end ngRepeat: directivesInARow in summaryRightLayoutItems --><div class="row ng-scope" ng-repeat="directivesInARow in summaryRightLayoutItems" style="">
+                <!-- ngRepeat: directiveName in directivesInARow --><summary-layout-directive directive-name="certification-details-summary" ng-repeat="directiveName in directivesInARow" class="ng-scope"><div class="col-xs-12 pdfcertpagebreak" ng-controller="CertificationSummaryController" ng-init="loadDataCertificationSummary()">
+    <a track-navigation="Certification History|summary" href="/#!/detailedView/00123451/certification" class="col-md-12 colorBlue font16px textLeft marT20px ng-isolate-scope">CERTIFICATION DETAILS</a>
+    <div class="marT10px certificates ng-hide" ng-show="CertificationSummaryModel.list!=''" style="">
+        <ul ng-attr-style="width: {{CertificationSummaryModel.list.length*130}}px;" style="width: 0px;">
+            <!-- ngRepeat: details in CertificationSummaryModel.list -->
+        </ul>
+    </div>
+    <div class="col-xs-12 marT10px certificates" ng-show="certificationSummaryNoDataFound" style="">
+        No Data Found
+    </div>
+</div></summary-layout-directive><!-- end ngRepeat: directiveName in directivesInARow -->
+            </div><!-- end ngRepeat: directivesInARow in summaryRightLayoutItems -->
+
+        </div>
+    </div>
+</div>
+</section>
+</div></ui-view>
+
+
+
+
+    </div>
+    <script src="/App/app.js"></script>
+<script src="/App/activityHistory/module.js"></script>
+<script src="/App/activityHistory/controllers/activityHistory.controller.js"></script>
+<script src="/App/activityHistory/directives/activityHistorySummary.directive.js"></script>
+<script src="/App/activityHistory/models/activityHistory.model.js"></script>
+<script src="/App/activityHistory/services/activityHistory.services.js"></script>
+<script src="/App/certificationSummary/module.js"></script>
+<script src="/App/certificationSummary/controllers/certificationSummary.controller.js"></script>
+<script src="/App/certificationSummary/directives/certificationSummary.directive.js"></script>
+<script src="/App/certificationSummary/models/certificationSummary.model.js"></script>
+<script src="/App/certificationSummary/services/certificationSummary.services.js"></script>
+<script src="/App/compensationHistory/module.js"></script>
+<script src="/App/compensationHistory/controllers/compensationHistory.controller.js"></script>
+<script src="/App/compensationHistory/directives/compensationHistory.directive.js"></script>
+<script src="/App/compensationHistory/models/compensationHistory.model.js"></script>
+<script src="/App/compensationHistory/services/compensationHistory.service.js"></script>
+<script src="/App/consolidatedView/module.js"></script>
+<script src="/App/consolidatedView/controllers/consolidatedView.controller.js"></script>
+<script src="/App/consolidatedView/directives/consolidatedLayout.directives.js"></script>
+<script src="/App/consolidatedView/models/consolidatedViewMapping.model.js"></script>
+<script src="/App/consolidatedView/routes/consolidatedView.routes.js"></script>
+<script src="/App/consolidatedView/services/consolidatedLayout.service.js"></script>
+<script src="/App/consolidatedView/services/consolidatedView.postService.js"></script>
+<script src="/App/core/module.js"></script>
+<script src="/App/core/directives/trackNavigation.directive.js"></script>
+<script src="/App/core/filters/inrcurrency.filter.js"></script>
+<script src="/App/core/filters/tacurrency.filter.js"></script>
+<script src="/App/core/services/core.analytics.service.js"></script>
+<script src="/App/core/services/core.commonfunctions.service.js"></script>
+<script src="/App/core/services/core.constants.js"></script>
+<script src="/App/core/services/core.routeloadupdates.service.js"></script>
+<script src="/App/core/services/profileImg.service.js"></script>
+<script src="/App/core/services/searchDirective.js"></script>
+<script src="/App/core/services/testhanaconnection.service.js"></script>
+<script src="/App/customizeView/module.js"></script>
+<script src="/App/customizeView/controllers/customizeView.controller.js"></script>
+<script src="/App/customizeView/directives/angular-drag-and-drop-lists.js"></script>
+<script src="/App/customizeView/directives/customizeView.directive.js"></script>
+<script src="/App/dashboard/module.js"></script>
+<script src="/App/dashboard/controllers/dashboard.controller.js"></script>
+<script src="/App/dashboard/routes/dashboard.routes.js"></script>
+<script src="/App/dashboard/services/dashboard.constants.js"></script>
+<script src="/App/detailedView/module.js"></script>
+<script src="/App/detailedView/controllers/detailedView.controller.js"></script>
+<script src="/App/detailedView/models/detailedview.model.js"></script>
+<script src="/App/detailedView/routes/detailedView.routes.js"></script>
+<script src="/App/detailedView/services/detailedview.service.js"></script>
+<script src="/App/detailedViewDataTable/module.js"></script>
+<script src="/App/detailedViewDataTable/controllers/detailedViewDataTable.controller.js"></script>
+<script src="/App/detailedViewDataTable/directives/detailedViewActivityHistory.directive.js"></script>
+<script src="/App/detailedViewDataTable/directives/detailedViewBasicInfo.directive.js"></script>
+<script src="/App/detailedViewDataTable/directives/detailedViewcertificationHistory.directive.js"></script>
+<script src="/App/detailedViewDataTable/directives/detailedViewcompensationHistory.directive.js"></script>
+<script src="/App/detailedViewDataTable/directives/detailedViewcpadetailsHistory.directive.js"></script>
+<script src="/App/detailedViewDataTable/directives/detailedViewDataTable.directive.js"></script>
+<script src="/App/detailedViewDataTable/directives/detailedVieweducationHistory.directive.js"></script>
+<script src="/App/detailedViewDataTable/directives/detailedViewfwaHistory.directive.js"></script>
+<script src="/App/detailedViewDataTable/directives/detailedViewJobHistory.directive.js"></script>
+<script src="/App/detailedViewDataTable/directives/detailedViewloaHistory.directive.js"></script>
+<script src="/App/detailedViewDataTable/directives/detailedViewratingHistory.directive.js"></script>
+<script src="/App/detailedViewDataTable/filters/tadetailedviewcolumn.filter.js"></script>
+<script src="/App/detailedViewDataTable/services/detailview.activityhistory.service.js"></script>
+<script src="/App/detailedViewDataTable/services/detailview.basic.service.js"></script>
+<script src="/App/detailedViewDataTable/services/detailview.certification.service.js"></script>
+<script src="/App/detailedViewDataTable/services/detailview.compensationhistory.service.js"></script>
+<script src="/App/detailedViewDataTable/services/detailview.cpaexamscores.service.js"></script>
+<script src="/App/detailedViewDataTable/services/detailview.educationdetail.service.js"></script>
+<script src="/App/detailedViewDataTable/services/detailview.fwaHistory.service.js"></script>
+<script src="/App/detailedViewDataTable/services/detailview.jobhistory.service.js"></script>
+<script src="/App/detailedViewDataTable/services/detailview.loahistory.service.js"></script>
+<script src="/App/detailedViewDataTable/services/detailview.ratinghistory.service.js"></script>
+<script src="/App/employeeSearch/module.js"></script>
+<script src="/App/employeeSearch/controllers/employeeSearch.controller.js"></script>
+<script src="/App/employeeSearch/directives/employeesearch.checkimage.directive.js"></script>
+<script src="/App/employeeSearch/directives/employeesearch.empsearch.directive.js"></script>
+<script src="/App/employeeSearch/filters/employeesearch.titlecase.filter.js"></script>
+<script src="/App/employeeSearch/services/employeeSearch.service.js"></script>
+<script src="/App/exports/module.js"></script>
+<script src="/App/exports/controllers/export.controller.js"></script>
+<script src="/App/exports/directives/taexport.button.directive.js"></script>
+<script src="/App/exports/directives/taexportconsole.button.directive.js"></script>
+<script src="/App/exports/services/exportdata.value.js"></script>
+<script src="/App/exports/services/getcsvcontent.service.js"></script>
+<script src="/App/exports/services/getpdfcontent.service.js"></script>
+<script src="/App/exports/services/getxlscontent.service.js"></script>
+<script src="/App/header/module.js"></script>
+<script src="/App/header/controllers/header.controller.js"></script>
+<script src="/App/header/directives/header.pageloading.directive.js"></script>
+<script src="/App/header/routes/header.routes.js"></script>
+<script src="/App/header/services/keepalive.service.js"></script>
+<script src="/App/header/services/loggedinuserdetails.service.js"></script>
+<script src="/App/header/services/logout.service.js"></script>
+<script src="/App/header/services/userdetails.value.js"></script>
+<script src="/App/jobHistory/module.js"></script>
+<script src="/App/jobHistory/controllers/jobHistory.controller.js"></script>
+<script src="/App/jobHistory/directives/jobHistorySummary.directive.js"></script>
+<script src="/App/jobHistory/models/jobHistory.model.js"></script>
+<script src="/App/jobHistory/services/jobHistory.services.js"></script>
+<script src="/App/ratingshistory/module.js"></script>
+<script src="/App/ratingshistory/controllers/ratingHistory.controller.js"></script>
+<script src="/App/ratingshistory/directives/ratingHistory.directive.js"></script>
+<script src="/App/ratingshistory/models/ratingHistory.model.js"></script>
+<script src="/App/ratingshistory/services/ratingHistory.service.js"></script>
+<script src="/App/summary/module.js"></script>
+<script src="/App/summary/controllers/summary.controller.js"></script>
+<script src="/App/summary/directives/summaryLayout.directives.js"></script>
+<script src="/App/summary/models/summary.model.js"></script>
+<script src="/App/summary/routes/summary.routes.js"></script>
+<script src="/App/summary/services/summary.Securedata.service.js"></script>
+<script src="/App/summary/services/summary.service.js"></script>
+<script src="/App/summary/services/summaryEditView.postService.js"></script>
+<script src="/App/summary/services/SummaryEditViewServices.js"></script>
+<script src="/App/tatypeahead/module.js"></script>
+<script src="/App/tatypeahead/directives/tatypeahead.directive.js"></script>
+<script src="/App/tatypeahead/services/tatypeahead.position.factory.js"></script>
+<script src="/App/tatypeahead/views/tatypeahead.views.js"></script>
+<script src="/App/userPersonalization/module.js"></script>
+<script src="/App/userPersonalization/services/userpersonlization.service.js"></script>
+
+
+
+
+
+
+
+<div class="dra-hide dra-main-container" id="deloitteRateThisApp" tabindex="-1">     <div class="dra-header dra-blue-gradient dra-thin-font">        <div class="dra-rating-image-header-logo dra-align-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div class="dra-align-left dra-header-text"><h3>Rate this App</h3></div>     </div>     <div class="dra-body">         <div class="dra-select-label dra-font dra-label dra-center-text">             Select a rating to let us know how you liked the application experience.         </div>         <div class="dra-required-text dra-rating-required dra-align-right dra-hide">Required</div>         <div class="dra-ratings-container">             <ul class="dra-rating">                 <li><a class="dra-rating-selection" data-rating="1" href="#">I do not like this. Please stop designing apps like this.</a></li>                 <li><a class="dra-rating-selection" data-rating="2" href="#">Nothing too new or interesting.</a></li>                 <li><a class="dra-rating-selection" data-rating="3" href="#">Not bad, I like it.</a></li>                 <li><a class="dra-rating-selection" data-rating="4" href="#">I would like to see more of this.</a></li>                 <li><a class="dra-rating-selection" data-rating="5" href="#">This is excellent! Build everything like this!</a></li>             </ul><div class="dra-font dra-rating-info" style="opacity: 0;"></div>         </div>         <div class="dra-dropdown dra-cursor-hover">             <a class="dra-dropdown-display">Select your location...</a><a class="dra-dropdown-arrow"></a>             <ul class="dra-hide">                 <li>I'm at a Deloitte office in the US.</li>                <li>I'm at a Deloitte office in India.</li>                <li>I'm at a Deloitte office in some other country.</li>                <li>I'm at a client's office.</li>                <li>I'm at some other location.</li>            </ul>        </div>         <div class="dra-feedback-label dra-font dra-label">             We appreciate your feedback. What did you think?         </div>         <div>             <textarea class="dra-rating-feedback dra-feedback-comment" type="text"></textarea>         </div>         <div>             <a>                 <div class="dra-send-button dra-button dra-blue-gradient dra-cursor-hover dra-align-left dra-thin-font">                     Send Feedback                 </div>             </a>             <a>                 <div class="dra-cancel-button dra-button dra-blue-gradient dra-cursor-hover dra-align-right dra-thin-font">                     Cancel                 </div>             </a>         </div>     </div> </div></body>

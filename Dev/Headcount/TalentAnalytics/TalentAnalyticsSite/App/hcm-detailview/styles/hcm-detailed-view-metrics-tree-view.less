@@ -1,0 +1,297 @@
+﻿@import "../../core/styles/common";
+
+
+@colorBorderGray: #dcdcdc;
+
+@colorgrey:#8C8C8C;
+@colorgreen:#81BC00;
+@colorfff: #fff;
+@color000: #000;
+
+@aligncenter:center;
+@fontsize12px: 12px;
+@lineheight16px:16px;
+
+.hcm-detailed-view-metrics-tree-view {
+
+    .table-header {
+        background: #f7f7f7;
+        background-clip: padding-box;
+    }
+
+    .table-text {
+        width: 220px;
+        min-width: 220px;
+        font-size: @fontsize12px;
+        color: #222222;
+        text-align: left;
+        padding: 9px 0px 10px 20px;
+        cursor: pointer;
+        border-right: 1px solid @colorBorderGray;
+    }
+
+    .table-text:after {
+        content: "";
+        background: @colorBorderGray;
+        position: absolute;
+        top: -1px;
+        right: 0;
+        height: 1px;
+    }
+
+    .table-head-numbers {
+        width: 147px;
+        min-width: 147px;
+        text-align: center;
+        font-size: @fontsize12px;
+        padding: 10px 0;
+        border-right: 1px solid @colorBorderGray;
+    }
+    
+    .first-level-text:after {
+        width: 100%;
+    }
+
+    .second-level-text {
+        padding-left: 42px;
+    }
+
+    .table-hide-scroll {
+        overflow: hidden !important;
+    }
+
+    .second-level-text:after {
+        width: 178px;
+    }
+
+    .third-level-text {
+        padding-left: 66px;
+    }
+
+    .third-level-text:after {
+        width: 154px;
+    }
+
+    .table-icon {
+        //border-bottom: 1px solid @colorBorderGray;
+        width: 34px;
+        min-width: 34px;
+        height: 36px;
+        font-size: 14px;
+        text-align: center;
+        line-height: 35px;
+        cursor: pointer;
+        color: #B4B4B4;
+    }
+
+    .table-icon:after {
+        content: "";
+        width: 100%;
+        background: @colorBorderGray;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 1px;
+    }
+
+    .table-menu-wrapper {
+        width: 327px
+    }
+
+    .table-parts-wrapper {
+        display: inline-flex;
+        width: 100%;
+    }
+
+    .drop-down-arrows {
+        font-size: 14px;
+        color: #00a1de;
+        width: 13px;
+    }
+
+    .selected-icon {
+        background: #415C93;
+        color: #FFFFFF;
+    }
+
+    .selected-text {
+        color: #012877;
+    }
+
+    .table-data {
+        width: 147px;
+        min-width: 147px;
+        border-right: 1px solid @colorBorderGray;
+        border-bottom: 1px solid @colorBorderGray;
+        padding: 6px 0;
+    }
+
+    .table-data-beginning-headcount {
+        font-size: @fontsize12px;
+        color: #345391;
+        line-height: 23px;
+        text-align: center;
+    }
+
+    .table-data-net-change {
+        padding: 3px 0px;
+    }
+
+    .div-table {
+      display: block;         
+      width: 100%;         
+      border-spacing: 5px;/*cellspacing:poor IE support for  this*/
+      border: 1px solid @colorBorderGray;
+      border-collapse: collapse;
+      overflow-x: auto;
+      max-height: 453px;
+
+    }
+
+    .div-table-title {
+        border: 1px solid @colorBorderGray;
+        border-right: 0;
+        min-width: 256px;
+
+    }
+
+    .div-table-row {
+        width: auto;
+        clear: both;
+    }
+
+    .div-table-col{
+        display: table-cell;  
+        position: relative;       
+    }
+
+    .fix-for-correct-showing-scrollbar-horizontal {
+        min-width: 25px;
+        display: table-cell;
+        position: relative;
+
+    }
+
+    .fix-for-correct-showing-scrollbar-vertical {
+        height: 8px;
+        border-top: 1px solid @colorBorderGray;
+    }
+
+    .remove-bottom-border {
+        border-bottom: 0 !important;
+    }
+
+    .remove-left-border {
+        border-left: 0 !important;
+    }
+
+    .remove-top-border {
+        border-top: 0 !important;
+    }
+
+    .positivevalue {
+        font-size: @fontsize12px!important;
+        color: @colorgreen!important;
+        line-height: @lineheight16px!important;
+        text-align: @aligncenter!important;
+    }
+
+    .negativevalue {
+        font-size: @fontsize12px!important;
+        color: @colorgrey!important;
+        line-height: @lineheight16px!important;
+        text-align: @aligncenter!important;
+    }
+
+    /* Safari fix */
+    @media screen and (-webkit-min-device-pixel-ratio:0) { 
+
+        ::i-block-chrome, .header-wrapper-safari-fix {
+            margin-top: 70px;
+        }
+
+       ::i-block-chrome, .table-menu-wrapper {
+           width: 258px;
+       }
+
+       ::i-block-chrome, .table-parts-wrapper {
+            display: -webkit-box;
+        }
+
+       ::i-block-chrome, .data-table-safari-fix {
+           width: 79%;
+       }
+
+    }
+
+    /*
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+ 
+    ::-webkit-scrollbar-track {
+        background: #FAFAFA;
+        box-shadow: inset -1px 0px 0px 0px #E8E8E8, inset 1px 0px 0px 0px #E8E8E8;
+
+    }
+ 
+    ::-webkit-scrollbar-thumb {
+        transform: rotate(90deg);
+        background: #C1C1C1;
+        border-radius: 40px;
+        width: 8px;
+        height: 331px;
+    }
+        */
+}
+
+.metric-grid-value-wrapper {
+
+    .margin0 {
+        margin: 0!important;
+        padding: 0!important;
+    }
+
+    .nnum {
+        background: @colorgrey;
+    }
+
+    .nnum span {
+        display: inline-block;
+        font-size: 12px;
+        color: @colorfff;
+        line-height: 23px;
+        margin-left: 3px;
+    }
+
+    .pnum {
+        background: @colorgreen;
+    }
+
+    .pnum span {
+        display: inline-block;
+        font-size: 12px;
+        color: @colorfff;
+        line-height: 23px;
+        margin-right: 3px;
+    }
+
+    .negativelessgridwidth span {
+        color: @colorgrey!important;
+        margin-left: -30px!important;
+    }
+
+    .positivelessgridwidth span {
+        color: @colorgreen!important;
+        margin-right: -27px!important;
+    }
+
+    .staticzerovalue {
+        color: @color000!important;
+        width: 0!important;
+        background-color: transparent!important;
+        margin :0!important;
+    }
+
+}

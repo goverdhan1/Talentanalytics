@@ -1,0 +1,43 @@
+﻿<div ng-init="loadDataDetailViewDataTable()">
+    <div class="custtable">
+        <div class="custheading"><h1>{{title}}</h1></div>
+        <customize-view label="Customize Table" view-name="{{serviceName}}" view-type="detailedView" 
+                        view-title="Customize Table" apply-label="Apply" cancel-label="Cancel" search-label="Table Columns" 
+                        selected-field-label="Columns Order"></customize-view>
+    </div>
+    <div class="container tabcontentintab nodatafoundtxt" ng-show="noColumnsSelected">
+        Please click on the 'Customize Table' button to select some columns to display
+    </div>
+    <!-- DataTableGrid starts -->
+    <div class="container tabcontentintab detailedViewTable">
+        <table class="table datatablegrid" id="activity">
+            <thead>
+                <tr>
+                    <th ng-repeat="displayColumn in displayColumns" ng-click="changeSorting(displayColumn)">
+                        <a href="javascript:void(0)">
+                            {{ displayColumn.FIELD_LABEL}}
+                            <i class="glyphicon sorticongrey" ng-class="getIcon(displayColumn)"></i>
+                        </a>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-show="detailedViewNoDataFound">
+                    <td colspan="{{displayColumns.length}}">
+                        <div class="container tabcontentintab">
+                            No Data Found
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-repeat="detailViewRow in detailedViewdata | orderBy:sort.active:sort.descending">
+                    <td ng-repeat="displayColumn in displayColumns">
+                        {{detailViewRow | taDetailedViewColumn : displayColumn.FIELD_NAME : filters }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- DataTableGrid closes -->
+</div>

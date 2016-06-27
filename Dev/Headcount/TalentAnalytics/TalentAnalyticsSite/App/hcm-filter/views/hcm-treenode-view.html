@@ -1,0 +1,12 @@
+<li>
+    <!--<span class="exp-col" ng-click="toggleVisibility(node)"> {{ ( node.childrenVisibility && node.children.length ) ? '+' : '-' }}</span>-->
+    <span ng-if="node.childrenVisibility && node.children.length" ng-click="toggleVisibility(node)"><i class="fa fa-plus-square"></i></span>
+    <span ng-if="!node.childrenVisibility && node.children.length > 0" ng-click="toggleVisibility(node)"><i class="fa fa-minus-square"></i></span>
+
+    <input class="datefiltercheckbox tree-checkbox" ng-click="checkNode(node)" type="checkbox" ng-checked="node.checked" id="{{ node.id }}" hcm-indicate-has-checked-children />
+    <label for="{{ node.id }}" class="datefiltercheckboxlabel">
+        <span>
+            <!--{{ $index + 1 }}.--> {{ node.name }} 
+        </span>
+    </label>
+</li>

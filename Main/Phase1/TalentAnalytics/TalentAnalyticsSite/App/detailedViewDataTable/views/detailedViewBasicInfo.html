@@ -1,0 +1,27 @@
+﻿<div ng-init="loadDataDetailViewDataTable()">
+    <div class="custtable">
+        <div class="custheading"><h1>{{title}}</h1></div>
+        <customize-view label="Customize Table" view-name="{{serviceName}}" view-type="detailedView"
+                        view-title="Customize Table" apply-label="Apply" cancel-label="Cancel" 
+                        search-label="Table Columns" selected-field-label="Columns Order"></customize-view>
+    </div>
+    <div class="container tabcontentintab">
+        <div class="row basicinfotop">
+            <div class="col-sm-6  basicinfo-subtitle" ng-repeat="displaycolumn in displayColumns">
+                <div ng-repeat="detailViewRow in detailedViewdata">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="col-sm-7 bais-subtitle"> {{displaycolumn.FIELD_LABEL}} : </td>
+                                <td class="basicinfo-heding"> {{detailViewRow[displaycolumn.FIELD_NAME]}}</td>
+                               
+                            </tr>
+                        </tbody>
+                    </table>
+                  </div>
+                <!-- <div class="clearfix" ng-if="$index%3==2"></div>-->
+            </div>
+            <div ng-repeat-end=""></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+﻿angular.module('employeeSearch', ['ngResource', 'core']);

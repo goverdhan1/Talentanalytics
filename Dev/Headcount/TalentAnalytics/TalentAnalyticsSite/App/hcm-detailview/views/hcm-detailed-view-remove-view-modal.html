@@ -1,0 +1,19 @@
+﻿<div class="modal hcm-detailed-view-remove-view-modal" ng-init="">
+    <div class="modal-dialog save-as-dialog">
+        <div class="modal-content">
+            <div class="modal-header s-a-hd">
+                <div class="hcmf-Header">
+                    <p>Delete View?</p>
+                    <a class="saveas fz24" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">X</a>
+                </div>
+            </div>
+            <div class="modal-body s-a-body">
+                <label>Are you sure you want to delete view <b>{{viewName}}</b> ?</label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary s-a-btn" ng-click="deleteView()">Save</button>
+                <button type="button" class="btn btn-default s-a-btn" ng-click="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

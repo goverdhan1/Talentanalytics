@@ -1,0 +1,1 @@
+﻿angular.module('ratingHistory', ['ngResource', 'core']);

@@ -1,0 +1,34 @@
+﻿<div ng-init="loadDataDetailViewDataTable()">
+    <div class="custtable">
+        <div class="custheading"><h1>{{title}}</h1></div>
+        <customize-view label="Customize Table" view-name="{{serviceName}}" view-type="detailedView" 
+                        view-title="Customize Table" apply-label="Apply" cancel-label="Cancel" search-label="Table Columns" 
+                        selected-field-label="Columns Order"></customize-view>
+    </div>
+    <div class="container tabcontentintab nodatafoundtxt" ng-show="noColumnsSelected">
+        Please click on the 'Customize Table' button to select some columns to display
+    </div>
+    <!-- DataTableGrid starts -->
+    <div class="container tabcontentintab detailedViewTable">
+        <div class="table datatablegrid" id="activity">
+            <div ng-repeat="displayColumn in displayColumns" ng-click="changeSorting(displayColumn)" class="detail-view-data-table-block">
+                <div class="detail-view-data-table-header">
+                    <a href="javascript:void(0)">
+                        {{ displayColumn.FIELD_LABEL}}
+                        <i class="glyphicon sorticongrey" ng-class="getIcon(displayColumn)"></i>
+                    </a>
+                </div>
+                <div ng-repeat="detailViewRow in detailedViewdata | orderBy:sort.active:sort.descending" class="detail-view-data-table-rows">
+                    {{detailViewRow | taDetailedViewColumn : displayColumn.FIELD_NAME : filters }}
+                </div>
+            </div>        
+        </div>
+        <div ng-show="detailedViewNoDataFound" class="detailedViewNoDataFoundText">
+            <div class="container tabcontentintab">
+                No Data Found
+            </div>
+        </div>
+    </div>
+
+    <!-- DataTableGrid closes -->
+</div>

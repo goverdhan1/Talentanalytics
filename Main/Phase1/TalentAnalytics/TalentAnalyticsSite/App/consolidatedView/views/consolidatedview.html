@@ -1,0 +1,139 @@
+﻿<div ng-controller="consolidatedViewController">
+
+    <style>
+        @media (min-width:700px) and (max-width:1024px) {
+
+            body.modal-open {position: relative !important;}
+        }
+    </style>
+
+    <div id="subheader">
+        <div id="subheaderleft">
+
+            <!--detailbackbtn starts-->
+            <div id="detailbackbtn">
+                <a href="/#!/detailedView/{{employeeId}}/basicInfo" class="backbtn">< Back</a>
+            </div>
+            <!--detailbackbtn ends-->
+            <!--subheaderpara starts-->
+            <div id="subheaderpara">
+                <p>Consolidated View</p>
+            </div>
+            <!--subheaderpara ends-->
+        </div>
+        <!--subheaderleft ends-->
+    </div>
+    <!--subheader ends-->
+    <!--custconsoleview starts-->
+    <div id="custconsoleview">
+        <!--custconsolebtn starts-->
+        <div id="custconsolebtn">
+            <customize-view label="Customize Consolidated View" view-name=""
+                            view-type="consolidatedView" view-title="Consolidated View" apply-label="Generate View"
+                            cancel-label="Cancel" search-label="Tables" selected-field-label="Tables Order"></customize-view>
+        </div>
+        <!--custconsolebtn ends-->
+        <!-- exportButtonConsole starts here  -->
+        <!--exportbtn starts-->
+        <div id="exportbtn">
+            <export-button-console></export-button-console>
+            <!-- exportButtonConsole closes here  -->
+        </div>
+        <!--exportbtn ends-->
+    </div>
+    <!--custconsoleview ends-->
+    <!--detailedviewdiv starts-->
+    <div id="detailedviewdiv">
+        <!--empdetails starts-->
+        <div id="empdetails">
+
+            <div id="empdetailddp" class="detailview-dp">
+                <!--<img src="../images/detaileddp.png" height="60" width="60px" />-->
+                <img check-image ng-src="{{model.profileImg}}" height="60px;" width="60px;" />
+            </div>
+
+            <div id="empdetailsmain" class="detailview-main">
+                <div id="emppreferdname">
+                    <p>{{model.employeeName || 'Not Designated'}}</p>
+                </div>
+                <!--emppreferdname ends-->
+
+                <div class="emplocdeph detailview-main-section">
+                    <div class="detdiv detailview-location">
+
+                        <div class="empicon detailview-empicon">
+                            <i class="fa fa-map-marker font18px"></i>
+                        </div>
+                        <!--empicon ends-->
+
+                        <div class="emptext detailview-emptext">
+                            <p>{{model.location || 'Not Designated'}}</p><!--Nashville-->
+                        </div>
+
+                    </div>
+
+                    <div class="detdiv detailview-joblevel">
+
+                        <div class="empicon detailview-empicon">
+                            <i class="fa fa-suitcase font16px"></i>
+                        </div>
+
+                        <div class="emptext detailview-emptext">
+                            <p>{{model.jobLevel || 'Not Designated'}}</p><!--Sr Manager-->
+                        </div>
+
+                    </div>
+
+                    <div class="detdiv detailview-phone colorLightBlue">
+
+                        <div class="empicon detailview-empicon">
+                            <i class="fa fa-phone font18px"></i>
+                        </div>
+
+                        <div class="emptext detailview-emptext">
+                            <p>{{model.deskPhone || 'Not Designated'}}</p><!--6171517654-->
+                        </div>
+
+                    </div>
+
+                    <div class="detdiv detailview-dpnNetURL">
+                        <div class="empicon detailview-empicon">
+                            <i class="fa fa-user"></i><i class="fa fa-user padR10px userSmallIcon"></i>
+                        </div>
+                        <div class="emptext detailview-emptext">
+                            <p><a ng-click="redirect(model.dpnNetURL || 'Not Designated')" href class="detbluelink">DPN Profile</a></p><!--DPN Profile-->
+                        </div>
+                    </div>
+
+                    <!--<div class="detdiv detailview-bonusURL">
+
+                        <div class="empicon detailview-empicon" ng-show="model.canDisplayPIIInformation">
+                            <i class="fa fa-ellipsis-h"></i>
+                        </div>
+
+                        <div class="emptext detailview-emptext" ng-show="model.canDisplayPIIInformation">
+                            <p><a href="{{model.bonusURL}}" class="detbluelink" target="_blank">Bonus Details</a></p>
+                        </div>
+
+                    </div>-->
+
+                </div>
+
+            </div>
+        </div>
+        <!--empdetails ends-->
+        <!--tabsinfo starts-->
+        <div class="tabsinfo tabconsolidate" ng-init="loadVisibleSections()">
+
+            <section ng-repeat="section in visibleSections" class="tab-content active">
+                <div class="section">
+                    <consolidated-layout-directive directive-name="{{section.REPORT_NAME}}"></></consolidated-layout-directive>
+                </div>
+            </section>
+
+            <!-- PopUp Closed  -->
+        </div>
+        <!--tabsinfo ends-->
+    </div>
+    <!--detailedviewdiv ends-->
+</div>

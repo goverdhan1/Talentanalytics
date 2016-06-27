@@ -1,0 +1,45 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/*less type of css*/
+/*variables*/
+/*less type of css*/
+body {
+  margin: 0 auto;
+  margin: 0px;
+  padding: 0px;
+}
+.chart .legend {
+  fill: black;
+  font: 14px sans-serif;
+  text-anchor: start;
+  font-size: 12px;
+}
+.chart text {
+  fill: #827f7f;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+.chart .label {
+  fill: black;
+  font: 11px sans-serif;
+  text-anchor: end;
+}
+.chart .domain {
+  fill: none;
+  stroke: #e0dcdc;
+}
+.chart .labeltext {
+  fill: #827f7f;
+  text-anchor: end;
+}
+.bar:hover {
+  fill: brown;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #7e7c7c;
+  shape-rendering: crispEdges;
+}
+/*# sourceMappingURL=headCountFullView.css.map */
+/*# sourceMappingURL=headcountmetrics.css.map */

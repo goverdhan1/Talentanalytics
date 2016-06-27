@@ -1,0 +1,182 @@
+﻿<div class="row mar0px">
+    <div class="col-xs-12 pad0px">
+        <div class="dateFileterSubTitle clearfix">
+            <span class="col-sm-4">Date</span>
+            <p ng-hide="customView"
+                  class="info-text col-sm-8 info-bordered">
+                Selecting one of the following 5 options will make time roll forward dynamically. If it is going to be a static view, please select "Change End Date"
+            </p>
+        </div>
+        <div class="row mar0px">
+            <div class="col-sm-4 dateFileterViews">
+                <ul ng-init="standardtBtn()">
+                    <li ng-class="{tabsActive:customView === false}" ng-model="standardtBtn" ng-click="standardtBtn()">Standard Views <span class="rightArrow"><i class="fa fa-angle-right"></i></span></li>
+                    <li ng-class="{tabsActive:customView === true}" ng-model="customBtn" ng-click="customBtn()">Custom Date Range <span class="rightArrow"><i class="fa fa-angle-right"></i></span></li>
+                </ul>
+
+            </div>
+            <div class="col-sm-8 marT20px standardViews" ng-hide="customView">
+                <div class="chartScale">
+                    <ul>
+                        <li ng-repeat="list in timeFilter.STANDARD">
+                            <input type="radio" id="{{list.reportName}}" class="datefilterradio" name="chartScale" ng-model="$parent.standardSelect" ng-value="list" value="baz" ng-change='radioButtonChange(standardSelect)' />
+                            <label for="{{list.reportName}}" class="datefilterlabel">{{list.reportTypeTitle}}</label>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="changeEndDateSelect">
+                    <input type="checkbox" id="changeenddate" ng-model="changeEndDate" class="datefiltercheckbox" ng-click="changeEndDateCheck()" />
+                    <label for="changeenddate" class="datefiltercheckboxlabel">Change End Date</label>
+                    <div class="changeEndDate">
+                        {{}}
+                        <select ng-disabled="!changeEndDate" ng-model="changeEndDateFY" class="disabledefaultdropdown" ng-change="standvalidatedyr()">
+                            <option ng-repeat="year in changeEndDates" ng-selected="year.FISCALYEAR === changeEndDateFY" value="{{year.FISCALYEAR}}">{{year.FISCALYEAR}}</option>
+                        </select>
+                        <select ng-disabled="!changeEndDate" ng-model="periodValues" class="disabledefaultdropdown" ng-change="standvalidatedvlues()">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                        </select>
+
+                    </div>
+                    <div class="colorGrey3 chartScaleText">Chart Scale</div>
+                    <div class="chartScale chartScaleCustom">
+                        <ul>
+                            <div class="chartScale">
+                                <ul>
+                                    <li ng-repeat="list in timeFilter.CHARTSCALE">
+                                        <input type="radio" id="{{list.reportName}}" class="datefilterradio" name="StandardchartScale" ng-model="$parent.chartScaleSelect" ng-value="list" ng-change='radioButtonChange(chartScaleSelect)' />
+                                        <label for="{{list.reportName}}" class="datefilterlabel">{{list.reportType}}</label>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8 marT20px customDateRange" ng-show="customView">
+                <div class="chartScale chartScaleCustom">
+                    <ul>
+                        <li ng-click="FYPDates()">
+                            <input type="radio"
+                                   id="fiscalyearperiod"
+                                   class="datefilterradio"
+                                   value="FYP"
+                                   name="customChartScale"
+                                   ng-checked="fiscalSectionChecked" />
+                            <label for="fiscalyearperiod" class="datefilterlabel">Fiscal Year / Period</label>
+                        </li>
+                        <div id="fiscalyearperiodshow" data-ng-show="fiscalSectionChecked">
+                            <div class="col-xs-6 customDateRangeText fiscalyearperiodshow">Start</div>
+                            <div class="col-xs-6 customDateRangeText fiscalyearperiodshow">End</div>
+                            <div class="col-xs-6 marT10px fiscalyearperiodshowselect">
+                                <div class="input-append">
+                                    <div class="changeEndDate custom-fiscal-year">
+                                        <select id="customFicalStart" ng-model="fiscalDates.fiscalYearStart" ng-change="validateFiscalYears()">
+                                            <option ng-repeat="year in changeEndDates"
+                                                    value="{{year.FISCALYEAR}}"
+                                                    ng-selected="fiscalDates.fiscalYearStart == year.FISCALYEAR">
+                                                {{year.FISCALYEAR}}
+                                            </option>
+                                        </select>
+                                        <select id="customFicalStartPeriod"
+                                                ng-model="fiscalDates.fiscalPeriodStart">
+                                            <option ng-repeat="period in fiscalPeriods track by period.id"
+                                                    value="{{period.val}}"
+                                                    ng-selected="fiscalDates.fiscalPeriodStart == period.val">
+                                                {{period.id}}
+                                            </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 marT10px fiscalyearperiodshowselect">
+                                <div class="input-append">
+                                    <div class="changeEndDate custom-fiscal-year">
+                                        <select id="customFicalEndYear" ng-model="fiscalDates.fiscalYearEnd">
+                                            <option ng-repeat="year in changeEndDates" ng-selected="fiscalDates.fiscalYearEnd == year.FISCALYEAR" value="{{year.FISCALYEAR}}">{{year.FISCALYEAR}}</option>
+                                        </select>
+                                        <select id="customFicalEndtPeriod" ng-model="fiscalDates.fiscalPeriodEnd">
+                                            <option ng-repeat="period in fiscalPeriods track by period.id"
+                                                    ng-selected="fiscalDates.fiscalPeriodEnd == period.val"
+                                                    value="{{period.val}}">
+                                                {{period.id}}
+                                            </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="!validateFiscalYears()" class="error-mesege">Fiscal end year should be greater than Fiscal start year.</div>
+                        </div>
+                        <li>
+                            <input type="radio"
+                                   id="calendardates"
+                                   class="datefilterradio"
+                                   value="CD"
+                                   name="customChartScale"
+                                   ng-checked="!fiscalSectionChecked" />
+                            <label ng-click="CDDates()" for="calendardates" class="datefilterlabel">Calendar Dates</label>
+                        </li>
+                        <div id="showcalendardates" ng-show="!fiscalSectionChecked">
+                            <div class="col-xs-6 customDateRangeText">Start</div>
+                            <div class="col-xs-6 customDateRangeText">End</div>
+                            <div class="col-xs-6 marT10px">
+                                <div class="input-append">
+                                    <input id="date-picker-2"
+                                           type="text"
+                                           placeholder="Select Date"
+                                           class="pull-left date-picker"
+                                           ng-model="startDate" ng-change="startDataUsage()" />
+                                    <label for="date-picker-2" class="add-on">
+                                        <i class="icon-calendar"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 marT10px">
+                                <div class="input-append">
+                                    <input id="date-picker-3" type="text" class="pull-left date-picker" placeholder="Select Date" ng-model="endDate" ng-change="endDataUsage()" />
+                                    <label for="date-picker-3" class="add-on">
+                                        <i class="icon-calendar"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            <div ng-if="!validateStartDateFormat()" class="error-mesege">Start date format is invalid</div>
+                            <div ng-if="!validateEndDateFormat()" class="error-mesege">End date format is invalid</div>
+                            <div ng-if="!validateCalendarDates()" class="error-mesege">Calendar end date should be greater than Calendar start date.</div>
+                            <div ng-if="periodMessage" class="error-mesege">{{periodMessage}}</div>
+                        </div>
+                        <li>
+                            <div class="colorGrey3 chartScaleText">Chart Scale</div>
+                            <div class="chartScale chartScaleCustom">
+                                <ul>
+                                    <li ng-repeat="list in timeFilter.CUSTOM track by $index">
+                                        <input type="radio" id="custom{{list.reportName}}" class="datefilterradio" name="customScaleChart" ng-model="$parent.customSelect" ng-value="list" ng-change='radioButtonChange(customSelect)' />
+                                        <label for="custom{{list.reportName}}" class="datefilterlabel">{{list.reportType}}</label>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

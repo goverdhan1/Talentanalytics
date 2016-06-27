@@ -1,0 +1,163 @@
+﻿@charset "utf-8";
+/*less type of css*/
+/*variables*/
+@width1: 486px;
+@width2: 250px;
+@width3: 100%;
+
+@height0: 30px;
+
+@floatleft0: left;
+@floatright0: right;
+
+@color1: #fff;
+@color2: #00a1de;
+@color3: #F0F1F3;
+@color4: #dcdcdc;
+@color5: #222222;
+
+@fontsize0: 12px;
+@font0: "OpenSansReg";
+@font1: "OpenSansLight";
+@font2: "OpenSansSemiBold";
+/*less type of css*/
+
+
+#subheaderright {
+    width: 142px;
+    margin-top:6px;
+    min-height: @height0;
+    float: @floatright0;
+    margin-right: 20px;
+    cursor:pointer;
+}
+
+#exportconsoleright{
+    width: 142px;
+    min-height: @height0;
+    cursor:pointer;
+}
+
+#exportconsoleright .onclick-menu:before{
+    margin-left:25px !important;
+}
+
+.dropdownmenu{
+    background-color:#4ebee9;
+    color:#fff;
+    border-radius:3px;
+    padding:5px 13px;
+    margin-right:28px;
+    cursor:pointer;
+}
+
+.dropdownmenu .fa-external-link{
+    position:absolute;
+    top: 8px;
+    left: 7px;
+}
+
+.dropdownmenuconsole{
+    border:1px solid #E4E4E4;
+    border-radius:3px;
+    color:#000;
+    cursor:pointer;
+    padding-top:5px;
+    padding-bottom:5px;
+    cursor:pointer;
+}
+
+.dropdownmenuconsole .fa-external-link{
+    position:absolute;
+    top: 8px;
+    left: 7px;
+}
+
+.dropdownmenuconsole .fa-sort-desc{
+    padding-right:10px;
+    margin-left:18px;
+}
+
+.dropdownmenuconsole .onclick-menu-content{
+    margin-left:-1px;
+}
+
+.verticalline{
+    width:2px;
+    height:30px;
+    border-left:1px solid #e4e4e4;
+    float:left;
+    position:absolute;
+    top:0;
+    left:80px;
+}
+
+.hrline{
+    width:116px;
+    height:1px;
+    border-top:1px solid #e4e4e4;
+    position:absolute;
+    left:-1px;
+}
+
+.onclick-menu {
+    position: relative;
+    display: inline-block;
+    outline:none;
+}
+
+.onclick-menu:before {
+    content: "Export";
+    margin-left:15px;
+}
+.onclick-menu:focus {
+    /* clicking on label should toggle the menu */
+    pointer-events: none;
+}
+.onclick-menu:focus .onclick-menu-content {
+    /*  opacity is 1 in opened state (see below) */
+    opacity: 1;
+    visibility: visible;
+
+    /* don't let pointer-events affect descendant elements */
+    pointer-events: auto;
+}
+
+.onclick-menu ul{
+    padding: 0;
+    list-style-type: none;
+}
+.onclick-menu-content {
+    position: absolute;
+    z-index: 1;
+
+    /* use opacity to fake immediate toggle */
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.5s;
+    background: #fff;
+    border:1px solid #dcdcdc;
+    list-style:none;
+    border-radius:1px; 
+    margin-top:10px;
+    margin-left:-13px;
+}
+
+.onclick-menu-content li{
+    padding:5px 42px;
+    background:none!important;
+     border:none; 
+     font: inherit;
+     /*border is optional*/
+     cursor: pointer;
+     color:#333;
+}
+
+/*.onclick-menu-content button{
+    background:none!important;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
+     color:#333;
+}*/

@@ -1,0 +1,35 @@
+﻿<div>
+    <div class="filter filter-dropdown-click" >
+        <i class="fa fa-filter filterselecte-dropdown dropdown-toggle" data-toggle="dropdown">
+            <span ng-bind="selectedFilter" class=""></span>
+        </i>
+        <span class="dropdown-toggle toggle-el" data-toggle="dropdown">
+            <i class="caret"></i>
+        </span>
+        <div class="drop-down filter-dropdown-click-content" ng-class="{'show-menu-content':deleteConfirmPop}" dropdown-options ng-transclude>
+            <ul class="dropdown-menu">
+                <li ng-repeat="option in filsterList">
+                    <a href="" ng-click="selectItem(option.FILTER_NAME, option.CHART_TYPE)" class="dropList">{{option.FILTER_NAME}}</a>
+                    <a href="#"
+                       class="dropdown-delete"
+                       ng-click="deleterFilterFromDropDown($event, option.FILTER_NAME)"
+                       ng-hide="option.FILTER_NAME=='Temporary'">
+                        <img src="images/icon_delete.png" class="delete-icon-img" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="delete-confirm" ng-show="deleteConfirmPop">
+            <h5>Do you want to delete the filter set "<span>{{deleterFileterName}}</span>"</h5>
+            <div class="delete-confirm-btns">
+                <button class="btn btn-default" ng-click="deleteCancel();$event.stopPropagation()">Cancel</button>
+                <button class="btn btn-primary" ng-click="deleteConfirm();$event.stopPropagation()">Ok </button>
+            </div>
+        </div>
+    </div>
+    <div class="filterEdit">
+        <div ng-click="open()">
+            <a href="javascript:void(0)" class="headcountbutton">Edit</a>
+        </div>
+    </div>
+</div>

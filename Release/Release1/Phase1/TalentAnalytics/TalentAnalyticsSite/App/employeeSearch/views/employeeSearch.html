@@ -1,0 +1,29 @@
+﻿
+
+<div ng-controller="EmployeeSearchController" ng-class="{searchFocused :focused}">
+
+    <span class="crbutton"></span>
+    <input type="text" ng-model="selectedEmployee" tatypeahead-template-url="employeeSearchResults.html" ng-init="focused = false" ng-focus="focused = true" ng-blur="focused = false"
+           tatypeahead="'' for suggestion in getEmployees($viewValue) paginationFunction getPage($viewValue, $pageNumber)" tatypeahead-wait-ms="500"
+           placeholder="Search for an employee" class="empSearch">
+    <i class="fa fa-close font14px tatypeahead-input-close" ng-show="selectedEmployee" ng-click="clearSelection()"></i>
+
+    <script type="text/ng-template" id="employeeSearchResults.html">
+        <div ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" class="srchList">
+            <a id="searchkeydown" href="/#!/summary/{{match.model.PGEPERSID}}" ">
+                <div class=" srchtitles">
+                <span class="srchEmpName fontBold">{{ match.model.EMPLOYEE_TXT_MED }}</span>
+                <span class="pull-right"><span class="colorGrey font13px pull-right"><span class="hide" ng-class="{inactive_dot:'{{match.model.INACTIVE_EMPLOYEE}}'}">,</span>{{ match.model.INACTIVE_EMPLOYEE}}</span><span class="fontBold pull-right">{{ match.model.EMPLOYEE }}</span></span>
+</div>
+        <div class="srchSubTitles col-md-9 pad0px">
+            <span class="srchJobPos">{{match.model.PLEVEL_TXT}}<span class="hide" ng-class="{dot:'{{match.model.PLEVEL_TXT}}'}">.</span></span>
+            <span class="srchLocation2">{{match.model.PERS_SAREA_TXT}}</span>
+            <span class="srchLocation"><span class="hide" ng-class="{camaClass:'{{match.model.PERS_AREA_REGION}}' && '{{match.model.PERS_SAREA_TXT}}'}">,</span>{{match.model.PERS_AREA_REGION}}</span>
+        </div>
+        <div class="col-md-3 pad0px colorGrey"><span class="pull-right">CC: {{match.model.MAST_CCTR}}</span></div>
+
+        <div class="col-md-12 pad0px"><span class="srchEmailId">{{ match.model.PEMAILADD | lowercase }}</span></div>
+        </a>
+</div>
+    </script>
+</div>

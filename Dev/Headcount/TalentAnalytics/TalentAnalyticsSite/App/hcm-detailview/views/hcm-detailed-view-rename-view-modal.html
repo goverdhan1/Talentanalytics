@@ -1,0 +1,23 @@
+﻿<div class="modal hcm-detailed-view-rename-view-modal" ng-init="">
+    <div class="modal-dialog save-as-dialog">
+        <div class="modal-content modalsave">
+            <div class="modal-header s-a-hd">
+                <div class="hcmf-Header s-a-hd1">
+                    <p>Rename View</p>
+                    <a class="saveas fz24" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">X</a>
+                </div>
+            </div>
+            <div class="modal-body s-a-body">
+                <div>
+                    <label>Please enter view name</label>
+                    <input class="txt-filter-name" ng-model="localName" type="text" ng-keydown="hideNameEnterError()" />
+                    <div class="hcm-detailed-view-save-as-error" ng-show="nameEnterError">Please enter view name</div>
+                </div>
+            </div>
+            <div class="modal-footer s-a-footer">
+                <button type="button" class="btn btn-primary s-a-btn" ng-click="save()">Save</button>
+                <button type="button" class="btn btn-default s-a-btn" ng-click="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

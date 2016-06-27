@@ -1,0 +1,34 @@
+﻿<section class="clearfix detail-view">
+    <hcm-detailview-subheader></hcm-detailview-subheader>
+
+    <div class="clearfix hcm-detail-subheader">
+        <div class="headCntMgnt_filterSet pull-left">
+            <hcm-edit-save-selected-filter></hcm-edit-save-selected-filter>
+        </div>
+        <hcm-detailview-display-by></hcm-detailview-display-by>
+
+        <div class="switch-btn switch-btn-summary  i-or-e clearfix">
+            <button ng-click="toggleChart('barchart');"
+                    ng-class="{'bg-cl-fff': lineChartHandler.barChart,'bg-cl-E5E5E5': lineChartHandler.lineChart}"
+                    class="left-btn btn-width">
+                <i class="fa fa-bar-chart"></i>
+                <span>Bar Chart</span>
+            </button>
+            <button ng-click="toggleChart('linechart');"
+                    ng-class="{'bg-cl-fff': lineChartHandler.lineChart,'bg-cl-E5E5E5': lineChartHandler.barChart}"
+                    class="right-btn btn-width">
+                <i class="fa fa-line-chart"></i>
+                <span>Line Chart</span>
+            </button>
+        </div>
+
+    </div>
+
+    <section class="charts-section clearfix">
+        <preloader loading="hcdvCtrl.loading" />
+        <hcm-detailed-view-selected-metrics></hcm-detailed-view-selected-metrics>
+        <hcm-detailed-view-graph class="graph-margins-safari-fix hcm-detailed-view-graph"></hcm-detailed-view-graph>
+    </section>
+    
+    <hcm-detailed-view-metrics-tree-view filter="selectedFilter"></hcm-detailed-view-metrics-tree-view>
+</section>

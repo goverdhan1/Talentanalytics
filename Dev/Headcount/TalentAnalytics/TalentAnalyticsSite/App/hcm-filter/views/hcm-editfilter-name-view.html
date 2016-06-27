@@ -1,0 +1,31 @@
+﻿<div class="modal" ng-init="">
+    <div class="modal-dialog save-as-dialog">
+        <div class="modal-content modalsave">
+            <div class="modal-header s-a-hd">
+                <div class="hcmf-Header s-a-hd1">
+                    <p>Change Filter Set  Name</p>
+                    <a class="saveas fz24" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">X</a>
+                </div>
+            </div>
+            <div class="modal-body s-a-body">
+                <div id="headcountFilter" ng-form="emptyFIlterForm">
+                    <label>Please enter filter preset name</label>
+                    <input class="txt-filter-name" name="validateempty" ng-model="newFilterName.fileName"  ng-pattern="/^[a-zA-Z0-9-._ ]*$/" type="text" ng-focus="selectAllContent($event)" ng-blur="$event.preventDefault();" required />
+                  
+                    <span class="error-msg" ng-show="emptyFIlterForm.validateempty.$dirty && emptyFIlterForm.validateempty.$invalid">
+                        <span ng-show="emptyFIlterForm.validateempty.$error.required">Filter Name is required.</span>
+                        <span ng-show="emptyFIlterForm.validateempty.$error.pattern">Special Characters are not allowed.</span>
+                    </span>
+</div>
+            </div>
+            <div class="modal-footer s-a-footer">
+
+
+                <button type="button" class="btn btn-primary s-a-btn" ng-disabled="emptyFIlterForm.validateempty.$dirty && emptyFIlterForm.validateempty.$invalid" ng-click="Apply()">
+                    Save
+                </button>
+                <button type="button" class="btn btn-default s-a-btn" ng-click="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
